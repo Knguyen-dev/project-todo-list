@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Todo List</title>
+</head>
+<body>
+	<div id="content">
+
+		<!-- On the outside I think we're going to put the overlays such as form pop ups -->
+		<!-- There should be a project container as well, where the header,footer, etc are -->
+		<div class="project-container">
+			<header>
+				<div class="app-name-container">
+					<img src="./assets/icons/todo_list_icon.svg" alt="Logo of app">
+					<h1>Todo list</h1>
+				</div>
+
+				<div class="user-info-container">
+					<h2>Hello, <span id="user-email-el">example@gmail.com</span></h2>
+					<a href="#" id="user-link">Sign out</a>
+				</div>
+			</header>
+
+			<section class="sidebar">
+				<ul class="sidebar-tab-section main-tab-section">
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-active="true" data-tabID="home-tab">Home</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="today-tab">Today</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="week-tab">Week</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="notes-tab">Notes</span><span class="todo-count-el">5</span></li>
+				</ul>
+
+				<h1 id="tab-section-title">Projects</h1>
+
+				<ul class="sidebar-tab-section secondary-tab-section">
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="someProjectName">lorem10</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="otherProject">otherProject</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="myProject">Sdev220 final project</span><span class="todo-count-el">4</span></li>
+
+				</ul>
+				
+				<button class="sidebar-tab-item" id="create-project-btn">New Project</button>
+
+
+
+			</section>
+			<section class="main-content">
+				<h1>sample text</h1>
+
+			</section>
+			<footer>
+				<div class="footer-icon-container">
+					<a href="#"><img class="site-icons" src="./assets/icons/github-mark.svg" alt=""></a>
+				</div>
+				<p id="footer-info-el">Lorem ipsum dolor sit amet consectetur adipisicing elit. <span id="date-el">Sample date</span></p>
+			</footer>
+		</div>
+	</div>
+	<script src="main.js"></script>
+</body>
+</html>
