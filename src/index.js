@@ -8,4 +8,4 @@ WebFont.load({
 });
 
 
-const DOMElementsModule = {}
+const DOMElementsModule = {};

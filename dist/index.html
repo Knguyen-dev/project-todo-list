@@ -9,10 +9,38 @@
 <body>
 	<div id="content">
 
+		<div class="overlay"></div>
+		<div class="modal-container">
+			<header class="form-header">
+				<h2>Create a new <span class="item-type-el">todo</span></h2>
+				<button class="form-btn close-form-btn">Close</button>
+			</header>
+			
+			<!-- Section will contain the different types of forms that could be generated based on the button that activates -->
+			<form action="POST" id="add-item-form" data-form-type="todo-form">
+				<fieldset class="input-section">
+					<input placeholder="Title: Pay bills" type="text" id="title-field-form" name="title" required>
+					<input placeholder="Description: Gas and Electricity" type="text" id="description-field-form" name="description" required>
+					<label for="due-date">Due date: <input type="date" class="date-input" id="item-date-el" required></label>
+					<div class="priority-btns-section">
+						<h2>Priority: </h2>
+						<div class="priority-btns-container">
+							<button class="form-btn todo-priority-btn" data-active="true" data-priority-value="Low">Low</button>
+							<button class="form-btn todo-priority-btn" data-priority-value="Medium">Medium</button>
+							<button class="form-btn todo-priority-btn" data-priority-value="High">High</button>
+						</div>
+					</div>
+					<button class="form-btn" type="submit" id="form-submit-btn">Submit</button>
+				</fieldset>
+			</form>
+
+			
+		</div>
+
 		<!-- On the outside I think we're going to put the overlays such as form pop ups -->
 		<!-- There should be a project container as well, where the header,footer, etc are -->
 		<div class="project-container">
-			<header>
+			<header class="page-header">
 				<div class="app-name-container">
 					<img src="./assets/icons/todo_list_icon.svg" alt="Logo of app">
 					<h1>Todo list</h1>
@@ -26,10 +54,10 @@
 
 			<section class="sidebar">
 				<ul class="sidebar-tab-section main-tab-section">
-					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-active="true" data-tabID="home-tab">Home</span><span class="todo-count-el">4</span></li>
-					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="today-tab">Today</span><span class="todo-count-el">4</span></li>
-					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="week-tab">Week</span><span class="todo-count-el">4</span></li>
-					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="notes-tab">Notes</span><span class="todo-count-el">5</span></li>
+					<li class="sidebar-tab-item" data-active="true" data-tabID="home-tab"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item" data-tabID="today-tab"><span class="sidebar-tab-title">Today</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item" data-tabID="week-tab"><span class="sidebar-tab-title">Week</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item" data-tabID="notes-tab"><span class="sidebar-tab-title">Notes</span><span class="todo-count-el">5</span></li>
 				</ul>
 
 				<h1 id="tab-section-title">Projects</h1>
@@ -47,7 +75,7 @@
 
 			</section>
 			<section class="main-content">
-				<h1>sample text</h1>
+				<h1 id="tab-title-el">Home</h1>
 
 			</section>
 			<footer>
