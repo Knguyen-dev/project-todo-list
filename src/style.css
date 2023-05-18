@@ -30,6 +30,7 @@ a {
 	--background-clr-2: #93c5fd;
 	--background-clr-3: #60a5fa;
 	--background-clr-4: #dbeafe;
+	--todo-background-clr: #7dd3fc; 
 	--background-clr-dark: #172554;
 	--scrollbar-color: #312e81;
 	--font-clr-1: black;
@@ -53,8 +54,63 @@ button {
 	transition: var(--transition);
 }
 
+
+.green-btn,
+.red-btn,
+.gray-btn,
+.light-blue-btn {
+	color: black;
+	background-color: white;
+	font-weight: 700;
+	padding: var(--section-padding);
+	font-family: var(--font-1), var(--font-2);
+	border: none;
+	border-radius: var(--border-radius);
+	transition: var(--transition);
+	cursor: pointer;
+}
+
+/* Light blue button styles */
+.light-blue-btn {
+	background-color: var(--background-clr-2);
+	color: #5518ab;
+}
+.light-blue-btn:hover {
+	color: var(--background-clr-3);
+	background-color: var(--font-clr-1);
+}
+.light-blue-btn[data-active="true"] {
+	color: var(--background-clr-3);
+	background-color: var(--font-clr-1);
+}
+
+/* Green button styles: Remember to do hover effect for them */
+.green-btn {
+	border: 2px solid #22c55e;
+}
+/* Red button styles */
+.red-btn {
+	border: 2px solid #b91c1c;
+}
+.gray-btn {
+	border: 2px solid #6b7280
+}
+.green-btn:hover {
+	background-color: #22c55e;
+	color: white;
+}
+.red-btn:hover {
+	background-color: #b91c1c;
+	color: white;
+}
+.gray-btn:hover {
+	background-color: #6b7280;
+	color: white;
+}
+
+
 .content-hidden {
-	display: none;
+	display: none !important;
 }
 
 
@@ -90,7 +146,10 @@ button {
 	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 	background-color: var(--background-clr-4);
 }
-.modal-container .form-header {
+.modal-container button {
+	padding: 10px 14px;
+}
+.modal-container .modal-header {
 	padding: var(--section-padding);
 	grid-row: 1;
 	grid-column: 1 / end;	
@@ -102,60 +161,51 @@ button {
 	align-items: center;
 }
 
-/* Styling for the form itself */
-#add-item-form {
+.modal-main-content {
 	padding: var(--section-padding);
 	font-weight: 700;
-
 }
-#add-item-form .input-section {
+
+/* Styling for the form itself */
+#item-form {
+	padding: var(--section-padding);
+	font-weight: 700;
+}
+#item-form .input-section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	row-gap: 12px;
 }
-.form-btn {
-	background-color: transparent;
-	color: var(--font-1);
-	border: 2px solid black;
-	padding: var(--section-padding);	
-	letter-spacing: var(--letter-spacing);
-}
-.form-btn:hover {
-	background-color: var(--font-clr-1);
-	color: var(--font-clr-3);
-}
-
-/* Do the styling for the data-active  */
-.todo-priority-btn[data-active = "true"] {
-	background-color: var(--font-clr-1);
-	color: var(--font-clr-3);
-}
-
-
-#add-item-form .priority-btns-section {
+#item-form .priority-btns-section {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
+	column-gap: 12px;
 	width: 60%;
-
 }
-#add-item-form fieldset {
+#item-form fieldset {
 	border: none;
 }
-#add-item-form input {
+#item-form input {
 	background-color: white;
 	border: 2px solid gray;
 	padding: var(--section-padding);
 }
 
+/* Styling the modal that shows the details of the todo */
+.todo-details-section {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+	align-items: center;
+}
 
 
 
 
 
-
-
-
+/* Styles for everything related to the project container */
 .project-container {
 	display: grid;
 	/* 
@@ -168,7 +218,6 @@ button {
 	grid-template-columns: 15% 1fr;
 	height: 100vh;
 }
-
 
 /* Header styles */
 .page-header {
@@ -200,16 +249,6 @@ button {
 }
 .user-info-container {
 	flex-basis: 400px;
-}
-#user-link {
-	background-color: var(--background-clr-2);
-	padding: var(--padding-btn-link);
-	border-radius: var(--border-radius);
-	transition: var(--transition);
-}
-#user-link:hover {
-	color: var(--background-clr-3);
-	background-color: var(--font-clr-1);	
 }
 
 /* Styling for the sidebar */
@@ -268,16 +307,12 @@ button {
 	}
 }
 
-
 .sidebar-tab-item[data-active="true"] {
 	background-color: var(--background-clr-dark);
 	.sidebar-tab-title {
 		color: var(--font-clr-3);
 	}
 }
-
-
-
 
 .sidebar-tab-title {
 	transition: var(--transition);
@@ -311,18 +346,10 @@ button {
 	letter-spacing: var(--letter-spacing);
 }
 
-/*
-+ BOOK MARK: Working on the button style https://css-tricks.com/css-link-hover-effects/
 
-after doing the todo structure
+/* BOOK MARK: Now create and style the maincontent; don't forget to include the section that tells 
+the user if they don't have anything */
 
-- Have add todo button on the page itself, which opens a form
-- Have todo or tab title at top of page; and big thing is structuring todos
-- Obviously have the add project button open up a modal form
-
-...and other things 
-
-*/
 
 /* Fancy styling for button: box shadow is just setting the background when you hover */
 #create-project-btn {
@@ -342,7 +369,73 @@ after doing the todo structure
 	background-color: var(--background-clr-4);
 	grid-row: 2;
 	grid-column: 2 / end;
+
+	display: grid;
+	grid-template-rows: auto 1fr;
 }	
+
+
+/* Styling header of main-content */
+.main-content-header {
+	padding: var(--section-padding);
+	width: 70%;
+	margin: 0 auto;
+	grid-row: 1;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Make it scrollable if it goes past the height content */
+.todo-list-container {
+	padding: var(--section-padding);
+	width: 70%;
+	margin: 0 auto;
+	grid-row: 2;
+	row-gap: 12px;
+
+	max-height: 400px;
+	overflow-y: auto;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.todo-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--section-padding);
+	background-color: var(--todo-background-clr);
+	transition: var(--transition);
+}
+.todo-item:hover {
+	box-shadow: 5px 5px 0 0 rgba(0,0,0,0.5);
+}
+.todo-item[data-todo-complete="true"] .todo-title-el {
+	text-decoration: line-through;	
+}
+
+/* Styling for section that shows when you have no todos or no projects created */
+.empty-tab-section {
+	border: 2px solid black;
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: var(--letter-spacing);
+}
+
+#empty-tab-message-primary-el {
+	font-size: 28px;
+	margin-bottom: 12px;
+}
+#empty-tab-message-secondary-el {
+	font-size: 16px;
+}
+
+
+
+
+
+
 
 /* Styling for the footer */
 footer {
@@ -360,5 +453,3 @@ footer {
 	width: 30px;
 	height: 30px;
 }
-
-/* Styling for modal forms */
