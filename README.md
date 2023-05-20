@@ -5,7 +5,6 @@ A todo-list, but nested with a list of projects in that todo list
 Todo: Created with a class or factories. Has title, description, dueDate, priority (low, medium high); todos should also what project they're associated with, or just default to a project anyways maybe one called "My todos" that's auto created when you first get in
 
 
-Notes: Another section and class. A note should have a title and description for the note. It should be in a tab as well
 Checklist: This acts like a home page, or a default page where you put your home section. This has the home tab which shows all default todos, all todos due today, and all todos due this week.
 Project: There should be a projects tab that contains projects, this contain's the project's name. Then in each of them it kind of acts like it's own personalized todo list
 

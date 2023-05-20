@@ -133,7 +133,7 @@ button {
 	z-index: 1;
 }
 
-.modal-container {
+.modal {
 	position: absolute;
 	z-index: 2;
 	top: 50%;
@@ -146,10 +146,10 @@ button {
 	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 	background-color: var(--background-clr-4);
 }
-.modal-container button {
+.modal button {
 	padding: 10px 14px;
 }
-.modal-container .modal-header {
+.modal .modal-header {
 	padding: var(--section-padding);
 	grid-row: 1;
 	grid-column: 1 / end;	
@@ -220,7 +220,7 @@ button {
 }
 
 /* Header styles */
-.page-header {
+.project-header {
 	background-color: var(--background-clr-1);
 	color: var(--font-clr-1);
 	font-size: 16px;
@@ -238,21 +238,21 @@ button {
 }
 
 /* Styles for containers in header */
-.app-name-container,
-.user-info-container {
+.app-logo-container,
+.user-info-section {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
-.app-name-container {
+.app-logo-container {
 	flex-basis: 200px;
 }
-.user-info-container {
-	flex-basis: 400px;
+.user-info-section {
+	flex-basis: 500px;
 }
 
 /* Styling for the sidebar */
-.sidebar {
+.project-sidebar {
 	background-color: var(--background-clr-3);
 	/* padding: var(--section-padding); */
 	padding: 16px 0;
@@ -294,7 +294,7 @@ button {
 	transition: var(--transition);
 }
 .main-tab-section .sidebar-tab-item,
-.secondary-tab-section .sidebar-tab-item {
+.projects-tab-section .sidebar-tab-item {
 	width: 90%;
 	display: flex;
 	justify-content: space-between;
@@ -324,7 +324,7 @@ button {
 }
 
 /* Styling for secondary tab */
-.secondary-tab-section {
+.projects-tab-section {
 	margin-left: 12px; /*Have indent to indicate which tabs are under the project's section*/
 
 	/* If height of the project's container goes over 150px, we add a scroll bar for it */
@@ -340,7 +340,7 @@ button {
 }
 
 /* Style the title "Projects" on the sidebar */
-#tab-section-title {
+#sidebar-section-title {
 	margin-top: 8px;
 	margin-bottom: 8px;
 	letter-spacing: var(--letter-spacing);
@@ -356,6 +356,9 @@ the user if they don't have anything */
 	background-color: transparent;
 	box-shadow: inset 0 0 0 0 var(--background-clr-1);
 	color: var(--font-clr-1);
+	border: 2px solid black;
+	padding: var(--section-padding);
+	
 }
 #create-project-btn:hover {
 	box-shadow: inset 0 0 0 120px var(--background-clr-1);
@@ -365,7 +368,7 @@ the user if they don't have anything */
 
 
 /* Styling for main content section: Section where todos are displayed and todo information is displayed */
-.main-content {
+.project-main-content {
 	background-color: var(--background-clr-4);
 	grid-row: 2;
 	grid-column: 2 / end;
@@ -375,7 +378,7 @@ the user if they don't have anything */
 }	
 
 
-/* Styling header of main-content */
+/* Styling header of project-main-content */
 .main-content-header {
 	padding: var(--section-padding);
 	width: 70%;

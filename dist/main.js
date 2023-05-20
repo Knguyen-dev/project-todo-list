@@ -318,7 +318,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n\tbox-sizing: border-box;\r\n}\r\nul, ol {\r\n\tlist-style: none;\r\n}\r\na {\r\n\ttext-decoration: none;\r\n}\r\n/* scrollbar styles */\r\n*::-webkit-scrollbar {\r\n\twidth: 6px;\r\n\t/* transition: var(--transition); */\r\n}\r\n*::-webkit-scrollbar-thumb {\r\n\tbackground-color: var(--scrollbar-color);\r\n\tborder-radius: 20px;\r\n\tbackground-clip: content-box;\r\n}\r\n*::-webkit-scrollbar-track {\r\n\tbackground-color: transparent;\r\n}\r\n*::-webkit-scrollbar-thumb:hover {\r\n\tbackground-color: var(--background-clr-2);\r\n}\r\n:root {\r\n\t--background-clr-1: #3b82f6;\r\n\t--background-clr-2: #93c5fd;\r\n\t--background-clr-3: #60a5fa;\r\n\t--background-clr-4: #dbeafe;\r\n\t--todo-background-clr: #7dd3fc; \r\n\t--background-clr-dark: #172554;\r\n\t--scrollbar-color: #312e81;\r\n\t--font-clr-1: black;\r\n\t--font-clr-2: #3b82f6;\r\n\t--font-clr-3: white;\r\n\t--font-1: \"Roboto\", sans-serif;\r\n\t--font-2: \"Open Sans\", sans-serif;\r\n\t--transition: all 0.25s ease-in-out;\r\n\t--border-radius: 6px;\r\n\t--padding-btn-link: 6px 12px;\r\n\t--section-padding: 8px 16px;\r\n\t--letter-spacing: 4px;\r\n}\r\nbody {\r\n\tfont-family: var(--font-1), var(--font-2);\r\n}\r\nbutton {\r\n\tpadding: var(--padding-btn-link);\r\n\tcursor: pointer;\r\n\tfont-weight: 700;\r\n\ttransition: var(--transition);\r\n}\r\n\r\n\r\n.green-btn,\r\n.red-btn,\r\n.gray-btn,\r\n.light-blue-btn {\r\n\tcolor: black;\r\n\tbackground-color: white;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\tfont-family: var(--font-1), var(--font-2);\r\n\tborder: none;\r\n\tborder-radius: var(--border-radius);\r\n\ttransition: var(--transition);\r\n\tcursor: pointer;\r\n}\r\n\r\n/* Light blue button styles */\r\n.light-blue-btn {\r\n\tbackground-color: var(--background-clr-2);\r\n\tcolor: #5518ab;\r\n}\r\n.light-blue-btn:hover {\r\n\tcolor: var(--background-clr-3);\r\n\tbackground-color: var(--font-clr-1);\r\n}\r\n.light-blue-btn[data-active=\"true\"] {\r\n\tcolor: var(--background-clr-3);\r\n\tbackground-color: var(--font-clr-1);\r\n}\r\n\r\n/* Green button styles: Remember to do hover effect for them */\r\n.green-btn {\r\n\tborder: 2px solid #22c55e;\r\n}\r\n/* Red button styles */\r\n.red-btn {\r\n\tborder: 2px solid #b91c1c;\r\n}\r\n.gray-btn {\r\n\tborder: 2px solid #6b7280\r\n}\r\n.green-btn:hover {\r\n\tbackground-color: #22c55e;\r\n\tcolor: white;\r\n}\r\n.red-btn:hover {\r\n\tbackground-color: #b91c1c;\r\n\tcolor: white;\r\n}\r\n.gray-btn:hover {\r\n\tbackground-color: #6b7280;\r\n\tcolor: white;\r\n}\r\n\r\n\r\n.content-hidden {\r\n\tdisplay: none !important;\r\n}\r\n\r\n\r\n/* Styling for content; mainly for having modals */\r\n.content {\r\n\tposition: relative;\r\n}\r\n\r\n/* Styles for modal forms */\r\n/* Blurred overlay */\r\n.overlay {\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\t/* Blurs the area behind the element  */\r\n\tbackdrop-filter: blur(5px); \r\n\t/* This will be over all other content in project-container */\r\n\tz-index: 1;\r\n}\r\n\r\n.modal-container {\r\n\tposition: absolute;\r\n\tz-index: 2;\r\n\ttop: 50%;\r\n\tleft: 50%;\r\n\ttransform: translate(-50%, -50%);\r\n\twidth: 50%;\r\n\t/* Make height min-content since heights will vary due to the different forms */\r\n\theight: min-content;\r\n\t/* Fancy box shadow */\r\n\tbox-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;\r\n\tbackground-color: var(--background-clr-4);\r\n}\r\n.modal-container button {\r\n\tpadding: 10px 14px;\r\n}\r\n.modal-container .modal-header {\r\n\tpadding: var(--section-padding);\r\n\tgrid-row: 1;\r\n\tgrid-column: 1 / end;\t\r\n\tcolor: var(--font-clr-1);\r\n\tfont-weight: 700;\r\n\tbackground-color: var(--background-clr-3);\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\r\n}\r\n\r\n.modal-main-content {\r\n\tpadding: var(--section-padding);\r\n\tfont-weight: 700;\r\n}\r\n\r\n/* Styling for the form itself */\r\n#item-form {\r\n\tpadding: var(--section-padding);\r\n\tfont-weight: 700;\r\n}\r\n#item-form .input-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\talign-items: center;\r\n\trow-gap: 12px;\r\n}\r\n#item-form .priority-btns-section {\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n\tcolumn-gap: 12px;\r\n\twidth: 60%;\r\n}\r\n#item-form fieldset {\r\n\tborder: none;\r\n}\r\n#item-form input {\r\n\tbackground-color: white;\r\n\tborder: 2px solid gray;\r\n\tpadding: var(--section-padding);\r\n}\r\n\r\n/* Styling the modal that shows the details of the todo */\r\n.todo-details-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\trow-gap: 8px;\r\n\talign-items: center;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* Styles for everything related to the project container */\r\n.project-container {\r\n\tdisplay: grid;\r\n\t/* \r\n\tauto: for the header and footer so it automatically just sizes the row to the size of the content. \r\n\tThen 1fr for the rest of the space in the height for the sidebar and maincontent\r\n\t*/\r\n\tgrid-template-rows: auto 1fr auto; \r\n\r\n\t/* left side is just 15% of screen for the left side (which will be sidebar) and then 1fr for the remaining width */\r\n\tgrid-template-columns: 15% 1fr;\r\n\theight: 100vh;\r\n}\r\n\r\n/* Header styles */\r\n.page-header {\r\n\tbackground-color: var(--background-clr-1);\r\n\tcolor: var(--font-clr-1);\r\n\tfont-size: 16px;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\t\r\n\t/* Header starts at the first row in grid and stays there */\r\n\tgrid-row: 1;\r\n\r\n\t/* Column starts at 1 and goes to the end since we want the header to span across the page */\r\n\tgrid-column: 1 / span 2;\r\n\t\r\n}\r\n\r\n/* Styles for containers in header */\r\n.app-name-container,\r\n.user-info-container {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n}\r\n.app-name-container {\r\n\tflex-basis: 200px;\r\n}\r\n.user-info-container {\r\n\tflex-basis: 400px;\r\n}\r\n\r\n/* Styling for the sidebar */\r\n.sidebar {\r\n\tbackground-color: var(--background-clr-3);\r\n\t/* padding: var(--section-padding); */\r\n\tpadding: 16px 0;\r\n\t/* Start and span across row 2, which is our main row. Then position into  */\r\n\tgrid-row: 2;\r\n\tgrid-column: 1;\r\n\tfont-size: 20px;\r\n\ttext-align: center;\r\n}\r\n\r\n/* Styling for the todo count */\r\n.todo-count-el {\r\n\tbackground-color: var(--background-clr-4);\r\n\tcolor: var(--font-clr-1);\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\twidth: 24px;\r\n\theight: 24px;\r\n\tborder-radius: 50%;\r\n\tdisplay: inline-flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n}\r\n\r\n/* Styling for the sections containing hte tabs and the tabs themselves. */\r\n.sidebar-tab-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\trow-gap: 10px;\r\n\ttext-align: center;\r\n}\r\n.sidebar-tab-item {\r\n\tfont-size: inherit;\r\n\tborder: 2px solid black;\r\n\tpadding: 6px 6px;\r\n\tmargin: 0 auto;\r\n\tcursor: pointer;\r\n\tborder-radius: 6px;\r\n\ttransition: var(--transition);\r\n}\r\n.main-tab-section .sidebar-tab-item,\r\n.secondary-tab-section .sidebar-tab-item {\r\n\twidth: 90%;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\r\n}\r\n.sidebar-tab-item:hover {\r\n\tbackground-color: var(--background-clr-dark);\r\n\t.sidebar-tab-title {\r\n\t\tcolor: var(--font-clr-3);\r\n\t}\r\n}\r\n\r\n.sidebar-tab-item[data-active=\"true\"] {\r\n\tbackground-color: var(--background-clr-dark);\r\n\t.sidebar-tab-title {\r\n\t\tcolor: var(--font-clr-3);\r\n\t}\r\n}\r\n\r\n.sidebar-tab-title {\r\n\ttransition: var(--transition);\r\n\t/* \r\n\tMake the title the full width of the container minus 40px so that todo-count-el has enough space\r\n\tto breathe and not be affected by the length of the title\r\n\t*/\r\n\twidth: calc(100% - 40px);\r\n}\r\n\r\n/* Styling for secondary tab */\r\n.secondary-tab-section {\r\n\tmargin-left: 12px; /*Have indent to indicate which tabs are under the project's section*/\r\n\r\n\t/* If height of the project's container goes over 150px, we add a scroll bar for it */\r\n\tmax-height: 150px;\r\n\toverflow-y: auto;\r\n\r\n\tmargin-bottom: 32px;\r\n}\r\n\r\n/* Make it so only the sidebar-tab-item registers clicks */\r\n.sidebar-tab-item > * {\r\n\tpointer-events: None;\r\n}\r\n\r\n/* Style the title \"Projects\" on the sidebar */\r\n#tab-section-title {\r\n\tmargin-top: 8px;\r\n\tmargin-bottom: 8px;\r\n\tletter-spacing: var(--letter-spacing);\r\n}\r\n\r\n\r\n/* BOOK MARK: Now create and style the maincontent; don't forget to include the section that tells \r\nthe user if they don't have anything */\r\n\r\n\r\n/* Fancy styling for button: box shadow is just setting the background when you hover */\r\n#create-project-btn {\r\n\tbackground-color: transparent;\r\n\tbox-shadow: inset 0 0 0 0 var(--background-clr-1);\r\n\tcolor: var(--font-clr-1);\r\n}\r\n#create-project-btn:hover {\r\n\tbox-shadow: inset 0 0 0 120px var(--background-clr-1);\r\n\tcolor: var(--font-clr-3);\t\r\n\tborder-radius: 0;\r\n}\r\n\r\n\r\n/* Styling for main content section: Section where todos are displayed and todo information is displayed */\r\n.main-content {\r\n\tbackground-color: var(--background-clr-4);\r\n\tgrid-row: 2;\r\n\tgrid-column: 2 / end;\r\n\r\n\tdisplay: grid;\r\n\tgrid-template-rows: auto 1fr;\r\n}\t\r\n\r\n\r\n/* Styling header of main-content */\r\n.main-content-header {\r\n\tpadding: var(--section-padding);\r\n\twidth: 70%;\r\n\tmargin: 0 auto;\r\n\tgrid-row: 1;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n/* Make it scrollable if it goes past the height content */\r\n.todo-list-container {\r\n\tpadding: var(--section-padding);\r\n\twidth: 70%;\r\n\tmargin: 0 auto;\r\n\tgrid-row: 2;\r\n\trow-gap: 12px;\r\n\r\n\tmax-height: 400px;\r\n\toverflow-y: auto;\r\n\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n.todo-item {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n\tpadding: var(--section-padding);\r\n\tbackground-color: var(--todo-background-clr);\r\n\ttransition: var(--transition);\r\n}\r\n.todo-item:hover {\r\n\tbox-shadow: 5px 5px 0 0 rgba(0,0,0,0.5);\r\n}\r\n.todo-item[data-todo-complete=\"true\"] .todo-title-el {\r\n\ttext-decoration: line-through;\t\r\n}\r\n\r\n/* Styling for section that shows when you have no todos or no projects created */\r\n.empty-tab-section {\r\n\tborder: 2px solid black;\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\tletter-spacing: var(--letter-spacing);\r\n}\r\n\r\n#empty-tab-message-primary-el {\r\n\tfont-size: 28px;\r\n\tmargin-bottom: 12px;\r\n}\r\n#empty-tab-message-secondary-el {\r\n\tfont-size: 16px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* Styling for the footer */\r\nfooter {\r\n\tbackground-color: var(--background-clr-2);\r\n\tcolor: var(--font-clr-1);\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\r\n\tgrid-row: 3;\r\n\tgrid-column: 1 / end;\r\n}\r\n\r\n.site-icons {\r\n\twidth: 30px;\r\n\theight: 30px;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n\tbox-sizing: border-box;\r\n}\r\nul, ol {\r\n\tlist-style: none;\r\n}\r\na {\r\n\ttext-decoration: none;\r\n}\r\n/* scrollbar styles */\r\n*::-webkit-scrollbar {\r\n\twidth: 6px;\r\n\t/* transition: var(--transition); */\r\n}\r\n*::-webkit-scrollbar-thumb {\r\n\tbackground-color: var(--scrollbar-color);\r\n\tborder-radius: 20px;\r\n\tbackground-clip: content-box;\r\n}\r\n*::-webkit-scrollbar-track {\r\n\tbackground-color: transparent;\r\n}\r\n*::-webkit-scrollbar-thumb:hover {\r\n\tbackground-color: var(--background-clr-2);\r\n}\r\n:root {\r\n\t--background-clr-1: #3b82f6;\r\n\t--background-clr-2: #93c5fd;\r\n\t--background-clr-3: #60a5fa;\r\n\t--background-clr-4: #dbeafe;\r\n\t--todo-background-clr: #7dd3fc; \r\n\t--background-clr-dark: #172554;\r\n\t--scrollbar-color: #312e81;\r\n\t--font-clr-1: black;\r\n\t--font-clr-2: #3b82f6;\r\n\t--font-clr-3: white;\r\n\t--font-1: \"Roboto\", sans-serif;\r\n\t--font-2: \"Open Sans\", sans-serif;\r\n\t--transition: all 0.25s ease-in-out;\r\n\t--border-radius: 6px;\r\n\t--padding-btn-link: 6px 12px;\r\n\t--section-padding: 8px 16px;\r\n\t--letter-spacing: 4px;\r\n}\r\nbody {\r\n\tfont-family: var(--font-1), var(--font-2);\r\n}\r\nbutton {\r\n\tpadding: var(--padding-btn-link);\r\n\tcursor: pointer;\r\n\tfont-weight: 700;\r\n\ttransition: var(--transition);\r\n}\r\n\r\n\r\n.green-btn,\r\n.red-btn,\r\n.gray-btn,\r\n.light-blue-btn {\r\n\tcolor: black;\r\n\tbackground-color: white;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\tfont-family: var(--font-1), var(--font-2);\r\n\tborder: none;\r\n\tborder-radius: var(--border-radius);\r\n\ttransition: var(--transition);\r\n\tcursor: pointer;\r\n}\r\n\r\n/* Light blue button styles */\r\n.light-blue-btn {\r\n\tbackground-color: var(--background-clr-2);\r\n\tcolor: #5518ab;\r\n}\r\n.light-blue-btn:hover {\r\n\tcolor: var(--background-clr-3);\r\n\tbackground-color: var(--font-clr-1);\r\n}\r\n.light-blue-btn[data-active=\"true\"] {\r\n\tcolor: var(--background-clr-3);\r\n\tbackground-color: var(--font-clr-1);\r\n}\r\n\r\n/* Green button styles: Remember to do hover effect for them */\r\n.green-btn {\r\n\tborder: 2px solid #22c55e;\r\n}\r\n/* Red button styles */\r\n.red-btn {\r\n\tborder: 2px solid #b91c1c;\r\n}\r\n.gray-btn {\r\n\tborder: 2px solid #6b7280\r\n}\r\n.green-btn:hover {\r\n\tbackground-color: #22c55e;\r\n\tcolor: white;\r\n}\r\n.red-btn:hover {\r\n\tbackground-color: #b91c1c;\r\n\tcolor: white;\r\n}\r\n.gray-btn:hover {\r\n\tbackground-color: #6b7280;\r\n\tcolor: white;\r\n}\r\n\r\n\r\n.content-hidden {\r\n\tdisplay: none !important;\r\n}\r\n\r\n\r\n/* Styling for content; mainly for having modals */\r\n.content {\r\n\tposition: relative;\r\n}\r\n\r\n/* Styles for modal forms */\r\n/* Blurred overlay */\r\n.overlay {\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\t/* Blurs the area behind the element  */\r\n\tbackdrop-filter: blur(5px); \r\n\t/* This will be over all other content in project-container */\r\n\tz-index: 1;\r\n}\r\n\r\n.modal {\r\n\tposition: absolute;\r\n\tz-index: 2;\r\n\ttop: 50%;\r\n\tleft: 50%;\r\n\ttransform: translate(-50%, -50%);\r\n\twidth: 50%;\r\n\t/* Make height min-content since heights will vary due to the different forms */\r\n\theight: min-content;\r\n\t/* Fancy box shadow */\r\n\tbox-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;\r\n\tbackground-color: var(--background-clr-4);\r\n}\r\n.modal button {\r\n\tpadding: 10px 14px;\r\n}\r\n.modal .modal-header {\r\n\tpadding: var(--section-padding);\r\n\tgrid-row: 1;\r\n\tgrid-column: 1 / end;\t\r\n\tcolor: var(--font-clr-1);\r\n\tfont-weight: 700;\r\n\tbackground-color: var(--background-clr-3);\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\r\n}\r\n\r\n.modal-main-content {\r\n\tpadding: var(--section-padding);\r\n\tfont-weight: 700;\r\n}\r\n\r\n/* Styling for the form itself */\r\n#item-form {\r\n\tpadding: var(--section-padding);\r\n\tfont-weight: 700;\r\n}\r\n#item-form .input-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\talign-items: center;\r\n\trow-gap: 12px;\r\n}\r\n#item-form .priority-btns-section {\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n\tcolumn-gap: 12px;\r\n\twidth: 60%;\r\n}\r\n#item-form fieldset {\r\n\tborder: none;\r\n}\r\n#item-form input {\r\n\tbackground-color: white;\r\n\tborder: 2px solid gray;\r\n\tpadding: var(--section-padding);\r\n}\r\n\r\n/* Styling the modal that shows the details of the todo */\r\n.todo-details-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\trow-gap: 8px;\r\n\talign-items: center;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* Styles for everything related to the project container */\r\n.project-container {\r\n\tdisplay: grid;\r\n\t/* \r\n\tauto: for the header and footer so it automatically just sizes the row to the size of the content. \r\n\tThen 1fr for the rest of the space in the height for the sidebar and maincontent\r\n\t*/\r\n\tgrid-template-rows: auto 1fr auto; \r\n\r\n\t/* left side is just 15% of screen for the left side (which will be sidebar) and then 1fr for the remaining width */\r\n\tgrid-template-columns: 15% 1fr;\r\n\theight: 100vh;\r\n}\r\n\r\n/* Header styles */\r\n.project-header {\r\n\tbackground-color: var(--background-clr-1);\r\n\tcolor: var(--font-clr-1);\r\n\tfont-size: 16px;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\t\r\n\t/* Header starts at the first row in grid and stays there */\r\n\tgrid-row: 1;\r\n\r\n\t/* Column starts at 1 and goes to the end since we want the header to span across the page */\r\n\tgrid-column: 1 / span 2;\r\n\t\r\n}\r\n\r\n/* Styles for containers in header */\r\n.app-logo-container,\r\n.user-info-section {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n}\r\n.app-logo-container {\r\n\tflex-basis: 200px;\r\n}\r\n.user-info-section {\r\n\tflex-basis: 500px;\r\n}\r\n\r\n/* Styling for the sidebar */\r\n.project-sidebar {\r\n\tbackground-color: var(--background-clr-3);\r\n\t/* padding: var(--section-padding); */\r\n\tpadding: 16px 0;\r\n\t/* Start and span across row 2, which is our main row. Then position into  */\r\n\tgrid-row: 2;\r\n\tgrid-column: 1;\r\n\tfont-size: 20px;\r\n\ttext-align: center;\r\n}\r\n\r\n/* Styling for the todo count */\r\n.todo-count-el {\r\n\tbackground-color: var(--background-clr-4);\r\n\tcolor: var(--font-clr-1);\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\twidth: 24px;\r\n\theight: 24px;\r\n\tborder-radius: 50%;\r\n\tdisplay: inline-flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n}\r\n\r\n/* Styling for the sections containing hte tabs and the tabs themselves. */\r\n.sidebar-tab-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\trow-gap: 10px;\r\n\ttext-align: center;\r\n}\r\n.sidebar-tab-item {\r\n\tfont-size: inherit;\r\n\tborder: 2px solid black;\r\n\tpadding: 6px 6px;\r\n\tmargin: 0 auto;\r\n\tcursor: pointer;\r\n\tborder-radius: 6px;\r\n\ttransition: var(--transition);\r\n}\r\n.main-tab-section .sidebar-tab-item,\r\n.projects-tab-section .sidebar-tab-item {\r\n\twidth: 90%;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\r\n}\r\n.sidebar-tab-item:hover {\r\n\tbackground-color: var(--background-clr-dark);\r\n\t.sidebar-tab-title {\r\n\t\tcolor: var(--font-clr-3);\r\n\t}\r\n}\r\n\r\n.sidebar-tab-item[data-active=\"true\"] {\r\n\tbackground-color: var(--background-clr-dark);\r\n\t.sidebar-tab-title {\r\n\t\tcolor: var(--font-clr-3);\r\n\t}\r\n}\r\n\r\n.sidebar-tab-title {\r\n\ttransition: var(--transition);\r\n\t/* \r\n\tMake the title the full width of the container minus 40px so that todo-count-el has enough space\r\n\tto breathe and not be affected by the length of the title\r\n\t*/\r\n\twidth: calc(100% - 40px);\r\n}\r\n\r\n/* Styling for secondary tab */\r\n.projects-tab-section {\r\n\tmargin-left: 12px; /*Have indent to indicate which tabs are under the project's section*/\r\n\r\n\t/* If height of the project's container goes over 150px, we add a scroll bar for it */\r\n\tmax-height: 150px;\r\n\toverflow-y: auto;\r\n\r\n\tmargin-bottom: 32px;\r\n}\r\n\r\n/* Make it so only the sidebar-tab-item registers clicks */\r\n.sidebar-tab-item > * {\r\n\tpointer-events: None;\r\n}\r\n\r\n/* Style the title \"Projects\" on the sidebar */\r\n#sidebar-section-title {\r\n\tmargin-top: 8px;\r\n\tmargin-bottom: 8px;\r\n\tletter-spacing: var(--letter-spacing);\r\n}\r\n\r\n\r\n/* BOOK MARK: Now create and style the maincontent; don't forget to include the section that tells \r\nthe user if they don't have anything */\r\n\r\n\r\n/* Fancy styling for button: box shadow is just setting the background when you hover */\r\n#create-project-btn {\r\n\tbackground-color: transparent;\r\n\tbox-shadow: inset 0 0 0 0 var(--background-clr-1);\r\n\tcolor: var(--font-clr-1);\r\n\tborder: 2px solid black;\r\n\tpadding: var(--section-padding);\r\n\t\r\n}\r\n#create-project-btn:hover {\r\n\tbox-shadow: inset 0 0 0 120px var(--background-clr-1);\r\n\tcolor: var(--font-clr-3);\t\r\n\tborder-radius: 0;\r\n}\r\n\r\n\r\n/* Styling for main content section: Section where todos are displayed and todo information is displayed */\r\n.project-main-content {\r\n\tbackground-color: var(--background-clr-4);\r\n\tgrid-row: 2;\r\n\tgrid-column: 2 / end;\r\n\r\n\tdisplay: grid;\r\n\tgrid-template-rows: auto 1fr;\r\n}\t\r\n\r\n\r\n/* Styling header of project-main-content */\r\n.main-content-header {\r\n\tpadding: var(--section-padding);\r\n\twidth: 70%;\r\n\tmargin: 0 auto;\r\n\tgrid-row: 1;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n/* Make it scrollable if it goes past the height content */\r\n.todo-list-container {\r\n\tpadding: var(--section-padding);\r\n\twidth: 70%;\r\n\tmargin: 0 auto;\r\n\tgrid-row: 2;\r\n\trow-gap: 12px;\r\n\r\n\tmax-height: 400px;\r\n\toverflow-y: auto;\r\n\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n.todo-item {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n\tpadding: var(--section-padding);\r\n\tbackground-color: var(--todo-background-clr);\r\n\ttransition: var(--transition);\r\n}\r\n.todo-item:hover {\r\n\tbox-shadow: 5px 5px 0 0 rgba(0,0,0,0.5);\r\n}\r\n.todo-item[data-todo-complete=\"true\"] .todo-title-el {\r\n\ttext-decoration: line-through;\t\r\n}\r\n\r\n/* Styling for section that shows when you have no todos or no projects created */\r\n.empty-tab-section {\r\n\tborder: 2px solid black;\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\tletter-spacing: var(--letter-spacing);\r\n}\r\n\r\n#empty-tab-message-primary-el {\r\n\tfont-size: 28px;\r\n\tmargin-bottom: 12px;\r\n}\r\n#empty-tab-message-secondary-el {\r\n\tfont-size: 16px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* Styling for the footer */\r\nfooter {\r\n\tbackground-color: var(--background-clr-2);\r\n\tcolor: var(--font-clr-1);\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\r\n\tgrid-row: 3;\r\n\tgrid-column: 1 / end;\r\n}\r\n\r\n.site-icons {\r\n\twidth: 30px;\r\n\theight: 30px;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -449,6 +449,328 @@ g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<
 		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):0;}());
 
 
+/***/ }),
+/* 12 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createMainContentSection": () => (/* binding */ createMainContentSection),
+/* harmony export */   "createModal": () => (/* binding */ createModal),
+/* harmony export */   "createOverlay": () => (/* binding */ createOverlay),
+/* harmony export */   "createProjectFooter": () => (/* binding */ createProjectFooter),
+/* harmony export */   "createProjectHeader": () => (/* binding */ createProjectHeader),
+/* harmony export */   "createProjectSidebar": () => (/* binding */ createProjectSidebar)
+/* harmony export */ });
+// create the modal
+function createOverlay() {
+	const overlayEl = document.createElement("div");
+	overlayEl.classList.add("overlay", "content-hidden");
+	return overlayEl;
+}
+
+// Create the modal container 
+function createModal() {
+	const modalEl = document.createElement("div");
+	modalEl.classList.add("modal", "content-hidden");
+
+	// Create the header for the modal
+	const modalHeaderEl = document.createElement("header");
+	modalHeaderEl.classList.add("modal-header");
+	modalEl.appendChild(modalHeaderEl);
+
+	// Create the title of the header
+	const modalHeaderTitleEl = document.createElement("h2");
+	modalHeaderTitleEl.classList.add("header-title-el");
+	modalHeaderEl.appendChild(modalHeaderTitleEl);
+
+	// Create the close button for hte modal
+	const closeModalBtn = document.createElement("button");
+	closeModalBtn.classList.add("light-blue-btn");
+	closeModalBtn.id = "close-modal-btn";
+	closeModalBtn.textContent = "Close";
+	modalHeaderEl.appendChild(closeModalBtn);
+
+	// Create the main-content section where different types of content will be loaded into the modal 
+	// depending on what the user does.
+	const modalMainContentSection = document.createElement("section");
+	modalMainContentSection.classList.add("modal-main-content");
+
+	// Finally add the main-content-section onto the modal itself
+	modalEl.appendChild(modalMainContentSection);
+	return modalEl;
+}
+
+
+
+/*
+Looks like we should create functions for 
+// Make them all hidden at first
+
+- creating the "make project"
+- creating "make todo" form
+- creating "show todo details"
+
+- loadModalContent(); takes in a string or something from the button, which allows it to decide
+what to do content-hidden removal, and then ultimately what display function to run
+
+Then functions:
+- displayProjectForm; which could have a boolean for making or editing; we know it's editing 
+if a project instance is passed through
+- displayTodoForm; which could be making or editing depending if a todo class instance is passed
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function for creating project header
+function createProjectHeader() {
+	const headerEl = document.createElement("header");
+	headerEl.classList.add("page-header");
+
+	// Create the container that has the app's logo and name
+	const appLogoContainer = document.createElement("div");
+	appLogoContainer.classList.add("app-logo-container");
+	appLogoContainer.innerHTML = `
+					<img src="./assets/icons/todo_list_icon.svg" alt="Logo of app">
+					<h1 id="app-title-el">Todo list</h1>`;
+	headerEl.appendChild(appLogoContainer);
+	
+	// Create user info section of the header 
+	const userInfoSection = document.createElement("div");
+	userInfoSection.classList.add("user-info-section");
+	userInfoSection.innerHTML = `<h2>Hello, <span id="user-email-el">example@gmail.com</span></h2>
+					<a href="#" class="light-blue-btn" id="user-link">Sign out</a>
+					<button class="light-blue-btn" id="change-theme-btn">Theme</button>`;
+	headerEl.appendChild(userInfoSection);
+	return headerEl;
+}
+
+// Function for creating the sidebar
+function createProjectSidebar() {
+	const sidebarEl = document.createElement("section");
+	sidebarEl.classList.add("project-sidebar");
+
+	// Create main tab for sidebar
+	const mainTabSection = document.createElement("ul");
+	mainTabSection.classList.add("sidebar-tab-section", "main-tab-section");	
+	mainTabSection.innerHTML = `<li class="sidebar-tab-item" data-active="true" data-tabID="todo-Home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">0</span></li>
+					<li class="sidebar-tab-item" data-tabID="todo-Today"><span class="sidebar-tab-title">Today</span><span class="todo-count-el">0</span></li>
+					<li class="sidebar-tab-item" data-tabID="todo-Week"><span class="sidebar-tab-title">Week</span><span class="todo-count-el">0</span></li>`;
+	sidebarEl.appendChild(mainTabSection);
+
+	// Create the title "Projects" for a section in the sidebar
+	const sidebarSectionTitleEl = document.createElement("h1");
+	sidebarSectionTitleEl.id = "sidebar-section-title";
+	sidebarSectionTitleEl.textContent = "Projects";
+	sidebarEl.appendChild(mainTabSection);
+
+	// Create projects tab section
+	const projectsTabSection = document.createElement("ul");
+	projectsTabSection.classList.add("sidebar-tab-section", "projects-tab-section");
+	sidebarEl.appendChild(projectsTabSection);
+
+	// Create the button for adding/creating a project
+	const createProjectBtn = document.createElement("button");
+	createProjectBtn.classList.add("sidebar-tab-item");
+	createProjectBtn.id = "create-project-btn";
+	createProjectBtn.setAttribute("data-modalContentType", "project-form");
+	createProjectBtn.textContent = "Add Project";
+	sidebarEl.appendChild(createProjectBtn);
+
+	return sidebarEl;
+}
+
+// BOOK MARK: DO THE MAIN CONTENT SECTION; probably going to have the header and title, and stff 
+
+// Function for creating the main display page (section where all of the todos are)
+function createMainContentSection() {
+	// Create project main content section
+	const projectMainContentSection = document.createElement("section");
+	projectMainContentSection.classList.add("project-main-content");
+	return projectMainContentSection;
+}
+
+// function for creating project footer
+function createProjectFooter() {
+	const footerEl = document.createElement("footer");
+	footerEl.classList.add("project-footer");
+
+	// Create icon link section/container
+	const footerIconContainer = document.createElement("div");
+	footerIconContainer.classList.add("footer-icon-container");
+
+	// Create the link and the image for the link
+	const iconLink = document.createElement("a");
+	const iconImage = document.createElement("img");
+	iconImage.src = "./assets/icons/github-mark.svg";
+	iconImage.classList.add("site-icons");
+	iconLink.appendChild(iconImage);
+	footerIconContainer.appendChild(iconLink);
+	footerEl.appendChild(footerIconContainer);
+
+	// Create the description of the footer; Create date element
+	const footerMessageEl = document.createElement("p");
+	footerMessageEl.id = "footer-message-el";
+	const currentYear = new Date().getFullYear();
+	footerMessageEl.textContent = `All credit and rights reserved to the hot ice cream company - ${currentYear}`;
+	footerEl.appendChild(footerMessageEl);	
+	return footerEl;
+}
+
+
+
+
+/***/ }),
+/* 13 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Project": () => (/* binding */ Project),
+/* harmony export */   "Todo": () => (/* binding */ Todo)
+/* harmony export */ });
+// Using composition style of making classes for more flexibility.
+
+class Title {
+	constructor(title) {
+		this.title = title;
+	}
+	setTitle(newTitle) {
+		this.title = newTitle;
+	}
+	getTitle() {
+		return this.title;
+	}
+}
+class Description {
+	constructor(description) {
+		this.description = description;
+	}
+	setDescription(newDescription) {
+		this.description = newDescription;
+	}
+	getDescription() {
+		return this.description;
+	}
+}
+class Priority {
+	constructor(priority) {
+		this.priority = priority;
+	}
+	setPriority(newPriority) {
+		this.priority = newPriority;
+	}
+	getPriority() {
+		return this.priority;
+	}
+}
+
+// Todo class: dueDate is just the value of the input date element
+class Todo {
+	constructor(title, description, dueDate, priority) {
+		this.title = new Title(title);
+		this.description = new Description(description);
+		this.dueDate = new Date(dueDate);
+		this.priority = new Priority(priority);
+	}
+}
+
+// The project class: has title, but should have a list of todos 
+class Project {
+	constructor(title) {
+		this.title = new Title(title);
+		this.projectTodos = [];
+	}
+	getProjectTodos() {
+		return this.projectTodos;
+	}
+}
+
+// Note class; just an extra class, but it's kind of just for demonstration purposes; not actually going to use it
+class Note {
+	constructor(description) {
+		this.description = new Description(description);
+	}
+}
+
+
+
+/***/ }),
+/* 14 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createProjectForm": () => (/* binding */ createProjectForm),
+/* harmony export */   "createTodoDetailsSection": () => (/* binding */ createTodoDetailsSection),
+/* harmony export */   "createTodoForm": () => (/* binding */ createTodoForm)
+/* harmony export */ });
+// Creates form for making or editing todos
+function createTodoForm() {
+	const formEl = document.createElement("form");
+	formEl.action = "POST";
+	formEl.id = "item-form";
+	formEl.innerHTML = `<fieldset class="input-section">
+						<input placeholder="Title: Pay bills" type="text" id="title-field-form" name="title" required>
+						<input placeholder="Description: Gas and Electricity" type="text" id="description-field-form" name="description" required>
+						<label for="due-date">Due date: <input type="date" class="date-input" id="item-date-el" required></label>
+						<div class="priority-btns-section">
+							<h2>Priority: </h2>
+							<div class="priority-btns-container">
+								<button class="light-blue-btn todo-priority-btn" data-active="true" data-priority-value="Low">Low</button>
+								<button class="light-blue-btn todo-priority-btn" data-priority-value="Medium">Medium</button>
+								<button class="light-blue-btn todo-priority-btn" data-priority-value="High">High</button>
+							</div>
+						</div>
+						<button class="light-blue-btn" type="submit" id="form-submit-btn">Submit</button>
+					</fieldset>`;
+	return formEl;
+}
+
+// Creates form for making or editing projects
+function createProjectForm() {
+	const formEl = document.createElement("form");
+	formEl.action = "POST";
+	formEl.id = "item-form";
+	formEl.innerHTML = `<fieldset class="input-section">
+							<input placeholder="Title: Pay bills" type="text" id="title-field-form" name="title" required>
+							<button class="light-blue-btn" type="submit" id="form-submit-btn">Submit</button>W
+						</fieldset>`;
+	return formEl;
+}
+
+// Creates form for seeing the details on a todo
+function createTodoDetailsSection() {
+	const todoDetailsSection = document.createElement("section");
+	todoDetailsSection.innerHTML = `<h3 id="todo-details-title-el">Title: Title of said todo</h3>
+					<p id="todo-detail-project-title-el">Project: Some project</p>
+					<p id="todo-details-el">Details: of the todo</p>
+					<p id="todo-detail-priority-el">Priority: High</p>
+					<p id="todo-detail-dueDate-el">Due Date: Sample Date</p>`;
+	return todoDetailsSection;
+}
+
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -531,6 +853,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(webfontloader__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _createModalContent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
+/* harmony import */ var _initialPageLoad__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
+/* harmony import */ var _classes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(13);
+
+
 
 
 
@@ -540,8 +867,65 @@ webfontloader__WEBPACK_IMPORTED_MODULE_1___default().load({
 	}
 });
 
+// Lists containing project instances; probably are going to act as our 
+// databases for the meantime
+let projectsList = []; // contains all projects; but can also be used to get all todos
 
-const DOMElementsModule = {};
+
+// IFFE: Contains all dom elements for page
+const DOMElementsModule = (() => {
+
+	// Section that contains all all page elements
+	const pageContentSection = document.createElement("div");
+	pageContentSection.id = "content";
+
+	// Create elements that are going to be direct children of pageContentSection
+	const overlayEl = (0,_initialPageLoad__WEBPACK_IMPORTED_MODULE_3__.createOverlay)();
+	const modalEl = (0,_initialPageLoad__WEBPACK_IMPORTED_MODULE_3__.createModal)();
+	const projectContainer = document.createElement("div");
+	projectContainer.classList.add("project-container");
+
+	pageContentSection.appendChild(overlayEl);
+	pageContentSection.appendChild(modalEl);
+	pageContentSection.appendChild(projectContainer);
+
+	// Create the content for the modal; the forms will only be active the modal is open
+	const todoForm = (0,_createModalContent__WEBPACK_IMPORTED_MODULE_2__.createTodoForm)();
+	const projectForm = (0,_createModalContent__WEBPACK_IMPORTED_MODULE_2__.createProjectForm)();
+	const todoDetailsSection = (0,_createModalContent__WEBPACK_IMPORTED_MODULE_2__.createTodoDetailsSection)();
+
+	// Create elements that are going to be placed inside the projectContainer 
+	const projectHeader = (0,_initialPageLoad__WEBPACK_IMPORTED_MODULE_3__.createProjectHeader)();
+	const projectSidebar = (0,_initialPageLoad__WEBPACK_IMPORTED_MODULE_3__.createProjectSidebar)();
+	const projectMainContentSection = (0,_initialPageLoad__WEBPACK_IMPORTED_MODULE_3__.createMainContentSection)();
+	const projectFooter = (0,_initialPageLoad__WEBPACK_IMPORTED_MODULE_3__.createProjectFooter)();
+
+	projectContainer.appendChild(projectHeader);
+	projectContainer.appendChild(projectSidebar);
+	projectContainer.appendChild(projectMainContentSection);
+	projectContainer.appendChild(projectFooter);
+
+	// Now create the ability to load content
+
+	// Let's get some buttons working
+
+	// Tab buttons
+	return {
+		pageContentSection, 
+		overlayEl, 
+		modalEl, 
+		projectContainer, 
+		todoForm,
+		projectForm,
+		todoDetailsSection,
+		projectHeader, 
+		projectSidebar, 
+		projectMainContentSection, 
+		projectFooter}
+});
+
+
+
 })();
 
 /******/ })()
