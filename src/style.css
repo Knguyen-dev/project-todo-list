@@ -167,27 +167,27 @@ button {
 }
 
 /* Styling for the form itself */
-#item-form {
+.modal-form {
 	padding: var(--section-padding);
 	font-weight: 700;
 }
-#item-form .input-section {
+.modal-form .input-section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	row-gap: 12px;
 }
-#item-form .priority-btns-section {
+.modal-form .priority-btns-section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	column-gap: 12px;
 	width: 60%;
 }
-#item-form fieldset {
+.modal-form fieldset {
 	border: none;
 }
-#item-form input {
+.modal-form input {
 	background-color: white;
 	border: 2px solid gray;
 	padding: var(--section-padding);
@@ -378,8 +378,17 @@ the user if they don't have anything */
 }	
 
 
+
+
 /* Styling header of project-main-content */
-.main-content-header {
+
+/* Styling when user is on a main tab */
+.main-content-header-main-tab {
+	text-align: center;
+}
+
+/* Styling when user is on a project tab */
+.main-content-header-project-tab {
 	padding: var(--section-padding);
 	width: 70%;
 	margin: 0 auto;
@@ -389,7 +398,7 @@ the user if they don't have anything */
 }
 
 /* Make it scrollable if it goes past the height content */
-.todo-list-container {
+#todo-list-container {
 	padding: var(--section-padding);
 	width: 70%;
 	margin: 0 auto;

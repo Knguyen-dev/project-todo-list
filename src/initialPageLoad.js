@@ -1,14 +1,14 @@
 // create the modal
 function createOverlay() {
 	const overlayEl = document.createElement("div");
-	overlayEl.classList.add("overlay", "content-hidden");
+	overlayEl.classList.add("overlay");
 	return overlayEl;
 }
 
 // Create the modal container 
 function createModal() {
 	const modalEl = document.createElement("div");
-	modalEl.classList.add("modal", "content-hidden");
+	modalEl.classList.add("modal");
 
 	// Create the header for the modal
 	const modalHeaderEl = document.createElement("header");
@@ -17,7 +17,7 @@ function createModal() {
 
 	// Create the title of the header
 	const modalHeaderTitleEl = document.createElement("h2");
-	modalHeaderTitleEl.classList.add("header-title-el");
+	modalHeaderTitleEl.id = "modal-header-title-el";
 	modalHeaderEl.appendChild(modalHeaderTitleEl);
 
 	// Create the close button for hte modal
@@ -63,21 +63,10 @@ if a project instance is passed through
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 // Function for creating project header
 function createProjectHeader() {
 	const headerEl = document.createElement("header");
-	headerEl.classList.add("page-header");
+	headerEl.classList.add("project-header");
 
 	// Create the container that has the app's logo and name
 	const appLogoContainer = document.createElement("div");
@@ -105,27 +94,27 @@ function createProjectSidebar() {
 	// Create main tab for sidebar
 	const mainTabSection = document.createElement("ul");
 	mainTabSection.classList.add("sidebar-tab-section", "main-tab-section");	
-	mainTabSection.innerHTML = `<li class="sidebar-tab-item" data-active="true" data-tabID="todo-Home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">0</span></li>
-					<li class="sidebar-tab-item" data-tabID="todo-Today"><span class="sidebar-tab-title">Today</span><span class="todo-count-el">0</span></li>
-					<li class="sidebar-tab-item" data-tabID="todo-Week"><span class="sidebar-tab-title">Week</span><span class="todo-count-el">0</span></li>`;
+	mainTabSection.innerHTML = `<li class="sidebar-tab-item" data-active="true" data-tabtype="mainTab" data-tabID="Home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">0</span></li>
+					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Today"><span class="sidebar-tab-title">Today</span><span class="todo-count-el">0</span></li>
+					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Week"><span class="sidebar-tab-title">Week</span><span class="todo-count-el">0</span></li>`;
 	sidebarEl.appendChild(mainTabSection);
 
 	// Create the title "Projects" for a section in the sidebar
 	const sidebarSectionTitleEl = document.createElement("h1");
 	sidebarSectionTitleEl.id = "sidebar-section-title";
 	sidebarSectionTitleEl.textContent = "Projects";
-	sidebarEl.appendChild(mainTabSection);
+	sidebarEl.appendChild(sidebarSectionTitleEl);
 
 	// Create projects tab section
 	const projectsTabSection = document.createElement("ul");
 	projectsTabSection.classList.add("sidebar-tab-section", "projects-tab-section");
 	sidebarEl.appendChild(projectsTabSection);
 
-	// Create the button for adding/creating a project
+	// Create the button for adding/creating a project; add data attribute to help with form logic to see if they're adding or editing a project
 	const createProjectBtn = document.createElement("button");
 	createProjectBtn.classList.add("sidebar-tab-item");
 	createProjectBtn.id = "create-project-btn";
-	createProjectBtn.setAttribute("data-modalContentType", "project-form");
+	createProjectBtn.setAttribute("data-form-action", "add-project");
 	createProjectBtn.textContent = "Add Project";
 	sidebarEl.appendChild(createProjectBtn);
 
@@ -139,6 +128,17 @@ function createMainContentSection() {
 	// Create project main content section
 	const projectMainContentSection = document.createElement("section");
 	projectMainContentSection.classList.add("project-main-content");
+
+	const mainContentHeader = document.createElement("header");
+	mainContentHeader.id ="main-content-header";
+	mainContentHeader.innerHTML = `<h1 id="tab-title-el">Sample Tab Title</h1>`;
+	projectMainContentSection.appendChild(mainContentHeader);
+
+	const todoListContainer = document.createElement("ul");
+	todoListContainer.id = "todo-list-container";
+	projectMainContentSection.appendChild(todoListContainer);
+
+
 	return projectMainContentSection;
 }
 

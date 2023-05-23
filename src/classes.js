@@ -48,7 +48,7 @@ class Todo {
 class Project {
 	constructor(title) {
 		this.title = new Title(title);
-		this.projectTodos = [];
+		this.projectTodos = []; 
 	}
 	getProjectTodos() {
 		return this.projectTodos;

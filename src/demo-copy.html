@@ -11,16 +11,15 @@
 	<title>Todo List</title>
 </head>
 <body>
-	<div id="content">
 
-		<!-- We put these hidden for dev -->
+			<!-- We put these hidden for dev -->
 		<div class="overlay content-hidden"></div>
-		<div class="modal-container content-hidden">
+		<div class="modal content-hidden">
 
 			<header class="modal-header">
 				<!-- Optional header 2 based on type of form: <h2 class="form-title-el">Create a new project</h2> -->
 				<h2 class="header-title-el">Create a new todo for 'SampleProjectName'</h2>
-				<button class="light-blue-btn" id="close-form-btn">Close</button>
+				<button class="light-blue-btn" id="close-modal-btn">Close</button>
 			</header>
 
 			<!-- For containing the add project/todo, edit -->
@@ -35,10 +34,12 @@
 				</div>
 
 				<!-- Section will contain the different types of forms that could be generated based on the button that activates -->
-				<form action="POST" id="item-form" class="content-hidden" data-form-type="todo-form">
+				<form action="POST" id="item-form" data-form-type="todo-form">
 					<fieldset class="input-section">
 						<input placeholder="Title: Pay bills" type="text" id="title-field-form" name="title" required>
 						<input placeholder="Description: Gas and Electricity" type="text" id="description-field-form" name="description" required>
+						
+						<!-- date input returns a string in form "YYYY-MM-DD" -->
 						<label for="due-date">Due date: <input type="date" class="date-input" id="item-date-el" required></label>
 						<div class="priority-btns-section">
 							<h2>Priority: </h2>
@@ -51,34 +52,31 @@
 						<button class="light-blue-btn" type="submit" id="form-submit-btn">Submit</button>
 					</fieldset>
 				</form>
-				
 			</section>
 		</div>
 
 		<!-- On the outside I think we're going to put the overlays such as form pop ups -->
 		<!-- There should be a project container as well, where the header,footer, etc are -->
 		<div class="project-container">
-			<header class="page-header">
-				<div class="app-name-container">
+			<header class="project-header">
+				<div class="app-logo-container">
 					<img src="./assets/icons/todo_list_icon.svg" alt="Logo of app">
-					<h1>Todo list</h1>
+					<h1 id="app-title-el">Todo list</h1>
 				</div>
-				<div class="user-info-container">
+				<div class="user-info-section">
 					<h2>Hello, <span id="user-email-el">example@gmail.com</span></h2>
 					<a href="#" class="light-blue-btn" id="user-link">Sign out</a>
 					<button class="light-blue-btn" id="change-theme-btn">Theme</button>
 				</div>
 			</header>
 
-			<section class="sidebar">
+			<section class="project-sidebar">
 				<ul class="sidebar-tab-section main-tab-section">
-					<li class="sidebar-tab-item" data-active="true" data-tabID="home-tab"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">4</span></li>
-					<li class="sidebar-tab-item" data-tabID="today-tab"><span class="sidebar-tab-title">Today</span><span class="todo-count-el">4</span></li>
-					<li class="sidebar-tab-item" data-tabID="week-tab"><span class="sidebar-tab-title">Week</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item" data-active="true" data-tabID="mainTab-home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item" data-tabID="mainTab-today"><span class="sidebar-tab-title">Today</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item" data-tabID="mainTab-week"><span class="sidebar-tab-title">Week</span><span class="todo-count-el">4</span></li>
 				</ul>
-
-				<h1 id="tab-section-title">Projects</h1>
-				
+				<h1 id="sidebar-section-title">Projects</h1>
 				<!-- NOTE: The add-todo-btn should only appear on project tabs; this is because we're assuming todos can only be created
 				with when assigned to a project, so it is what it is. We're going to use the data-tabID attribute to search for the keyword 'project'
 				to see whether it's a project or not. This goes the same for the delete project butto
@@ -86,18 +84,15 @@
 
 			<!-- ALSO NOTE: We should have some logic that shows a message like "Hey this is an empty project, please add a task!" 
 			-->
-				<ul class="sidebar-tab-section secondary-tab-section">
-					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="project-someProjectName">lorem10</span><span class="todo-count-el">4</span></li>
-					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="project-otherProject">otherProject</span><span class="todo-count-el">4</span></li>
-					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-tabID="project-Sdev220-final-project">Sdev220 final project</span><span class="todo-count-el">4</span></li>
+				<ul class="sidebar-tab-section projects-tab-section">
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-projectID="1" data-tabID="project-someProjectName">lorem10</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-projectID="2" data-tabID="project-otherProject">otherProject</span><span class="todo-count-el">4</span></li>
+					<li class="sidebar-tab-item"><span class="sidebar-tab-title" data-projectID="3" data-tabID="project-Sdev220-final-project">Sdev220 final project</span><span class="todo-count-el">4</span></li>
 				</ul>
-				
-				<button class="sidebar-tab-item" id="create-project-btn">Add Project</button>
-
-
-
+				<button class="" id="create-project-btn">Add Project</button>
 			</section>
-			<section class="main-content">
+
+			<section class="project-main-content">
 				<!-- When switching tabs the tab title and then the todo-list-container will be changed -->
 				<!-- 
 					1. Have a page in the tab to show when there are no todos
@@ -105,19 +100,15 @@
 					3. When you delete a todo, redirect them to an existing project, if there are 
 					no existing projects, direct them to a page that asks them to 
 					4. Make it so it's scrollable, the todo list container when there are maximum amounts of todos
-
-
 				 -->
-
-
 				<header class="main-content-header">
 					<h1 id="tab-title-el">Home</h1>
 					<div class="project-btns-container">
-						<button class="add-todo-btn green-btn">Add task</button>
-						<button class="delete-project-btn red-btn">Delete Project</button>
+						<button id="add-todo-btn" class="green-btn">Add task</button>
+						<button id="edit-project-btn" class="gray-btn">Edit Project</button>
+						<button id="delete-project-btn" class="red-btn">Delete Project</button>
 					</div>
 				</header>
-
 				<!-- For the code you should have a way to know when a todo is complete or not -->
 				<!-- Should be a decent size, of the main-content, should also be scrollable -->
 				<!-- Could probably have a limit on the title of the todo  -->
@@ -125,31 +116,27 @@
 					<li class="todo-item" data-todo-complete="false">
 						<span class="todo-title-el">lorem</span>
 						<div class="todo-btns">
-							<button class="toggle-todo-btn green-btn">Mark as Complete</button>
-							<button class="todo-details-btn gray-btn">Details</button>
-							<button class="edit-todo-btn gray-btn">Edit</button>
-							<button class="delete-todo-btn red-btn">Delete</button>
+							<button id="toggle-todo-btn" class="green-btn">Mark as Complete</button>
+							<button id="todo-details-btn" class="gray-btn">Details</button>
+							<button id="edit-todo-btn" class="gray-btn">Edit</button>
+							<button id="delete-todo-btn" class="red-btn">Delete</button>
 						</div>
 					</li>
-
-
 				</ul>
-
 				<!-- Then the content hidden div that tells you that you have no todos for said project or no projects at all -->
 				<div class="empty-tab-section content-hidden">
 					<h1 id="empty-tab-message-primary-el">No todos in this project yet!</h1>
 					<p id="empty-tab-message-secondary-el">Please add something</p>
 				</div>
-				
 			</section>
-			<footer>
+
+			<footer class="project-footer">
 				<div class="footer-icon-container">
 					<a href="#"><img class="site-icons" src="./assets/icons/github-mark.svg" alt=""></a>
 				</div>
-				<p id="footer-info-el">Lorem ipsum dolor sit amet consectetur adipisicing elit. <span id="date-el">Sample date</span></p>
+				<p id="footer-message-el">Lorem ipsum dolor sit amet consectetur adipisicing elit. <span id="date-el">Sample date</span></p>
 			</footer>
 		</div>
-	</div>
 	<!-- <script src="main.js"></script> -->
 </body>
 </html>
