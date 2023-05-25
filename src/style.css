@@ -9,6 +9,16 @@ ul, ol {
 a {
 	text-decoration: none;
 }
+fieldset {
+	border: none;
+}
+input {
+	background-color: white;
+	border: 2px solid gray;
+	padding: var(--section-padding);
+}
+
+
 /* scrollbar styles */
 *::-webkit-scrollbar {
 	width: 6px;
@@ -177,21 +187,10 @@ button {
 	align-items: center;
 	row-gap: 12px;
 }
-.modal-form .priority-btns-section {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	column-gap: 12px;
-	width: 60%;
-}
-.modal-form fieldset {
-	border: none;
-}
-.modal-form input {
-	background-color: white;
-	border: 2px solid gray;
-	padding: var(--section-padding);
-}
+
+
+
+
 
 /* Styling the modal that shows the details of the todo */
 .todo-details-section {
@@ -442,12 +441,6 @@ the user if they don't have anything */
 #empty-tab-message-secondary-el {
 	font-size: 16px;
 }
-
-
-
-
-
-
 
 /* Styling for the footer */
 footer {

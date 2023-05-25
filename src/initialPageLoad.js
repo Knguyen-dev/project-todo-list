@@ -94,7 +94,7 @@ function createProjectSidebar() {
 	// Create main tab for sidebar
 	const mainTabSection = document.createElement("ul");
 	mainTabSection.classList.add("sidebar-tab-section", "main-tab-section");	
-	mainTabSection.innerHTML = `<li class="sidebar-tab-item" data-active="true" data-tabtype="mainTab" data-tabID="Home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">0</span></li>
+	mainTabSection.innerHTML = `<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">0</span></li>
 					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Today"><span class="sidebar-tab-title">Today</span><span class="todo-count-el">0</span></li>
 					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Week"><span class="sidebar-tab-title">Week</span><span class="todo-count-el">0</span></li>`;
 	sidebarEl.appendChild(mainTabSection);

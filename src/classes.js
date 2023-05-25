@@ -34,6 +34,19 @@ class Priority {
 	}
 }
 
+class Completion {
+	constructor(isComplete) {
+		this.isComplete = isComplete;
+	}
+	setCompletion(isComplete) {
+		this.isComplete = isComplete;
+	}
+	getCompletion() {
+		return this.isComplete;
+	}
+}
+
+
 // Todo class: dueDate is just the value of the input date element
 class Todo {
 	constructor(title, description, dueDate, priority) {
@@ -41,6 +54,7 @@ class Todo {
 		this.description = new Description(description);
 		this.dueDate = new Date(dueDate);
 		this.priority = new Priority(priority);
+		this.isComplete = new Completion(false);
 	}
 }
 
