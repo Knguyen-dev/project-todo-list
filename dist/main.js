@@ -318,7 +318,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n\tbox-sizing: border-box;\r\n}\r\nul, ol {\r\n\tlist-style: none;\r\n}\r\na {\r\n\ttext-decoration: none;\r\n}\r\nfieldset {\r\n\tborder: none;\r\n}\r\ninput {\r\n\tbackground-color: white;\r\n\tborder: 2px solid gray;\r\n\tpadding: var(--section-padding);\r\n}\r\n\r\n\r\n/* scrollbar styles */\r\n*::-webkit-scrollbar {\r\n\twidth: 6px;\r\n\t/* transition: var(--transition); */\r\n}\r\n*::-webkit-scrollbar-thumb {\r\n\tbackground-color: var(--scrollbar-color);\r\n\tborder-radius: 20px;\r\n\tbackground-clip: content-box;\r\n}\r\n*::-webkit-scrollbar-track {\r\n\tbackground-color: transparent;\r\n}\r\n*::-webkit-scrollbar-thumb:hover {\r\n\tbackground-color: var(--background-clr-2);\r\n}\r\n:root {\r\n\t--background-clr-1: #3b82f6;\r\n\t--background-clr-2: #93c5fd;\r\n\t--background-clr-3: #60a5fa;\r\n\t--background-clr-4: #dbeafe;\r\n\t--todo-background-clr: #7dd3fc; \r\n\t--background-clr-dark: #172554;\r\n\t--scrollbar-color: #312e81;\r\n\t--font-clr-1: black;\r\n\t--font-clr-2: #3b82f6;\r\n\t--font-clr-3: white;\r\n\t--font-1: \"Roboto\", sans-serif;\r\n\t--font-2: \"Open Sans\", sans-serif;\r\n\t--transition: all 0.25s ease-in-out;\r\n\t--border-radius: 6px;\r\n\t--padding-btn-link: 6px 12px;\r\n\t--section-padding: 8px 16px;\r\n\t--letter-spacing: 4px;\r\n}\r\nbody {\r\n\tfont-family: var(--font-1), var(--font-2);\r\n}\r\nbutton {\r\n\tpadding: var(--padding-btn-link);\r\n\tcursor: pointer;\r\n\tfont-weight: 700;\r\n\ttransition: var(--transition);\r\n}\r\n\r\n\r\n.green-btn,\r\n.red-btn,\r\n.gray-btn,\r\n.light-blue-btn {\r\n\tcolor: black;\r\n\tbackground-color: white;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\tfont-family: var(--font-1), var(--font-2);\r\n\tborder: none;\r\n\tborder-radius: var(--border-radius);\r\n\ttransition: var(--transition);\r\n\tcursor: pointer;\r\n}\r\n\r\n/* Light blue button styles */\r\n.light-blue-btn {\r\n\tbackground-color: var(--background-clr-2);\r\n\tcolor: #5518ab;\r\n}\r\n.light-blue-btn:hover {\r\n\tcolor: var(--background-clr-3);\r\n\tbackground-color: var(--font-clr-1);\r\n}\r\n.light-blue-btn[data-active=\"true\"] {\r\n\tcolor: var(--background-clr-3);\r\n\tbackground-color: var(--font-clr-1);\r\n}\r\n\r\n/* Green button styles: Remember to do hover effect for them */\r\n.green-btn {\r\n\tborder: 2px solid #22c55e;\r\n}\r\n/* Red button styles */\r\n.red-btn {\r\n\tborder: 2px solid #b91c1c;\r\n}\r\n.gray-btn {\r\n\tborder: 2px solid #6b7280\r\n}\r\n.green-btn:hover {\r\n\tbackground-color: #22c55e;\r\n\tcolor: white;\r\n}\r\n.red-btn:hover {\r\n\tbackground-color: #b91c1c;\r\n\tcolor: white;\r\n}\r\n.gray-btn:hover {\r\n\tbackground-color: #6b7280;\r\n\tcolor: white;\r\n}\r\n\r\n\r\n.content-hidden {\r\n\tdisplay: none !important;\r\n}\r\n\r\n\r\n/* Styling for content; mainly for having modals */\r\n.content {\r\n\tposition: relative;\r\n}\r\n\r\n/* Styles for modal forms */\r\n/* Blurred overlay */\r\n.overlay {\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\t/* Blurs the area behind the element  */\r\n\tbackdrop-filter: blur(5px); \r\n\t/* This will be over all other content in project-container */\r\n\tz-index: 1;\r\n}\r\n\r\n.modal {\r\n\tposition: absolute;\r\n\tz-index: 2;\r\n\ttop: 50%;\r\n\tleft: 50%;\r\n\ttransform: translate(-50%, -50%);\r\n\twidth: 50%;\r\n\t/* Make height min-content since heights will vary due to the different forms */\r\n\theight: min-content;\r\n\t/* Fancy box shadow */\r\n\tbox-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;\r\n\tbackground-color: var(--background-clr-4);\r\n}\r\n.modal button {\r\n\tpadding: 10px 14px;\r\n}\r\n.modal .modal-header {\r\n\tpadding: var(--section-padding);\r\n\tgrid-row: 1;\r\n\tgrid-column: 1 / end;\t\r\n\tcolor: var(--font-clr-1);\r\n\tfont-weight: 700;\r\n\tbackground-color: var(--background-clr-3);\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\r\n}\r\n\r\n.modal-main-content {\r\n\tpadding: var(--section-padding);\r\n\tfont-weight: 700;\r\n}\r\n\r\n/* Styling for the form itself */\r\n.modal-form {\r\n\tpadding: var(--section-padding);\r\n\tfont-weight: 700;\r\n}\r\n.modal-form .input-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\talign-items: center;\r\n\trow-gap: 12px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* Styling the modal that shows the details of the todo */\r\n.todo-details-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\trow-gap: 8px;\r\n\talign-items: center;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* Styles for everything related to the project container */\r\n.project-container {\r\n\tdisplay: grid;\r\n\t/* \r\n\tauto: for the header and footer so it automatically just sizes the row to the size of the content. \r\n\tThen 1fr for the rest of the space in the height for the sidebar and maincontent\r\n\t*/\r\n\tgrid-template-rows: auto 1fr auto; \r\n\r\n\t/* left side is just 15% of screen for the left side (which will be sidebar) and then 1fr for the remaining width */\r\n\tgrid-template-columns: 15% 1fr;\r\n\theight: 100vh;\r\n}\r\n\r\n/* Header styles */\r\n.project-header {\r\n\tbackground-color: var(--background-clr-1);\r\n\tcolor: var(--font-clr-1);\r\n\tfont-size: 16px;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\t\r\n\t/* Header starts at the first row in grid and stays there */\r\n\tgrid-row: 1;\r\n\r\n\t/* Column starts at 1 and goes to the end since we want the header to span across the page */\r\n\tgrid-column: 1 / span 2;\r\n\t\r\n}\r\n\r\n/* Styles for containers in header */\r\n.app-logo-container,\r\n.user-info-section {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n}\r\n.app-logo-container {\r\n\tflex-basis: 200px;\r\n}\r\n.user-info-section {\r\n\tflex-basis: 500px;\r\n}\r\n\r\n/* Styling for the sidebar */\r\n.project-sidebar {\r\n\tbackground-color: var(--background-clr-3);\r\n\t/* padding: var(--section-padding); */\r\n\tpadding: 16px 0;\r\n\t/* Start and span across row 2, which is our main row. Then position into  */\r\n\tgrid-row: 2;\r\n\tgrid-column: 1;\r\n\tfont-size: 20px;\r\n\ttext-align: center;\r\n}\r\n\r\n/* Styling for the todo count */\r\n.todo-count-el {\r\n\tbackground-color: var(--background-clr-4);\r\n\tcolor: var(--font-clr-1);\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\twidth: 24px;\r\n\theight: 24px;\r\n\tborder-radius: 50%;\r\n\tdisplay: inline-flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n}\r\n\r\n/* Styling for the sections containing hte tabs and the tabs themselves. */\r\n.sidebar-tab-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\trow-gap: 10px;\r\n\ttext-align: center;\r\n}\r\n.sidebar-tab-item {\r\n\tfont-size: inherit;\r\n\tborder: 2px solid black;\r\n\tpadding: 6px 6px;\r\n\tmargin: 0 auto;\r\n\tcursor: pointer;\r\n\tborder-radius: 6px;\r\n\ttransition: var(--transition);\r\n}\r\n.main-tab-section .sidebar-tab-item,\r\n.projects-tab-section .sidebar-tab-item {\r\n\twidth: 90%;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\r\n}\r\n.sidebar-tab-item:hover {\r\n\tbackground-color: var(--background-clr-dark);\r\n\t.sidebar-tab-title {\r\n\t\tcolor: var(--font-clr-3);\r\n\t}\r\n}\r\n\r\n.sidebar-tab-item[data-active=\"true\"] {\r\n\tbackground-color: var(--background-clr-dark);\r\n\t.sidebar-tab-title {\r\n\t\tcolor: var(--font-clr-3);\r\n\t}\r\n}\r\n\r\n.sidebar-tab-title {\r\n\ttransition: var(--transition);\r\n\t/* \r\n\tMake the title the full width of the container minus 40px so that todo-count-el has enough space\r\n\tto breathe and not be affected by the length of the title\r\n\t*/\r\n\twidth: calc(100% - 40px);\r\n}\r\n\r\n/* Styling for secondary tab */\r\n.projects-tab-section {\r\n\tmargin-left: 12px; /*Have indent to indicate which tabs are under the project's section*/\r\n\r\n\t/* If height of the project's container goes over 150px, we add a scroll bar for it */\r\n\tmax-height: 150px;\r\n\toverflow-y: auto;\r\n\r\n\tmargin-bottom: 32px;\r\n}\r\n\r\n/* Make it so only the sidebar-tab-item registers clicks */\r\n.sidebar-tab-item > * {\r\n\tpointer-events: None;\r\n}\r\n\r\n/* Style the title \"Projects\" on the sidebar */\r\n#sidebar-section-title {\r\n\tmargin-top: 8px;\r\n\tmargin-bottom: 8px;\r\n\tletter-spacing: var(--letter-spacing);\r\n}\r\n\r\n\r\n/* BOOK MARK: Now create and style the maincontent; don't forget to include the section that tells \r\nthe user if they don't have anything */\r\n\r\n\r\n/* Fancy styling for button: box shadow is just setting the background when you hover */\r\n#create-project-btn {\r\n\tbackground-color: transparent;\r\n\tbox-shadow: inset 0 0 0 0 var(--background-clr-1);\r\n\tcolor: var(--font-clr-1);\r\n\tborder: 2px solid black;\r\n\tpadding: var(--section-padding);\r\n\t\r\n}\r\n#create-project-btn:hover {\r\n\tbox-shadow: inset 0 0 0 120px var(--background-clr-1);\r\n\tcolor: var(--font-clr-3);\t\r\n\tborder-radius: 0;\r\n}\r\n\r\n\r\n/* Styling for main content section: Section where todos are displayed and todo information is displayed */\r\n.project-main-content {\r\n\tbackground-color: var(--background-clr-4);\r\n\tgrid-row: 2;\r\n\tgrid-column: 2 / end;\r\n\r\n\tdisplay: grid;\r\n\tgrid-template-rows: auto 1fr;\r\n}\t\r\n\r\n\r\n\r\n\r\n/* Styling header of project-main-content */\r\n\r\n/* Styling when user is on a main tab */\r\n.main-content-header-main-tab {\r\n\ttext-align: center;\r\n}\r\n\r\n/* Styling when user is on a project tab */\r\n.main-content-header-project-tab {\r\n\tpadding: var(--section-padding);\r\n\twidth: 70%;\r\n\tmargin: 0 auto;\r\n\tgrid-row: 1;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n/* Make it scrollable if it goes past the height content */\r\n#todo-list-container {\r\n\tpadding: var(--section-padding);\r\n\twidth: 70%;\r\n\tmargin: 0 auto;\r\n\tgrid-row: 2;\r\n\trow-gap: 12px;\r\n\r\n\tmax-height: 400px;\r\n\toverflow-y: auto;\r\n\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n.todo-item {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n\tpadding: var(--section-padding);\r\n\tbackground-color: var(--todo-background-clr);\r\n\ttransition: var(--transition);\r\n}\r\n.todo-item:hover {\r\n\tbox-shadow: 5px 5px 0 0 rgba(0,0,0,0.5);\r\n}\r\n.todo-item[data-todo-complete=\"true\"] .todo-title-el {\r\n\ttext-decoration: line-through;\t\r\n}\r\n\r\n/* Styling for section that shows when you have no todos or no projects created */\r\n.empty-tab-section {\r\n\tborder: 2px solid black;\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\tletter-spacing: var(--letter-spacing);\r\n}\r\n\r\n#empty-tab-message-primary-el {\r\n\tfont-size: 28px;\r\n\tmargin-bottom: 12px;\r\n}\r\n#empty-tab-message-secondary-el {\r\n\tfont-size: 16px;\r\n}\r\n\r\n/* Styling for the footer */\r\nfooter {\r\n\tbackground-color: var(--background-clr-2);\r\n\tcolor: var(--font-clr-1);\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\r\n\tgrid-row: 3;\r\n\tgrid-column: 1 / end;\r\n}\r\n\r\n.site-icons {\r\n\twidth: 30px;\r\n\theight: 30px;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*, *::before, *::after {\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n\tbox-sizing: border-box;\r\n}\r\nul, ol {\r\n\tlist-style: none;\r\n}\r\na {\r\n\ttext-decoration: none;\r\n}\r\nfieldset {\r\n\tborder: none;\r\n}\r\ninput {\r\n\tbackground-color: white;\r\n\tborder: 2px solid gray;\r\n\tpadding: var(--section-padding);\r\n}\r\n\r\n\r\n/* scrollbar styles */\r\n*::-webkit-scrollbar {\r\n\twidth: 6px;\r\n\t/* transition: var(--transition); */\r\n}\r\n*::-webkit-scrollbar-thumb {\r\n\tbackground-color: var(--scrollbar-color);\r\n\tborder-radius: 20px;\r\n\tbackground-clip: content-box;\r\n}\r\n*::-webkit-scrollbar-track {\r\n\tbackground-color: transparent;\r\n}\r\n*::-webkit-scrollbar-thumb:hover {\r\n\tbackground-color: var(--background-clr-2);\r\n}\r\n:root {\r\n\t--background-clr-1: #3b82f6;\r\n\t--background-clr-2: #93c5fd;\r\n\t--background-clr-3: #60a5fa;\r\n\t--background-clr-4: #dbeafe;\r\n\t--todo-background-clr: #7dd3fc; \r\n\t--background-clr-dark: #172554;\r\n\t--scrollbar-color: #312e81;\r\n\t--font-clr-1: black;\r\n\t--font-clr-2: #3b82f6;\r\n\t--font-clr-3: white;\r\n\t--font-1: \"Roboto\", sans-serif;\r\n\t--font-2: \"Open Sans\", sans-serif;\r\n\t--transition: all 0.25s ease-in-out;\r\n\t--border-radius: 6px;\r\n\t--padding-btn-link: 6px 12px;\r\n\t--section-padding: 8px 16px;\r\n\t--letter-spacing: 4px;\r\n}\r\nbody {\r\n\tfont-family: var(--font-1), var(--font-2);\r\n}\r\nbutton {\r\n\tpadding: var(--padding-btn-link);\r\n\tcursor: pointer;\r\n\tfont-weight: 700;\r\n\ttransition: var(--transition);\r\n}\r\n\r\n\r\n.green-btn,\r\n.red-btn,\r\n.gray-btn,\r\n.light-blue-btn {\r\n\tcolor: black;\r\n\tbackground-color: white;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\tfont-family: var(--font-1), var(--font-2);\r\n\tborder: none;\r\n\tborder-radius: var(--border-radius);\r\n\ttransition: var(--transition);\r\n\tcursor: pointer;\r\n}\r\n\r\n/* Light blue button styles */\r\n.light-blue-btn {\r\n\tbackground-color: var(--background-clr-2);\r\n\tcolor: #5518ab;\r\n}\r\n.light-blue-btn:hover {\r\n\tcolor: var(--background-clr-3);\r\n\tbackground-color: var(--font-clr-1);\r\n}\r\n.light-blue-btn[data-active=\"true\"] {\r\n\tcolor: var(--background-clr-3);\r\n\tbackground-color: var(--font-clr-1);\r\n}\r\n\r\n/* Green button styles: Remember to do hover effect for them */\r\n.green-btn {\r\n\tborder: 2px solid #22c55e;\r\n}\r\n/* Red button styles */\r\n.red-btn {\r\n\tborder: 2px solid #b91c1c;\r\n}\r\n.gray-btn {\r\n\tborder: 2px solid #6b7280\r\n}\r\n.green-btn:hover {\r\n\tbackground-color: #22c55e;\r\n\tcolor: white;\r\n}\r\n.red-btn:hover {\r\n\tbackground-color: #b91c1c;\r\n\tcolor: white;\r\n}\r\n.gray-btn:hover {\r\n\tbackground-color: #6b7280;\r\n\tcolor: white;\r\n}\r\n\r\n\r\n.content-hidden {\r\n\tdisplay: none !important;\r\n}\r\n\r\n\r\n/* Styling for content; mainly for having modals */\r\n.content {\r\n\tposition: relative;\r\n}\r\n\r\n/* Styles for modal forms */\r\n/* Blurred overlay */\r\n.overlay {\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\t/* Blurs the area behind the element  */\r\n\tbackdrop-filter: blur(5px); \r\n\t/* This will be over all other content in project-container */\r\n\tz-index: 1;\r\n}\r\n\r\n.modal {\r\n\tposition: absolute;\r\n\tz-index: 2;\r\n\ttop: 50%;\r\n\tleft: 50%;\r\n\ttransform: translate(-50%, -50%);\r\n\twidth: 50%;\r\n\t/* Make height min-content since heights will vary due to the different forms */\r\n\theight: min-content;\r\n\t/* Fancy box shadow */\r\n\tbox-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;\r\n\tbackground-color: var(--background-clr-4);\r\n}\r\n.modal button {\r\n\tpadding: 10px 14px;\r\n}\r\n.modal .modal-header {\r\n\tpadding: var(--section-padding);\r\n\tgrid-row: 1;\r\n\tgrid-column: 1 / end;\t\r\n\tcolor: var(--font-clr-1);\r\n\tfont-weight: 700;\r\n\tbackground-color: var(--background-clr-3);\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\r\n}\r\n\r\n.modal-main-content {\r\n\tpadding: var(--section-padding);\r\n\tfont-weight: 700;\r\n}\r\n\r\n/* Styling for the form itself */\r\n.modal-form {\r\n\tpadding: var(--section-padding);\r\n\tfont-weight: 700;\r\n}\r\n.modal-form .input-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\talign-items: center;\r\n\trow-gap: 12px;\r\n}\r\n\r\n/* Styling the modal that shows the details of the todo */\r\n.todo-details-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\trow-gap: 8px;\r\n\talign-items: center;\r\n}\r\n\r\n/* Styles for everything related to the project container */\r\n.project-container {\r\n\tdisplay: grid;\r\n\t/* \r\n\tauto: for the header and footer so it automatically just sizes the row to the size of the content. \r\n\tThen 1fr for the rest of the space in the height for the sidebar and maincontent\r\n\t*/\r\n\tgrid-template-rows: auto 1fr auto; \r\n\r\n\t/* left side is just 15% of screen for the left side (which will be sidebar) and then 1fr for the remaining width */\r\n\tgrid-template-columns: 15% 1fr;\r\n\theight: 100vh;\r\n}\r\n\r\n/* Header styles */\r\n.project-header {\r\n\tbackground-color: var(--background-clr-1);\r\n\tcolor: var(--font-clr-1);\r\n\tfont-size: 16px;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\t\r\n\t/* Header starts at the first row in grid and stays there */\r\n\tgrid-row: 1;\r\n\r\n\t/* Column starts at 1 and goes to the end since we want the header to span across the page */\r\n\tgrid-column: 1 / span 2;\r\n\t\r\n}\r\n\r\n/* Styles for containers in header */\r\n.app-logo-container,\r\n.user-info-section {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n}\r\n.app-logo-container {\r\n\tflex-basis: 200px;\r\n}\r\n.user-info-section {\r\n\tflex-basis: 500px;\r\n}\r\n\r\n/* Styling for the sidebar */\r\n.project-sidebar {\r\n\tbackground-color: var(--background-clr-3);\r\n\t/* padding: var(--section-padding); */\r\n\tpadding: 16px 0;\r\n\t/* Start and span across row 2, which is our main row. Then position into  */\r\n\tgrid-row: 2;\r\n\tgrid-column: 1;\r\n\tfont-size: 20px;\r\n\ttext-align: center;\r\n}\r\n\r\n/* Styling for the todo count */\r\n.todo-count-el {\r\n\tbackground-color: var(--background-clr-4);\r\n\tcolor: var(--font-clr-1);\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\twidth: 24px;\r\n\theight: 24px;\r\n\tborder-radius: 50%;\r\n\tdisplay: inline-flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n}\r\n\r\n/* Styling for the sections containing hte tabs and the tabs themselves. */\r\n.sidebar-tab-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\trow-gap: 10px;\r\n\ttext-align: center;\r\n}\r\n.sidebar-tab-item {\r\n\tfont-size: inherit;\r\n\tborder: 2px solid black;\r\n\tpadding: 6px 6px;\r\n\tmargin: 0 auto;\r\n\tcursor: pointer;\r\n\tborder-radius: 6px;\r\n\ttransition: var(--transition);\r\n}\r\n.main-tab-section .sidebar-tab-item,\r\n.projects-tab-section .sidebar-tab-item {\r\n\twidth: 90%;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\r\n}\r\n.sidebar-tab-item:hover {\r\n\tbackground-color: var(--background-clr-dark);\r\n\t.sidebar-tab-title {\r\n\t\tcolor: var(--font-clr-3);\r\n\t}\r\n}\r\n\r\n.sidebar-tab-item[data-active=\"true\"] {\r\n\tbackground-color: var(--background-clr-dark);\r\n\t.sidebar-tab-title {\r\n\t\tcolor: var(--font-clr-3);\r\n\t}\r\n}\r\n\r\n.sidebar-tab-title {\r\n\ttransition: var(--transition);\r\n\t/* \r\n\tMake the title the full width of the container minus 40px so that todo-count-el has enough space\r\n\tto breathe and not be affected by the length of the title\r\n\t*/\r\n\twidth: calc(100% - 40px);\r\n}\r\n\r\n/* Styling for secondary tab */\r\n.projects-tab-section {\r\n\tmargin-left: 12px; /*Have indent to indicate which tabs are under the project's section*/\r\n\t/* If height of the project's container goes over 150px, we add a scroll bar for it */\r\n\tmax-height: 150px;\r\n\toverflow-y: auto;\r\n\tmargin-bottom: 32px;\r\n}\r\n\r\n/* Make it so only the sidebar-tab-item registers clicks */\r\n.sidebar-tab-item > * {\r\n\tpointer-events: None;\r\n}\r\n\r\n/* Style the title \"Projects\" on the sidebar */\r\n#sidebar-section-title {\r\n\tmargin-top: 8px;\r\n\tmargin-bottom: 8px;\r\n\tletter-spacing: var(--letter-spacing);\r\n}\r\n\r\n/* Fancy styling for button: box shadow is just setting the background when you hover */\r\n#create-project-btn {\r\n\tbackground-color: transparent;\r\n\tbox-shadow: inset 0 0 0 0 var(--background-clr-1);\r\n\tcolor: var(--font-clr-1);\r\n\tborder: 2px solid black;\r\n\tpadding: var(--section-padding);\r\n\t\r\n}\r\n#create-project-btn:hover {\r\n\tbox-shadow: inset 0 0 0 120px var(--background-clr-1);\r\n\tcolor: var(--font-clr-3);\t\r\n}\r\n\r\n/* Styling for main content section: Section where todos are displayed and todo information is displayed */\r\n.project-main-content {\r\n\tbackground-color: var(--background-clr-4);\r\n\tgrid-row: 2;\r\n\tgrid-column: 2 / end;\r\n\r\n\tdisplay: grid;\r\n\tgrid-template-rows: auto 1fr;\r\n}\t\r\n\r\n/* Styling header of project-main-content */\r\n\r\n/* Styling when user is on a main tab */\r\n.main-content-header-main-tab {\r\n\ttext-align: center;\r\n}\r\n\r\n/* Styling when user is on a project tab */\r\n.main-content-header-project-tab {\r\n\tpadding: var(--section-padding);\r\n\twidth: 70%;\r\n\tmargin: 0 auto;\r\n\tgrid-row: 1;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n/* Make it scrollable if it goes past the height content */\r\n#todo-list-container {\r\n\tpadding: var(--section-padding);\r\n\twidth: 70%;\r\n\tmargin: 0 auto;\r\n\tgrid-row: 2;\r\n\trow-gap: 12px;\r\n\tmax-height: 400px;\r\n\toverflow-y: auto;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n.todo-item {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: space-between;\r\n\tpadding: var(--section-padding);\r\n\tbackground-color: var(--todo-background-clr);\r\n\ttransition: var(--transition);\r\n}\r\n.todo-item:hover {\r\n\tbox-shadow: 5px 5px 0 0 rgba(0,0,0,0.5);\r\n}\r\n.todo-item[data-todo-complete=\"true\"] .todo-title-el {\r\n\ttext-decoration: line-through;\t\r\n}\r\n\r\n/* Styling for section that shows when you have no todos or no projects created */\r\n#empty-tab-section {\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\tletter-spacing: var(--letter-spacing);\r\n}\r\n\r\n#empty-tab-message-primary {\r\n\tfont-size: 28px;\r\n\tmargin-bottom: 12px;\r\n}\r\n#empty-tab-message-secondary {\r\n\tfont-size: 16px;\r\n}\r\n\r\n/* Styling for the footer */\r\nfooter {\r\n\tbackground-color: var(--background-clr-2);\r\n\tcolor: var(--font-clr-1);\r\n\ttext-align: center;\r\n\tfont-weight: 700;\r\n\tpadding: var(--section-padding);\r\n\r\n\tgrid-row: 3;\r\n\tgrid-column: 1 / end;\r\n}\r\n\r\n.site-icons {\r\n\twidth: 30px;\r\n\theight: 30px;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -471,7 +471,7 @@ function createTodoForm() {
 	formEl.id = "todo-form";
 	formEl.innerHTML = `<fieldset class="input-section">
 
-						<input placeholder="Title: Pay bills" type="text" id="todo-title-field" name="title" maxlength="30" required>						
+						<input placeholder="Title: Pay bills" type="text" id="todo-title-field" name="title" maxlength="20" required>						
 						<input placeholder="Description: Gas and Electricity" type="text" id="todo-description-field" name="description" maxlength="100" required>	
 					
 						<fieldset id="todo-due-date-field-section>
@@ -573,32 +573,6 @@ function createModal() {
 	return modalEl;
 }
 
-
-
-/*
-Looks like we should create functions for 
-// Make them all hidden at first
-
-- creating the "make project"
-- creating "make todo" form
-- creating "show todo details"
-
-- loadModalContent(); takes in a string or something from the button, which allows it to decide
-what to do content-hidden removal, and then ultimately what display function to run
-
-Then functions:
-- displayProjectForm; which could have a boolean for making or editing; we know it's editing 
-if a project instance is passed through
-- displayTodoForm; which could be making or editing depending if a todo class instance is passed
-
-
-*/
-
-
-
-
-
-
 // Function for creating project header
 function createProjectHeader() {
 	const headerEl = document.createElement("header");
@@ -630,9 +604,9 @@ function createProjectSidebar() {
 	// Create main tab for sidebar
 	const mainTabSection = document.createElement("ul");
 	mainTabSection.classList.add("sidebar-tab-section", "main-tab-section");	
-	mainTabSection.innerHTML = `<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">0</span></li>
-					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Today"><span class="sidebar-tab-title">Today</span><span class="todo-count-el">0</span></li>
-					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Week"><span class="sidebar-tab-title">Week</span><span class="todo-count-el">0</span></li>`;
+	mainTabSection.innerHTML = `<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el"></span></li>
+					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Today"><span class="sidebar-tab-title">Today</span><span class="todo-count-el"></span></li>
+					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Week"><span class="sidebar-tab-title">Week</span><span class="todo-count-el"></span></li>`;
 	sidebarEl.appendChild(mainTabSection);
 
 	// Create the title "Projects" for a section in the sidebar
@@ -650,14 +624,11 @@ function createProjectSidebar() {
 	const createProjectBtn = document.createElement("button");
 	createProjectBtn.classList.add("sidebar-tab-item");
 	createProjectBtn.id = "create-project-btn";
-	createProjectBtn.setAttribute("data-form-action", "add-project");
 	createProjectBtn.textContent = "Add Project";
 	sidebarEl.appendChild(createProjectBtn);
 
 	return sidebarEl;
 }
-
-// BOOK MARK: DO THE MAIN CONTENT SECTION; probably going to have the header and title, and stff 
 
 // Function for creating the main display page (section where all of the todos are)
 function createMainContentSection() {
@@ -673,6 +644,31 @@ function createMainContentSection() {
 	const todoListContainer = document.createElement("ul");
 	todoListContainer.id = "todo-list-container";
 	projectMainContentSection.appendChild(todoListContainer);
+
+	// Create div that shows the user a message 
+	const emptyTabSection = document.createElement("section");
+	emptyTabSection.id = "empty-tab-section";
+	projectMainContentSection.appendChild(emptyTabSection);
+
+	// Create message elements to show the user (main message)
+	const mainMessageEl = document.createElement("h1");
+	mainMessageEl.id = "empty-tab-message-primary";
+	mainMessageEl.textContent = "No todos in this tab yet!";
+	emptyTabSection.appendChild(mainMessageEl);
+
+	// Create the sub message 
+	const subMessageEl = document.createElement("p");
+	subMessageEl.id = "empty-tab-message-secondary";
+	subMessageEl.textContent = "Please make a new todo or project to get started!";
+	emptyTabSection.appendChild(subMessageEl);
+
+
+
+
+	// <div class="empty-tab-section content-hidden">
+	// 				<h1 id="empty-tab-message-primary-el">No todos in this tab yet!</h1>
+	// 				<p id="empty-tab-message-secondary-el">Please make a new todo or project to get started!</p>
+	// 			</div>
 
 
 	return projectMainContentSection;
@@ -766,13 +762,12 @@ class Completion {
 	}
 }
 
-
 // Todo class: dueDate is just the value of the input date element
 class Todo {
 	constructor(title, description, dueDate, priority) {
 		this.title = new Title(title);
 		this.description = new Description(description);
-		this.dueDate = new Date(dueDate);
+		this.dueDate = new Date(dueDate);		
 		this.priority = new Priority(priority);
 		this.isComplete = new Completion(false);
 	}
@@ -805,8 +800,10 @@ class Note {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "formatDateToUS": () => (/* binding */ formatDateToUS),
 /* harmony export */   "isSameDate": () => (/* binding */ isSameDate),
-/* harmony export */   "isSevenDaysInFuture": () => (/* binding */ isSevenDaysInFuture)
+/* harmony export */   "isSevenDaysInFuture": () => (/* binding */ isSevenDaysInFuture),
+/* harmony export */   "sortTodosByDate": () => (/* binding */ sortTodosByDate)
 /* harmony export */ });
 
 // Checks if a date WITHIN 7 days in the future; not including today
@@ -827,11 +824,69 @@ function isSameDate(dateOne, dateTwo) {
 	return utcDateOne == utcDateTwo;
 }
 
+// Will return a date in the form "[Month] [Day], [Year]" e.g. "June 6, 2017"
+function formatDateToUS(dateObj) {
+	// Create a map of months
+	const monthMap = {
+		"01": "January",
+		"02": "February",
+		"03": "March",
+		"04": "April",
+		"05": "May",
+		"06": "June",
+		"07": "July",
+		"08": "August",
+		"09": "September",
+		"10": "October",
+		"11": "November",
+		"12": "December"
+	};
+	
+	// First we reassign the date object to the string to correct any date errosr created by it defaulting to certain timezones
+	const dateStr = dateObj.toISOString().slice(0, 10);
+	const yearStr = dateStr.slice(0, 4);
+	const monthStr = monthMap[dateStr.slice(5,7)];
+	let dayStr;
+	// If the day value is single digits
+	if (dateStr.slice(8, 9) == '0') {
+		dayStr = dateStr.slice(9);
+	} else {
+		// Else if the day value is double digits, then we slice differently to get the full date
+		dayStr = dateStr.slice(8);
+	}
+	// Format the string in the United States style
+	const formattedDate = `${monthStr} ${dayStr}, ${yearStr}`;
+	return formattedDate;
+}
+
+// Sorts your todos by their dueDate 
+function sortTodosByDate(todos) {
+	// Base case; at this case the list or partition is sorted so we return it up the stack
+	if (todos.length <= 1) {
+		return todos; 
+	}
+	// Create the left, right, and middle
+	let lessThanPivot = [];
+	let greaterThanPivot = []; 
+	const pivot = todos[0];
+	// Sort the todos by date
+	for (let i = 1; i < todos.length; i++) {
+		// If the date is earlier than the pivot's date
+		if (todos[i].dueDate < pivot.dueDate) {
+			lessThanPivot.push(todos[i]);
+		} else {
+			// Else this means the todo's due date is greater or later than the pivot
+			greaterThanPivot.push(todos[i]);
+		}
+	}
+	// Combine into one array in form [lessThanPivot, Pivot, greaterThanPivot], and recursively call the function
+	// to get more sublists and sort further.
+	todos = [...sortTodosByDate(lessThanPivot), pivot, ...sortTodosByDate(greaterThanPivot)]
+	// Then once it's sorted and the base case is hit, it returns the sorted list
+	return todos
+}
 
 
-
-// Since everytime we modify add, or delete, we update the screen, maybe have a function for that
-// 
 
 /***/ })
 /******/ 	]);
@@ -925,16 +980,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 webfontloader__WEBPACK_IMPORTED_MODULE_1___default().load({
 	google: {
 		families: ["Roboto", "Open Sans"]
 	}
 });
 
-// Lists containing project instances; probably are going to act as our 
-// databases for the meantime
+// Lists containing project instances; probably are going to act as our databases for the meantime
 let projectsList = []; // contains all projects; but can also be used to get all todos
 
 // Object that contains the todos for the main three tabs; different since these are tabs rather than project class instances
@@ -944,16 +996,14 @@ const mainTabTodos = {
 	"Week": []
 }
 
-// variables that keep track of whether the user is adding or creating a new instance of project or todo
-// values will be "add-project" or "add-todo" or "edit-project" or "edit-todo";
+// Module that keeps important information that mainly helps with forms and keep tracking of information such as 'what tab is the user currently on' or 'what todo are they trying to access'.
 const formInfoModule = {
-	"projectFormState":  "",
-	"todoFormState":  "",
 	// Active tab id represents either one of two things; the index of the project that the user has selected in the sidebar
 	// or the id of one of the main tabs that the user has selected; which means activeTabID would be a numeric index value
 	// or a string such as "Home", "Today", "Week"
 	"activeTabID": "Home",
 	"activeTodoIndex": "",
+	"isEdit": true, // boolean that keeps track of and differentiates whether the user is editing something or adding something new
 }
 
 // IFFE: Contains all dom elements for page
@@ -1004,7 +1054,12 @@ const DOMElementsModule = (() => {
 
 	// Now even listener for opening project form and closing modal
 	const createProjectBtn = document.getElementById("create-project-btn");
-	createProjectBtn.addEventListener("click", displayProjectForm);
+	createProjectBtn.addEventListener("click", e => {
+		formInfoModule.isEdit = false;
+		displayProjectForm(e);
+	})
+
+	// Close modal for closing the modal
 	const closeModalBtn = document.getElementById("close-modal-btn");
 	closeModalBtn.addEventListener("click", closeModal);
 
@@ -1013,19 +1068,14 @@ const DOMElementsModule = (() => {
 		// Prevent default form behavior and get all input values from your desired form
 		e.preventDefault(); 
 		const inputTitle = document.getElementById("project-title-field").value;
-
-		// Then depending on the state of the form either the function to add or edit a project
-		if (formInfoModule.projectFormState == "add-project") {
-			addProject(inputTitle);
+		// Then depending on boolean, add or edit the project
+		if (formInfoModule.isEdit) {
+			editProject(inputTitle);			
 		} else {
-			// formInfoModule.projectFormState == "edit-project" in this case
-			editProject(inputTitle);
+			addProject(inputTitle);
 		}
-		// Update the sidebar since a project is being added/edited, and then render main content since the header may change
-		updateSidebarTabs();
-		// If the user was on a project tab while opening up the form, then we make sure to continue rendering the main content of that tab.
-		// Essentially the user changed a project, which change the information on main content, so render the new main content
-		renderMainContent();
+		// Update the sidebar and maincontent 
+		renderPage();
 		// Now close the modal once everything is done; allowing the user to access page again after everything is done;
 		closeModal();
 	})
@@ -1037,24 +1087,15 @@ const DOMElementsModule = (() => {
 		const inputDescription = document.getElementById("todo-description-field").value;
 		const inputDueDate = document.getElementById("todo-due-date-field").value;
 		const inputPriority = document.getElementById("todo-priority-drop-down").value;
-
 		// Then create logic for editing or creating a todo for a certain project
-		if (formInfoModule.todoFormState == "add-todo") {
-			addTodo(inputTitle, inputDescription, inputDueDate, inputPriority);
-		} else {
+		if (formInfoModule.isEdit) {
 			editTodo(inputTitle, inputDescription, inputDueDate, inputPriority);
+		} else {
+			addTodo(inputTitle, inputDescription, inputDueDate, inputPriority);
 		}
-		updateSidebarTabs();
-		renderMainContent();
-		
-		/*
-		+ BOOK MARK: Check whether todo form works with adding, and editing stuff; looks like its having trouble with the 
-		date objects, so I'm guessing we aren't getting proper date objects in your form part
-		 */
+		renderPage();
 		closeModal();
 	})
-
-
 
 	return {
 		pageContentSection, 
@@ -1071,9 +1112,7 @@ const DOMElementsModule = (() => {
 })();
 
 /*
-
 + Rendering and visual side
-
 */
 
 // Function that displays a project form when user presses create project button
@@ -1091,19 +1130,15 @@ function displayProjectForm(e) {
 	const modalHeaderTitle = document.getElementById("modal-header-title-el");
 	// Select the input elements of the project form;
 	const inputTitleEl = document.getElementById("project-title-field");
-	
-	// See if we're editing or adding a project, and update the value in the formInfoModule to keep track of whether 
-	// the user is trying to add or edit in the project form.
-	formInfoModule.projectFormState = e.currentTarget.dataset.formAction;
 
 	// Depending on whether they're editing a project or adding a new one change the title and input elemenets
-	if (formInfoModule.projectFormState == "add-project") {
-		modalHeaderTitle.textContent = "Add a new project!";
-	} else {
+	if (formInfoModule.isEdit) {
 		// Editing a project, so find the selected project the user wants by looking at the current tab they're on since they're on a project tab
 		const currentProject = projectsList[formInfoModule.activeTabID];
 		modalHeaderTitle.textContent = `Edit Project: '${currentProject.title.getTitle()}'`;
 		inputTitleEl.value = `${currentProject.title.getTitle()}`;
+	} else {
+		modalHeaderTitle.textContent = "Add a new project!";
 	}
 }
 
@@ -1127,27 +1162,24 @@ function displayTodoForm(e) {
 	const priorityDropDown = document.getElementById("todo-priority-drop-down");
 
 	// Update the state of the todo form to indicate whether the user is creating a new todo or editing an existing one
-	formInfoModule.todoFormState = e.currentTarget.dataset.formAction;
 	formInfoModule.activeTodoIndex = e.currentTarget.parentElement.parentElement.dataset.todoIndex;
 
 	// Current project that the todo is from
-	const currentProject = projectsList[formInfoModule.activeTabID];
+	const currentProject = projectsList[formInfoModule.activeTabID]; 
+
 	// Modify header and input fields depending on whether the user is adding or editing a todo
-	if (formInfoModule.todoFormState == "add-todo") {
-		modalHeaderTitle.textContent = `Add a new todo for project '${currentProject.title.getTitle()}'`;
-	} else {
-		const currentTodo = currentProject.getProjectTodos()[formInfoModule.activeTodoIndex];
+	if (formInfoModule.isEdit) {
+		const currentTodo = currentProject.projectTodos[formInfoModule.activeTodoIndex];
 		modalHeaderTitle.textContent = `Edit todo '${currentTodo.title.getTitle()}' for project'${currentProject.title.getTitle()}'`;
 		// Fill the fields with information about the current todo being edited
 		inputTitleEl.value = `${currentTodo.title.getTitle()}`;
 		inputDescriptionEl.value = `${currentTodo.description.getDescription()}`;
-		dueDateEl.value = `${currentTodo.dueDate.toISOString().slice(0, 10)}`; // format the date object like so in order for html date input to accept its value
+		dueDateEl.value = `${currentTodo.dueDate.toISOString().slice(0, 10)}`; // formatting the date object like so in order for html date input to accept its value
 		priorityDropDown.value = `${currentTodo.priority.getPriority()}`;
+	} else {
+		modalHeaderTitle.textContent = `Add a new todo for project '${currentProject.title.getTitle()}'`;
 	}
 }
-
-// BOOK MARK: Test and finish the implementation of editing a todo, then d
-
 
 // Displays modal that shows info about a todo
 function displayTodoDetails(e) {
@@ -1156,9 +1188,8 @@ function displayTodoDetails(e) {
 	DOMElementsModule.modalEl.classList.remove("content-hidden");
 	DOMElementsModule.todoDetailsSection.classList.remove("content-hidden");
 
-	// Get the title of the modal and chnage the title
+	// Get the title of the modal and the input elements 
 	const modalHeaderTitle = document.getElementById("modal-header-title-el");
-
 	const todoTitleEl = document.getElementById("todo-details-title-el");
 	const todoDescriptionEl = document.getElementById("todo-details-description-el");
 	const todoPriorityEl = document.getElementById("todo-details-priority-el");
@@ -1167,7 +1198,6 @@ function displayTodoDetails(e) {
 	// Now get the index of the todo, it could be in one of the main tabs or a project tab
 	const todoIndex = e.currentTarget.parentElement.parentElement.dataset.todoIndex; 
 	let currentTodo;
-	// Let's handle it if user is on a main tab
 	
 	// See if the activeTabID is a string representing "Home, Week, or Today" rather than the index of a project in projectsList
 	if (typeof formInfoModule.activeTabID === "string") {
@@ -1176,27 +1206,13 @@ function displayTodoDetails(e) {
 		// Else since it's not a maintab it must be a project tab, which means we can't access a project index
 		currentTodo = projectsList[formInfoModule.activeTabID].projectTodos[todoIndex];
 	}
-
-	console.log(currentTodo);
-
-	
 	// Change title of modal header and display information of the todo
 	modalHeaderTitle.textContent = `Details for todo '${currentTodo.title.getTitle()}'`;
 	todoTitleEl.textContent = `Title: ${currentTodo.title.getTitle()}`;
 	todoDescriptionEl.textContent = `Description: ${currentTodo.description.getDescription()}`;
 	todoPriorityEl.textContent = `Priority: ${currentTodo.priority.getPriority()}`;
 	todoDueDateEl.textContent = `Due Date: ${currentTodo.dueDate.toISOString().slice(0, 10)}`;
-
-
-
-
-
-
-
-
-
 }
-
 
 // Hides modal, overlay, and then all of the other content for the modal
 function closeModal() {	
@@ -1214,22 +1230,28 @@ function updateSidebarTabs() {
 	
 	// Update the html in the project section of the sidebar
 	projectsTabSection.innerHTML = projectsList.map((project, index) => {
+		// Get the title and amount of todo instance that are complete.
 		const projectTitle = project.title.getTitle();
-		const projectTodoCount = project.getProjectTodos().length;
-		// User may have submitted a todo or project form, which meant they were previously project-tab; ensure 
-		// data-active stays on that sidebar  
+		
+		// User may have submitted a todo or project form, which meant they were previously project-tab; ensure data-active stays on that sidebar
+		// Essentially, if user was on a project tab, we make sure make sure data-active stays on that tab; helping us render that tab later on
 		if (formInfoModule.activeTabID === index) {
-			return `<li class="sidebar-tab-item" data-tabtype="projectTab" data-active='true' data-projectid=${index}><span class="sidebar-tab-title">${projectTitle}</span><span class="todo-count-el">${projectTodoCount}</span></li>`;
+			return `<li class="sidebar-tab-item" data-tabtype="projectTab" data-active='true' data-projectid=${index}><span class="sidebar-tab-title">${projectTitle}</span><span class="todo-count-el"></span></li>`;
 		} else {
-			return `<li class="sidebar-tab-item" data-tabtype="projectTab" data-projectid=${index}><span class="sidebar-tab-title">${projectTitle}</span><span class="todo-count-el">${projectTodoCount}</span></li>`;
+			return `<li class="sidebar-tab-item" data-tabtype="projectTab" data-projectid=${index}><span class="sidebar-tab-title">${projectTitle}</span><span class="todo-count-el"></span></li>`;
 		}
 	}).join("");
 
+	// Since we are starting to work with the todos, we should first sort the todos by date
+	for (let i = 0; i < projectsList.length; i++) {
+		projectsList[i].projectTodos = (0,_utility__WEBPACK_IMPORTED_MODULE_5__.sortTodosByDate)(projectsList[i].projectTodos);
+	}
 
 	// first clear the todos already in the tabs
 	for (let key in mainTabTodos) {
 		mainTabTodos[key] = [];
 	}
+
 	// Update amount of todos associated with each of the main tabs
 	const currentDate = new Date(); // create current date object to compare dates of todos
 	for (let i = 0; i < projectsList.length; i++) {
@@ -1250,18 +1272,33 @@ function updateSidebarTabs() {
 	const mainTabs = document.querySelectorAll("li[data-tabtype='mainTab']");
 	// Update the main tabs to correctly show the amount of todos available;
 	mainTabs.forEach(tab => {
-		// Check if the activeTabID matches one of the maintabs, if ; right now this only happens when the user deletes a project
+		// Check if the activeTabID matches one of the maintabs and add data-active if true
 		if (tab.dataset.tabid == formInfoModule.activeTabID) {
 			tab.setAttribute("data-active", "true");
 		}
-		const todoCountEl = tab.querySelector(".todo-count-el")
-		todoCountEl.textContent = mainTabTodos[tab.dataset.tabid].length;
+
 	})
 
 	// Now that sidebar tabs are all updated, make sure when they're clicked it gives them data-active attribute, and removes
 	// that attribute from all other non-clicked tabs.
 	const sidebarTabs = DOMElementsModule.projectSidebar.querySelectorAll("li.sidebar-tab-item");
 	sidebarTabs.forEach(tab => {
+
+		// Get the todo count element and create array containing the completed todos for the tab
+		const todoCountEl = tab.querySelector(".todo-count-el");
+		let incompleteTodos = [];
+		let todos = [];
+
+		// Get the todos depending on whether the user is on a main or a project tab
+		// Then call a function to get an array of the incomplete todos; then assign the count to the length of that array 
+		if (tab.dataset.tabtype === "mainTab") {
+			todos = mainTabTodos[tab.dataset.tabid];
+		} else {
+			todos = projectsList[tab.dataset.projectid].projectTodos;
+		}
+		incompleteTodos = getIncompleteTodos(todos);
+
+		todoCountEl.textContent = incompleteTodos.length;
 		tab.addEventListener("click", handleSidebarTabClick);
 	});
 };
@@ -1276,6 +1313,7 @@ function renderMainContent() {
 	// Get the header, and then the list element for containing your todo list
 	const mainContentHeader = document.getElementById("main-content-header");
 	const todoListContainer = document.getElementById("todo-list-container");
+	const emptyTabSection = document.getElementById("empty-tab-section");
 
 	// This case means we are getting todos for one of the main tabs and changing the header
 	if (tabType == "mainTab") {
@@ -1288,8 +1326,9 @@ function renderMainContent() {
 
 		// If it's one of the main tabs user is only able to view the details of the todo
 		todoListContainer.innerHTML = todos.map((todo, index) => {
-		return `<li class="todo-item" data-todo-complete="false" data-todo-index=${index}>
+		return `<li class="todo-item" data-todo-complete="${todo.isComplete.getCompletion() ? "true" : "false"}" data-todo-index=${index}>
 						<span class="todo-title-el">${todo.title.getTitle()}</span>
+						<span class="todo-due-date-el">Due: ${(0,_utility__WEBPACK_IMPORTED_MODULE_5__.formatDateToUS)(todo.dueDate)}</span>
 						<div class="todo-btns">
 							<button class="todo-btn todo-details-btn gray-btn" class="gray-btn">Details</button>
 						</div>
@@ -1303,8 +1342,8 @@ function renderMainContent() {
 		// Create and style header for project tab
 		mainContentHeader.innerHTML = `<h1 id="tab-title-el">${currentProject.title.getTitle()}</h1>
 					<div class="project-btns-container">
-						<button data-form-action="add-todo" id="add-todo-btn" class="green-btn">Add task</button>
-						<button data-form-action="edit-project" id="edit-project-btn" class="gray-btn">Edit Project</button>
+						<button id="add-todo-btn" class="green-btn">Add task</button>
+						<button id="edit-project-btn" class="gray-btn">Edit Project</button>
 						<button id="delete-project-btn" class="red-btn">Delete Project</button>
 					</div>`;
 		// Add unique header styling for the header when on a project tab
@@ -1313,23 +1352,35 @@ function renderMainContent() {
 		
 		// Set up event listeners for buttons in the header.
 		const addTodoBtn = document.getElementById("add-todo-btn");
-		addTodoBtn.addEventListener("click", displayTodoForm);
+		addTodoBtn.addEventListener("click", e => {
+			formInfoModule.isEdit = false;
+			displayTodoForm(e);
+		});
 
 		// Create button for editing projects; the projectid will be put on the button to keep track of the project being edited
 		const editProjectBtn = document.getElementById("edit-project-btn");
-		editProjectBtn.addEventListener("click", displayProjectForm);
+		editProjectBtn.addEventListener("click", e => {
+			formInfoModule.isEdit = true;
+			displayProjectForm(e);
+		});
 
+		// Create button for deleting projects
+		// NOTE: For adding and editing we have renderPage() at the end of the form objects they're associated with, while deleting projects/todos doesn't need a form, so we renderPage() after the respective delete functions are ran
 		const deleteProjectBtn = document.getElementById("delete-project-btn");
-		deleteProjectBtn.addEventListener("click", deleteProject);
+		deleteProjectBtn.addEventListener("click", () => {
+			deleteProject();
+			renderPage();
+		});
 
 		// Since they are in a project tab, user will be able to edit the todos as well
 		todoListContainer.innerHTML = todos.map((todo, index) => {
 		return `<li class="todo-item" data-todo-complete="${todo.isComplete.getCompletion() ? "true" : "false"}" data-todo-index=${index}>
 					<span class="todo-title-el">${todo.title.getTitle()}</span>
+					<span class="todo-due-date-el">Due: ${(0,_utility__WEBPACK_IMPORTED_MODULE_5__.formatDateToUS)(todo.dueDate)}</span>
 					<div class="todo-btns">
-						<button class="todo-btn toggle-todo-btn green-btn">Mark as Complete</button>
+						<button class="todo-btn toggle-todo-btn green-btn">${todo.isComplete.getCompletion() ? "Mark as incomplete" : "Mark as complete"}</button>
 						<button class="todo-btn todo-details-btn gray-btn">Details</button>
-						<button data-form-action="edit-todo" class="todo-btn edit-todo-btn gray-btn">Edit</button>
+						<button class="todo-btn edit-todo-btn gray-btn">Edit</button>
 						<button class="todo-btn delete-todo-btn red-btn">Delete</button>
 					</div>
 				</li>`;
@@ -1340,57 +1391,47 @@ function renderMainContent() {
 	const todoBtns = document.querySelectorAll("Button.todo-btn");
 		todoBtns.forEach(btn => {
 			if (btn.classList.contains("toggle-todo-btn")) {
-				btn.addEventListener("click", toggleTodoCompletion);
+				btn.addEventListener("click", e => {
+					toggleTodoCompletion(e);
+					renderPage();
+				});
 			} else if (btn.classList.contains("todo-details-btn")) {
 				btn.addEventListener("click", displayTodoDetails);
 			} else if (btn.classList.contains("edit-todo-btn")) {
-				btn.addEventListener("click", displayTodoForm);
+				btn.addEventListener("click", e => {
+					formInfoModule.isEdit = true;
+					displayTodoForm(e);					
+				});
 			} else if (btn.classList.contains("delete-todo-btn")) {
-				btn.addEventListener("click", deleteTodo);
+				btn.addEventListener("click", e => {
+					deleteTodo(e);
+					renderPage();
+				});
 			}
 		})
-	
-	// We create an event listener for todo details on the outside because it's always going to be created
-	// const todoDetailsBtn = document.querySelectorAll(".todo-details-btn")
-	// NOTE: Should probably sort todos by date, but worry about that later
 
-	// Now load the main content, there are todos, then load them, else load a message that tells the user
-	// to make some todos or projects
-	// Then set up event listeners for those todo buttons
-}
-
-// Marks and unmarks a todo's completion 
-function toggleTodoCompletion(e) {
-	// Get the todoElement, which contains our todo's index in its specific project
-	const todoElement = e.currentTarget.parentElement.parentElement;
-	const currentTodo = projectsList[formInfoModule.activeTabID].projectTodos[todoElement.dataset.todoIndex];
-
-	// Get the current completion value
-	const currentCompletionValue = currentTodo.isComplete.getCompletion();
-
-	// If it's currently true, then that's means the user wanted to set the value to false
-	if (currentCompletionValue == true) {
-		// Access the todo in that project and change it's completion value to the opposite value
-		projectsList[formInfoModule.activeTabID].projectTodos[todoElement.dataset.todoIndex].isComplete.setCompletion(false);
-		// Change the text of the button to "Mark as complete", since they're dealing with an incomplete todo
-		e.currentTarget.textContent = "Mark as Complete";
-		// Give the todoElement the data attribute of true for the line-through style to work immediately; when user refreshes it will stay permanently
-		todoElement.setAttribute("data-todo-complete", "false");
+	// If there are no todos then, there isn't any content or elements in the todoListContainer
+	// In that case we will hide that container to have space to show a message telling the users to create a todo/project to get started 
+	if (todos.length == 0) {
+		// Hide the todoListContainer so that there can be space for the empty tab section; and show the emptyTabSection
+		todoListContainer.classList.add("content-hidden");
+		emptyTabSection.classList.remove("content-hidden");
 	} else {
-		projectsList[formInfoModule.activeTabID].projectTodos[todoElement.dataset.todoIndex].isComplete.setCompletion(true);
-		e.currentTarget.textContent = "Mark as Incomplete";
-		todoElement.setAttribute("data-todo-complete", "true");
+		// Else there are todos so show the todoListContainer and hide the empty tab section;
+		todoListContainer.classList.remove("content-hidden");
+		emptyTabSection.classList.add("content-hidden");
 	}
-
-	// NOTE: With all of these application types, you would likely save to local storage after
 }
 
-
-
-
+// Calls the function to update sidebar and main content since those are always used in tandem, and also any other functions that involve visually changing the appearance of the application; really just "updates" the page
+function renderPage() {
+	updateSidebarTabs();
+	renderMainContent();
+}
 
 
 // Application logic side
+
 
 // Adds event listener to a tab so user and application know which tab the user is currently on
 function handleSidebarTabClick(e) {
@@ -1415,31 +1456,36 @@ function handleSidebarTabClick(e) {
 	renderMainContent();
 }
 
-// Finds the project index and todo index linked to a certain todo
-function findTodoPosition(todo) {
-	for (let projectIndex = 0; i < projectsList.length; i++) {
-		const projectTodos = projectsList[projectIndex].projectTodos;
-		for (let todoIndex = 0; i < projectTodos.length; i++) {
-			if (todo == projectTodos[todoIndex]) {
-				return (projectIndex, todoIndex); // return the index of the project that the todo is linked to the todo
-			}
-		}
-	}
-	return (-1, -1); // return negative index to indicate it doesn't exist 
-}
+// NOTE: Since all of these functions involve modifying the info for projects or todos, we want to save changes to 
+// local storage to save and persist the changes
 
+// Marks and unmarks a todo's completion 
+function toggleTodoCompletion(e) {
+	// Get the todoElement, which contains our todo's index in its specific project
+	const todoElement = e.currentTarget.parentElement.parentElement;
+	const currentTodo = projectsList[formInfoModule.activeTabID].projectTodos[todoElement.dataset.todoIndex];
+	// If it's currently true, then that's means the user wanted to set the value to false
+	if (currentTodo.isComplete.getCompletion()) {
+		// Access the todo in that project and change it's completion value to the opposite value
+		projectsList[formInfoModule.activeTabID].projectTodos[todoElement.dataset.todoIndex].isComplete.setCompletion(false);
+	} else {		
+		projectsList[formInfoModule.activeTabID].projectTodos[todoElement.dataset.todoIndex].isComplete.setCompletion(true);
+	}
+	localStorage.setItem("projects", JSON.stringify(projectsList));
+}
 
 // Creates a new project and adds it to the projectsList array
 function addProject(projectTitle) {
 	const newProject = new _classes__WEBPACK_IMPORTED_MODULE_4__.Project(projectTitle);
 	projectsList.push(newProject);
-
+	localStorage.setItem("projects", JSON.stringify(projectsList));
 }
 
 // Finds existing project and edits its details within projectsList;
 function editProject(newProjectTitle) {
 	// Find the position of the project and modify it	
 	projectsList[formInfoModule.activeTabID].title.setTitle(newProjectTitle);
+	localStorage.setItem("projects", JSON.stringify(projectsList));
 }
 
 // Deletes a project and all of its information (including the todos that it contains)
@@ -1447,11 +1493,9 @@ function deleteProject() {
 	// Removes the project that's active on the sidebar
 	projectsList.splice(formInfoModule.activeTabID, 1);
 	// When user deletes a project, we want to take them back to the home screen; so set activeTabID to "Home"
-	// since that's the data-tabid for the home tab
+	// since that's the data-tabid for the home tab; then when we render page, the Home tab will get data-active='true'
 	formInfoModule.activeTabID = "Home";
-	// Now that a user has deleted a project, what do we render since the data-active for a tab is now gone?
-	updateSidebarTabs();
-	renderMainContent();
+	localStorage.setItem("projects", JSON.stringify(projectsList));
 }
 
 // Creating a todo and adding it to a project class instance's array of todos
@@ -1459,40 +1503,107 @@ function addTodo(todoTitle, todoDescription, todoDueDate, todoPriority) {
 	const newTodo = new _classes__WEBPACK_IMPORTED_MODULE_4__.Todo(todoTitle, todoDescription, todoDueDate, todoPriority);
 	// First add this todo to the corresponding project
 	projectsList[formInfoModule.activeTabID].projectTodos.push(newTodo);
+	localStorage.setItem("projects", JSON.stringify(projectsList));
 }
 
+// Edit a todo
 function editTodo(todoTitle, todoDescription, todoDueDate, todoPriority) {
 	// Create your newly edited todo
 	const newTodo = new _classes__WEBPACK_IMPORTED_MODULE_4__.Todo(todoTitle, todoDescription, todoDueDate, todoPriority);
 	// Access the position of the todo the user wants to edit and replace that position
 	projectsList[formInfoModule.activeTabID].projectTodos[formInfoModule.activeTodoIndex] = newTodo;
+	localStorage.setItem("projects", JSON.stringify(projectsList));
 }
 
-
-// Deletes a todo class instance
+// Deletes a todo
 function deleteTodo(e) {
 	// Since user is deleting, they must be on a project tab
 	const todoElement = e.currentTarget.parentElement.parentElement;
 	// Access the current or active project class instance. Then access its array of todos
 	projectsList[formInfoModule.activeTabID].projectTodos.splice(todoElement.dataset.todoIndex, 1);
-	
-	updateSidebarTabs();
-	renderMainContent();
-
+	localStorage.setItem("projects", JSON.stringify(projectsList));
 }
 
+// Returns an array of incomplete todos
+function getIncompleteTodos(todos) {
+	const incompleteTodos = todos.filter(todo => {
+		// If it's incomplete then return it
+		if (todo.isComplete.getCompletion() == false) {
+			return todo;
+		}		
+	});
+	return incompleteTodos;
+}
+
+// Function will recreate project instances from local storage; local storage doesn't keep the original class instances of an object
+function getProjectsFromLocalStorage() {
+	let localStorageProjects = JSON.parse(localStorage.getItem("projects"));
+	localStorageProjects = localStorageProjects.map(projectObj => {
+		// Get the string value title of the project object literal
+		const projectTitle = projectObj.title.title; 
+		
+		// Getthe array of object literals representing the todos of that project;
+		const projectTodos = projectObj.projectTodos; 
+		
+		// Reconstruct a project class instance with that same project title
+		const project = new _classes__WEBPACK_IMPORTED_MODULE_4__.Project(projectTitle); 
+		
+		// Iterate through the todo objects
+		for (let j = 0; j < projectTodos.length; j++) {
+			// Get the values of the todo;
+			// NOTE: todoTitle, todoDescription, todoDueDate, and todoPriority are all string values rather than their object values remember
+			// todoIsComplete is a boolean
+			const todoTitle = projectTodos[j].title.title; 
+			const todoDescription = projectTodos[j].description.description; 
+			const todoDueDate = projectTodos[j].dueDate; 
+			const todoPriority = projectTodos[j].priority.priority; 
+			const todoIsComplete = projectTodos[j].isComplete.isComplete; 
+
+			// Reconstruct the same todo with those values
+			const todo = new _classes__WEBPACK_IMPORTED_MODULE_4__.Todo(todoTitle, todoDescription, todoDueDate, todoPriority);
+			todo.isComplete.setCompletion(todoIsComplete);
+
+			// Push the now fully reconstructed todo into the project class instance 
+			project.projectTodos.push(todo);
+		}
+		// Return the completed project so it's filled by the map function
+		return project;
+	})
+	// Return the list of project class instances
+	return localStorageProjects;
+}
 
 window.addEventListener("DOMContentLoaded", () => {
-	updateSidebarTabs(); // Since we now have the home, today, and week tabs on the sidebar
-	renderMainContent();
+	// Get projects from local storage if some were already created
+	projectsList = getProjectsFromLocalStorage();
+	renderPage();
 })
 
-
 /*
+
+
+
+Book mark: Make a commit message because I think it's a good time
+
+- etc; just look through the version differences
+- added local storage
+- updated sidebars so that now they only show the count of todos that the user hasn't yet done
+
+
+
+ISSUES:
+1. When setting the date it keeps going back one day; fixed, but make sure to mention it in README
+2. localStorage will only store string representation of stuff, and in return it parses or returns object/array notation of that stuff.
+This means that even if you store something special like a class instance, it won't return that class instance to its full capabilities, rather it just 
+returns the object notation of it. To solve this, just recreate those class instances; fixed
+
+
 Todo changes:
-1. Make one boolean/variable for editing, is true then they're editing. So that we can get rid of formAction data-attribute and 
-the two variables in the formInfoModule
-2. Find way to reduce repetition with updateSidebarTabs() and renderMainContent(); make stuff more organized that way
+
+1. Add the dark mode theme and try to make it transition
+
+
+
 
 */
 })();

@@ -188,10 +188,6 @@ button {
 	row-gap: 12px;
 }
 
-
-
-
-
 /* Styling the modal that shows the details of the todo */
 .todo-details-section {
 	display: flex;
@@ -199,10 +195,6 @@ button {
 	row-gap: 8px;
 	align-items: center;
 }
-
-
-
-
 
 /* Styles for everything related to the project container */
 .project-container {
@@ -325,11 +317,9 @@ button {
 /* Styling for secondary tab */
 .projects-tab-section {
 	margin-left: 12px; /*Have indent to indicate which tabs are under the project's section*/
-
 	/* If height of the project's container goes over 150px, we add a scroll bar for it */
 	max-height: 150px;
 	overflow-y: auto;
-
 	margin-bottom: 32px;
 }
 
@@ -345,11 +335,6 @@ button {
 	letter-spacing: var(--letter-spacing);
 }
 
-
-/* BOOK MARK: Now create and style the maincontent; don't forget to include the section that tells 
-the user if they don't have anything */
-
-
 /* Fancy styling for button: box shadow is just setting the background when you hover */
 #create-project-btn {
 	background-color: transparent;
@@ -362,9 +347,7 @@ the user if they don't have anything */
 #create-project-btn:hover {
 	box-shadow: inset 0 0 0 120px var(--background-clr-1);
 	color: var(--font-clr-3);	
-	border-radius: 0;
 }
-
 
 /* Styling for main content section: Section where todos are displayed and todo information is displayed */
 .project-main-content {
@@ -375,9 +358,6 @@ the user if they don't have anything */
 	display: grid;
 	grid-template-rows: auto 1fr;
 }	
-
-
-
 
 /* Styling header of project-main-content */
 
@@ -403,10 +383,8 @@ the user if they don't have anything */
 	margin: 0 auto;
 	grid-row: 2;
 	row-gap: 12px;
-
 	max-height: 400px;
 	overflow-y: auto;
-
 	display: flex;
 	flex-direction: column;
 }
@@ -427,18 +405,17 @@ the user if they don't have anything */
 }
 
 /* Styling for section that shows when you have no todos or no projects created */
-.empty-tab-section {
-	border: 2px solid black;
+#empty-tab-section {
 	text-align: center;
 	font-weight: 700;
 	letter-spacing: var(--letter-spacing);
 }
 
-#empty-tab-message-primary-el {
+#empty-tab-message-primary {
 	font-size: 28px;
 	margin-bottom: 12px;
 }
-#empty-tab-message-secondary-el {
+#empty-tab-message-secondary {
 	font-size: 16px;
 }
 

@@ -37,32 +37,6 @@ function createModal() {
 	return modalEl;
 }
 
-
-
-/*
-Looks like we should create functions for 
-// Make them all hidden at first
-
-- creating the "make project"
-- creating "make todo" form
-- creating "show todo details"
-
-- loadModalContent(); takes in a string or something from the button, which allows it to decide
-what to do content-hidden removal, and then ultimately what display function to run
-
-Then functions:
-- displayProjectForm; which could have a boolean for making or editing; we know it's editing 
-if a project instance is passed through
-- displayTodoForm; which could be making or editing depending if a todo class instance is passed
-
-
-*/
-
-
-
-
-
-
 // Function for creating project header
 function createProjectHeader() {
 	const headerEl = document.createElement("header");
@@ -94,9 +68,9 @@ function createProjectSidebar() {
 	// Create main tab for sidebar
 	const mainTabSection = document.createElement("ul");
 	mainTabSection.classList.add("sidebar-tab-section", "main-tab-section");	
-	mainTabSection.innerHTML = `<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el">0</span></li>
-					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Today"><span class="sidebar-tab-title">Today</span><span class="todo-count-el">0</span></li>
-					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Week"><span class="sidebar-tab-title">Week</span><span class="todo-count-el">0</span></li>`;
+	mainTabSection.innerHTML = `<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Home"><span class="sidebar-tab-title">Home</span><span class="todo-count-el"></span></li>
+					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Today"><span class="sidebar-tab-title">Today</span><span class="todo-count-el"></span></li>
+					<li class="sidebar-tab-item" data-tabtype="mainTab" data-tabID="Week"><span class="sidebar-tab-title">Week</span><span class="todo-count-el"></span></li>`;
 	sidebarEl.appendChild(mainTabSection);
 
 	// Create the title "Projects" for a section in the sidebar
@@ -114,14 +88,11 @@ function createProjectSidebar() {
 	const createProjectBtn = document.createElement("button");
 	createProjectBtn.classList.add("sidebar-tab-item");
 	createProjectBtn.id = "create-project-btn";
-	createProjectBtn.setAttribute("data-form-action", "add-project");
 	createProjectBtn.textContent = "Add Project";
 	sidebarEl.appendChild(createProjectBtn);
 
 	return sidebarEl;
 }
-
-// BOOK MARK: DO THE MAIN CONTENT SECTION; probably going to have the header and title, and stff 
 
 // Function for creating the main display page (section where all of the todos are)
 function createMainContentSection() {
@@ -137,6 +108,31 @@ function createMainContentSection() {
 	const todoListContainer = document.createElement("ul");
 	todoListContainer.id = "todo-list-container";
 	projectMainContentSection.appendChild(todoListContainer);
+
+	// Create div that shows the user a message 
+	const emptyTabSection = document.createElement("section");
+	emptyTabSection.id = "empty-tab-section";
+	projectMainContentSection.appendChild(emptyTabSection);
+
+	// Create message elements to show the user (main message)
+	const mainMessageEl = document.createElement("h1");
+	mainMessageEl.id = "empty-tab-message-primary";
+	mainMessageEl.textContent = "No todos in this tab yet!";
+	emptyTabSection.appendChild(mainMessageEl);
+
+	// Create the sub message 
+	const subMessageEl = document.createElement("p");
+	subMessageEl.id = "empty-tab-message-secondary";
+	subMessageEl.textContent = "Please make a new todo or project to get started!";
+	emptyTabSection.appendChild(subMessageEl);
+
+
+
+
+	// <div class="empty-tab-section content-hidden">
+	// 				<h1 id="empty-tab-message-primary-el">No todos in this tab yet!</h1>
+	// 				<p id="empty-tab-message-secondary-el">Please make a new todo or project to get started!</p>
+	// 			</div>
 
 
 	return projectMainContentSection;

@@ -9,7 +9,7 @@ function createTodoForm() {
 	formEl.id = "todo-form";
 	formEl.innerHTML = `<fieldset class="input-section">
 
-						<input placeholder="Title: Pay bills" type="text" id="todo-title-field" name="title" maxlength="30" required>						
+						<input placeholder="Title: Pay bills" type="text" id="todo-title-field" name="title" maxlength="20" required>						
 						<input placeholder="Description: Gas and Electricity" type="text" id="todo-description-field" name="description" maxlength="100" required>	
 					
 						<fieldset id="todo-due-date-field-section>
