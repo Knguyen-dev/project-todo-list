@@ -1,6 +1,8 @@
 # project-todo-list
 A todo-list, but nested with a list of projects in that todo list
 
+How to run (For development purposes):
+1. Do npm run watch, make sure it's running a server, akin to django. then open the index.html in live server
 
 Todo: Created with a class or factories. Has title, description, dueDate, priority (low, medium high); todos should also what project they're associated with, or just default to a project anyways maybe one called "My todos" that's auto created when you first get in
 
