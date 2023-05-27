@@ -54,8 +54,7 @@ function createProjectHeader() {
 	const userInfoSection = document.createElement("div");
 	userInfoSection.classList.add("user-info-section");
 	userInfoSection.innerHTML = `<h2>Hello, <span id="user-email-el">example@gmail.com</span></h2>
-					<a href="#" class="light-blue-btn" id="user-link">Sign out</a>
-					<button class="light-blue-btn" id="change-theme-btn">Theme</button>`;
+					<a href="#" class="light-blue-btn" id="user-link">Sign out</a>`;
 	headerEl.appendChild(userInfoSection);
 	return headerEl;
 }
@@ -125,16 +124,7 @@ function createMainContentSection() {
 	subMessageEl.id = "empty-tab-message-secondary";
 	subMessageEl.textContent = "Please make a new todo or project to get started!";
 	emptyTabSection.appendChild(subMessageEl);
-
-
-
-
-	// <div class="empty-tab-section content-hidden">
-	// 				<h1 id="empty-tab-message-primary-el">No todos in this tab yet!</h1>
-	// 				<p id="empty-tab-message-secondary-el">Please make a new todo or project to get started!</p>
-	// 			</div>
-
-
+	
 	return projectMainContentSection;
 }
 

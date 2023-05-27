@@ -18,7 +18,6 @@ input {
 	padding: var(--section-padding);
 }
 
-
 /* scrollbar styles */
 *::-webkit-scrollbar {
 	width: 6px;
@@ -35,13 +34,15 @@ input {
 *::-webkit-scrollbar-thumb:hover {
 	background-color: var(--background-clr-2);
 }
+
 :root {
 	--background-clr-1: #3b82f6;
 	--background-clr-2: #93c5fd;
 	--background-clr-3: #60a5fa;
 	--background-clr-4: #dbeafe;
-	--todo-background-clr: #7dd3fc; 
 	--background-clr-dark: #172554;
+
+	--todo-background-clr: #7dd3fc; 
 	--scrollbar-color: #312e81;
 	--font-clr-1: black;
 	--font-clr-2: #3b82f6;
@@ -58,32 +59,24 @@ body {
 	font-family: var(--font-1), var(--font-2);
 }
 button {
-	padding: var(--padding-btn-link);
+	background-color: white;
+	padding: var(--section-padding);
 	cursor: pointer;
 	font-weight: 700;
-	transition: var(--transition);
-}
-
-
-.green-btn,
-.red-btn,
-.gray-btn,
-.light-blue-btn {
-	color: black;
-	background-color: white;
-	font-weight: 700;
-	padding: var(--section-padding);
 	font-family: var(--font-1), var(--font-2);
+	transition: var(--transition);
 	border: none;
 	border-radius: var(--border-radius);
-	transition: var(--transition);
-	cursor: pointer;
 }
 
-/* Light blue button styles */
+/* Light blue button styles; also a link */
 .light-blue-btn {
+	transition: var(--transition);
 	background-color: var(--background-clr-2);
 	color: #5518ab;
+	padding: var(--section-padding);
+	border-radius: var(--border-radius);
+
 }
 .light-blue-btn:hover {
 	color: var(--background-clr-3);
@@ -118,11 +111,10 @@ button {
 	color: white;
 }
 
-
 .content-hidden {
 	display: none !important;
+	color: black;
 }
-
 
 /* Styling for content; mainly for having modals */
 .content {
@@ -245,7 +237,6 @@ button {
 /* Styling for the sidebar */
 .project-sidebar {
 	background-color: var(--background-clr-3);
-	/* padding: var(--section-padding); */
 	padding: 16px 0;
 	/* Start and span across row 2, which is our main row. Then position into  */
 	grid-row: 2;
@@ -364,7 +355,11 @@ button {
 /* Styling when user is on a main tab */
 .main-content-header-main-tab {
 	text-align: center;
+	padding: var(--section-padding);
+	letter-spacing: var(--letter-spacing);
 }
+
+
 
 /* Styling when user is on a project tab */
 .main-content-header-project-tab {
@@ -435,3 +430,5 @@ footer {
 	width: 30px;
 	height: 30px;
 }
+
+

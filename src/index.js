@@ -480,8 +480,7 @@ function handleSidebarTabClick(e) {
 	renderMainContent();
 }
 
-// NOTE: Since all of these functions involve modifying the info for projects or todos, we want to save changes to 
-// local storage to save and persist the changes
+// NOTE: Since all of these functions involve modifying the info for projects or todos, we want to save changes to local storage to save and persist the changes
 
 // Marks and unmarks a todo's completion 
 function toggleTodoCompletion(e) {
@@ -602,31 +601,3 @@ window.addEventListener("DOMContentLoaded", () => {
 	projectsList = getProjectsFromLocalStorage();
 	renderPage();
 })
-
-/*
-
-
-
-Book mark: Make a commit message because I think it's a good time
-
-- etc; just look through the version differences
-- added local storage
-- updated sidebars so that now they only show the count of todos that the user hasn't yet done
-
-
-
-ISSUES:
-1. When setting the date it keeps going back one day; fixed, but make sure to mention it in README
-2. localStorage will only store string representation of stuff, and in return it parses or returns object/array notation of that stuff.
-This means that even if you store something special like a class instance, it won't return that class instance to its full capabilities, rather it just 
-returns the object notation of it. To solve this, just recreate those class instances; fixed
-
-
-Todo changes:
-
-1. Add the dark mode theme and try to make it transition
-
-
-
-
-*/

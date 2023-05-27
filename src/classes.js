@@ -63,9 +63,6 @@ class Project {
 		this.title = new Title(title);
 		this.projectTodos = []; 
 	}
-	getProjectTodos() {
-		return this.projectTodos;
-	}
 }
 
 // Note class; just an extra class, but it's kind of just for demonstration purposes; not actually going to use it
