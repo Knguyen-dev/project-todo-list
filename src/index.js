@@ -561,37 +561,45 @@ function getIncompleteTodos(todos) {
 // Function will recreate project instances from local storage; local storage doesn't keep the original class instances of an object
 function getProjectsFromLocalStorage() {
 	let localStorageProjects = JSON.parse(localStorage.getItem("projects"));
-	localStorageProjects = localStorageProjects.map(projectObj => {
-		// Get the string value title of the project object literal
-		const projectTitle = projectObj.title.title; 
-		
-		// Getthe array of object literals representing the todos of that project;
-		const projectTodos = projectObj.projectTodos; 
-		
-		// Reconstruct a project class instance with that same project title
-		const project = new Project(projectTitle); 
-		
-		// Iterate through the todo objects
-		for (let j = 0; j < projectTodos.length; j++) {
-			// Get the values of the todo;
-			// NOTE: todoTitle, todoDescription, todoDueDate, and todoPriority are all string values rather than their object values remember
-			// todoIsComplete is a boolean
-			const todoTitle = projectTodos[j].title.title; 
-			const todoDescription = projectTodos[j].description.description; 
-			const todoDueDate = projectTodos[j].dueDate; 
-			const todoPriority = projectTodos[j].priority.priority; 
-			const todoIsComplete = projectTodos[j].isComplete.isComplete; 
 
-			// Reconstruct the same todo with those values
-			const todo = new Todo(todoTitle, todoDescription, todoDueDate, todoPriority);
-			todo.isComplete.setCompletion(todoIsComplete);
+	// If there are projects 
+	if (localStorageProjects !== null) {
+		localStorageProjects = localStorageProjects.map(projectObj => {
+			// Get the string value title of the project object literal
+			const projectTitle = projectObj.title.title; 
+			
+			// Getthe array of object literals representing the todos of that project;
+			const projectTodos = projectObj.projectTodos; 
+			
+			// Reconstruct a project class instance with that same project title
+			const project = new Project(projectTitle); 
+			
+			// Iterate through the todo objects and create todo class instances, and then push them to our newly created project class instance
+			for (let j = 0; j < projectTodos.length; j++) {
+				// Get the values of the todo;
+				// NOTE: todoTitle, todoDescription, todoDueDate, and todoPriority are all string values rather than their object values remember
+				// todoIsComplete is a boolean
+				const todoTitle = projectTodos[j].title.title; 
+				const todoDescription = projectTodos[j].description.description; 
+				const todoDueDate = projectTodos[j].dueDate; 
+				const todoPriority = projectTodos[j].priority.priority; 
+				const todoIsComplete = projectTodos[j].isComplete.isComplete; 
 
-			// Push the now fully reconstructed todo into the project class instance 
-			project.projectTodos.push(todo);
-		}
-		// Return the completed project so it's filled by the map function
-		return project;
-	})
+				// Reconstruct the same todo with those values
+				const todo = new Todo(todoTitle, todoDescription, todoDueDate, todoPriority);
+				todo.isComplete.setCompletion(todoIsComplete);
+
+				// Push the now fully reconstructed todo into the project class instance 
+				project.projectTodos.push(todo);
+			}
+			// Return the completed project so it's filled by the map function
+			return project;
+		})
+	} else {
+		// This means the key for local storage wasn't found so probably no projects 
+		localStorageProjects = [];
+	}
+
 	// Return the list of project class instances
 	return localStorageProjects;
 }
