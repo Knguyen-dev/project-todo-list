@@ -37,3 +37,9 @@ Google material icons (variable icon fonts):
 2. in webpack.config.js add new rule to module.rules
 3. Now you can use it in style sheet with .material-icons css rule and do 
 <i class="material-icons">code for icon (codepoint)</i> 
+
+
+<!-- Improvements Branch -->
+1. Let's first do code separation, remember we're dealing with webpack
+2. Then let's add a theme toggling button
+3. Then any other things if we need

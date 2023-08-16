@@ -65,11 +65,5 @@ class Project {
 	}
 }
 
-// Note class; just an extra class, but it's kind of just for demonstration purposes; not actually going to use it
-class Note {
-	constructor(description) {
-		this.description = new Description(description);
-	}
-}
 
 export { Todo, Project };

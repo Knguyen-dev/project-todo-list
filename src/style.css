@@ -18,6 +18,15 @@ input {
 	padding: var(--section-padding);
 }
 
+label {
+	display: block;
+	margin-bottom: 2px;
+}
+input {
+	width: 100%;
+}
+
+
 /* scrollbar styles */
 *::-webkit-scrollbar {
 	width: 6px;
@@ -32,20 +41,25 @@ input {
 	background-color: transparent;
 }
 *::-webkit-scrollbar-thumb:hover {
-	background-color: var(--background-clr-2);
+	background-color: var(--clr-light-blue);
 }
 
 :root {
-	--background-clr-1: #3b82f6;
-	--background-clr-2: #93c5fd;
-	--background-clr-3: #60a5fa;
-	--background-clr-4: #dbeafe;
+	--clr-cyan-blue: #3b82f6;
+	--clr-light-blue: #93c5fd;
+	--clr-cornflower-blue: #60a5fa;
+	--clr-very-light-blue: #dbeafe;
 	--background-clr-dark: #172554;
+
+	--clr-dark-sky: #0c1445;
+    --clr-dark-slate: #334155;
+    --clr-dark-gray: #111827;
+    --clr-emerald: #10b981;
+    --clr-light-teal: #5eead4;
+    --clr-light-blue: #38bdf8;
 
 	--todo-background-clr: #7dd3fc; 
 	--scrollbar-color: #312e81;
-	--font-clr-1: black;
-	--font-clr-2: #3b82f6;
 	--font-clr-3: white;
 	--font-1: "Roboto", sans-serif;
 	--font-2: "Open Sans", sans-serif;
@@ -72,19 +86,19 @@ button {
 /* Light blue button styles; also a link */
 .light-blue-btn {
 	transition: var(--transition);
-	background-color: var(--background-clr-2);
+	background-color: var(--clr-light-blue);
 	color: #5518ab;
 	padding: var(--section-padding);
 	border-radius: var(--border-radius);
 
 }
 .light-blue-btn:hover {
-	color: var(--background-clr-3);
-	background-color: var(--font-clr-1);
+	color: var(--clr-cornflower-blue);
+	background-color: black;
 }
 .light-blue-btn[data-active="true"] {
-	color: var(--background-clr-3);
-	background-color: var(--font-clr-1);
+	color: var(--clr-cornflower-blue);
+	background-color: black;
 }
 
 /* Green button styles: Remember to do hover effect for them */
@@ -141,23 +155,21 @@ button {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 50%;
+	width: 20%;
 	/* Make height min-content since heights will vary due to the different forms */
 	height: min-content;
 	/* Fancy box shadow */
 	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-	background-color: var(--background-clr-4);
+	background-color: var(--clr-very-light-blue);
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	font-weight: 700;
 }
-.modal button {
-	padding: 10px 14px;
-}
+
 .modal .modal-header {
 	padding: var(--section-padding);
-	grid-row: 1;
-	grid-column: 1 / end;	
-	color: var(--font-clr-1);
-	font-weight: 700;
-	background-color: var(--background-clr-3);
+	color: black;
+	background-color: var(--clr-cornflower-blue);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -165,57 +177,40 @@ button {
 
 .modal-main-content {
 	padding: var(--section-padding);
-	font-weight: 700;
+	margin: 0 auto;
 }
-
-/* Styling for the form itself */
-.modal-form {
-	padding: var(--section-padding);
-	font-weight: 700;
-}
-.modal-form .input-section {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	row-gap: 12px;
-}
-
-/* Styling the modal that shows the details of the todo */
-.todo-details-section {
+.modal-main-content .modal-form  {
+	text-align: center;
 	display: flex;
 	flex-direction: column;
 	row-gap: 8px;
-	align-items: center;
 }
 
-/* Styles for everything related to the project container */
-.project-container {
-	display: grid;
-	/* 
-	auto: for the header and footer so it automatically just sizes the row to the size of the content. 
-	Then 1fr for the rest of the space in the height for the sidebar and maincontent
-	*/
-	grid-template-rows: auto 1fr auto; 
+.modal-main-content select {
+	padding: 8px 16px;
+	border: var(--border-radius);
+	width: 100%;
+}
 
-	/* left side is just 15% of screen for the left side (which will be sidebar) and then 1fr for the remaining width */
+
+/* Styles for everything related to the project container */
+#project-container {
+	display: grid;
+	grid-template-rows: auto 1fr auto; 
 	grid-template-columns: 15% 1fr;
 	height: 100vh;
 }
 
 /* Header styles */
-.project-header {
-	background-color: var(--background-clr-1);
-	color: var(--font-clr-1);
+#page-header {
+	background-color: var(--clr-cyan-blue);
+	color: black;
 	font-size: 16px;
 	font-weight: 700;
 	padding: var(--section-padding);
 	display: flex;
 	justify-content: space-between;
-	
-	/* Header starts at the first row in grid and stays there */
 	grid-row: 1;
-
-	/* Column starts at 1 and goes to the end since we want the header to span across the page */
 	grid-column: 1 / span 2;
 	
 }
@@ -235,8 +230,8 @@ button {
 }
 
 /* Styling for the sidebar */
-.project-sidebar {
-	background-color: var(--background-clr-3);
+#page-sidebar {
+	background-color: var(--clr-cornflower-blue);
 	padding: 16px 0;
 	/* Start and span across row 2, which is our main row. Then position into  */
 	grid-row: 2;
@@ -247,8 +242,8 @@ button {
 
 /* Styling for the todo count */
 .todo-count-el {
-	background-color: var(--background-clr-4);
-	color: var(--font-clr-1);
+	background-color: var(--clr-very-light-blue);
+	color: black;
 	text-align: center;
 	font-weight: 700;
 	width: 24px;
@@ -285,14 +280,14 @@ button {
 .sidebar-tab-item:hover {
 	background-color: var(--background-clr-dark);
 	.sidebar-tab-title {
-		color: var(--font-clr-3);
+		color: white;
 	}
 }
 
 .sidebar-tab-item[data-active="true"] {
 	background-color: var(--background-clr-dark);
 	.sidebar-tab-title {
-		color: var(--font-clr-3);
+		color: white;
 	}
 }
 
@@ -329,20 +324,20 @@ button {
 /* Fancy styling for button: box shadow is just setting the background when you hover */
 #create-project-btn {
 	background-color: transparent;
-	box-shadow: inset 0 0 0 0 var(--background-clr-1);
-	color: var(--font-clr-1);
+	box-shadow: inset 0 0 0 0 var(--clr-cyan-blue);
+	color: black;
 	border: 2px solid black;
 	padding: var(--section-padding);
 	
 }
 #create-project-btn:hover {
-	box-shadow: inset 0 0 0 120px var(--background-clr-1);
-	color: var(--font-clr-3);	
+	box-shadow: inset 0 0 0 120px var(--clr-cyan-blue);
+	color: white;	
 }
 
 /* Styling for main content section: Section where todos are displayed and todo information is displayed */
 .project-main-content {
-	background-color: var(--background-clr-4);
+	background-color: var(--clr-very-light-blue);
 	grid-row: 2;
 	grid-column: 2 / end;
 
@@ -416,8 +411,8 @@ button {
 
 /* Styling for the footer */
 footer {
-	background-color: var(--background-clr-2);
-	color: var(--font-clr-1);
+	background-color: var(--clr-light-blue);
+	color: black;
 	text-align: center;
 	font-weight: 700;
 	padding: var(--section-padding);
