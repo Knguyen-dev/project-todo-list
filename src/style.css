@@ -1,429 +1,405 @@
-*, *::before, *::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-ul, ol {
-	list-style: none;
+ul,
+ol {
+    list-style: none;
 }
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
 fieldset {
-	border: none;
+    border: none;
 }
 input {
-	background-color: white;
-	border: 2px solid gray;
-	padding: var(--section-padding);
+    background-color: white;
+    border: 2px solid gray;
+    padding: var(--section-padding);
 }
 
 label {
-	display: block;
-	margin-bottom: 2px;
+    display: block;
+    margin-bottom: 2px;
 }
 input {
-	width: 100%;
+    width: 100%;
 }
-
 
 /* scrollbar styles */
 *::-webkit-scrollbar {
-	width: 6px;
-	/* transition: var(--transition); */
+    width: 2px;
 }
 *::-webkit-scrollbar-thumb {
-	background-color: var(--scrollbar-color);
-	border-radius: 20px;
-	background-clip: content-box;
+    background-color: var(--scrollbar-color);
+    border-radius: var(--border-radius);
+    background-clip: content-box;
 }
 *::-webkit-scrollbar-track {
-	background-color: transparent;
+    background-color: transparent;
 }
 *::-webkit-scrollbar-thumb:hover {
-	background-color: var(--clr-light-blue);
+    background-color: var(--clr-cyan-blue);
 }
 
 :root {
-	--clr-cyan-blue: #3b82f6;
-	--clr-light-blue: #93c5fd;
-	--clr-cornflower-blue: #60a5fa;
-	--clr-very-light-blue: #dbeafe;
-	--background-clr-dark: #172554;
+    --clr-cyan-blue: #3b82f6;
+    --clr-cornflower-blue: #60a5fa;
+    --clr-very-light-blue: #dbeafe;
+    --background-clr-dark: #172554;
 
-	--clr-dark-sky: #0c1445;
+    --clr-dark-sky: #0c1445;
     --clr-dark-slate: #334155;
     --clr-dark-gray: #111827;
     --clr-emerald: #10b981;
     --clr-light-teal: #5eead4;
-    --clr-light-blue: #38bdf8;
 
-	--todo-background-clr: #7dd3fc; 
-	--scrollbar-color: #312e81;
-	--font-clr-3: white;
-	--font-1: "Roboto", sans-serif;
-	--font-2: "Open Sans", sans-serif;
-	--transition: all 0.25s ease-in-out;
-	--border-radius: 6px;
-	--padding-btn-link: 6px 12px;
-	--section-padding: 8px 16px;
-	--letter-spacing: 4px;
+    --todo-background-clr: #7dd3fc;
+    --scrollbar-color: #312e81;
+    --font-clr-3: white;
+    --font-1: "Roboto", sans-serif;
+    --font-2: "Open Sans", sans-serif;
+    --transition: all 0.25s ease-in-out;
+    --border-radius: 6px;
+    --padding-btn-link: 6px 12px;
+    --section-padding: 8px 16px;
+    --letter-spacing: 4px;
 }
 body {
-	font-family: var(--font-1), var(--font-2);
+    font-family: var(--font-1), var(--font-2);
 }
 button {
-	background-color: white;
-	padding: var(--section-padding);
-	cursor: pointer;
-	font-weight: 700;
-	font-family: var(--font-1), var(--font-2);
-	transition: var(--transition);
-	border: none;
-	border-radius: var(--border-radius);
+    background-color: white;
+    padding: var(--section-padding);
+    cursor: pointer;
+    font-weight: 700;
+    font-family: var(--font-1), var(--font-2);
+    transition: var(--transition);
+    border-style: solid;
 }
 
-/* Light blue button styles; also a link */
-.light-blue-btn {
-	transition: var(--transition);
-	background-color: var(--clr-light-blue);
-	color: #5518ab;
-	padding: var(--section-padding);
-	border-radius: var(--border-radius);
-
-}
-.light-blue-btn:hover {
-	color: var(--clr-cornflower-blue);
-	background-color: black;
-}
-.light-blue-btn[data-active="true"] {
-	color: var(--clr-cornflower-blue);
-	background-color: black;
-}
-
-/* Green button styles: Remember to do hover effect for them */
 .green-btn {
-	border: 2px solid #22c55e;
-}
-/* Red button styles */
-.red-btn {
-	border: 2px solid #b91c1c;
-}
-.gray-btn {
-	border: 2px solid #6b7280
+    background-color: transparent;
+    border-color: var(--clr-emerald);
+    color: black;
 }
 .green-btn:hover {
-	background-color: #22c55e;
-	color: white;
+    background-color: var(--clr-emerald);
+    color: white;
+}
+.blue-btn {
+    background-color: transparent;
+    border-color: var(--clr-cyan-blue);
+    color: black;
+}
+.blue-btn:hover {
+    background-color: var(--clr-cyan-blue);
+    color: white;
+}
+.red-btn {
+    background-color: transparent;
+    border-color: red;
+    color: black;
 }
 .red-btn:hover {
-	background-color: #b91c1c;
-	color: white;
-}
-.gray-btn:hover {
-	background-color: #6b7280;
-	color: white;
+    background-color: red;
+    color: white;
 }
 
 .content-hidden {
-	display: none !important;
-	color: black;
+    display: none !important;
+    color: black;
 }
 
 /* Styling for content; mainly for having modals */
 .content {
-	position: relative;
+    position: relative;
 }
 
 /* Styles for modal forms */
 /* Blurred overlay */
 .overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	/* Blurs the area behind the element  */
-	backdrop-filter: blur(5px); 
-	/* This will be over all other content in project-container */
-	z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Blurs the area behind the element  */
+    backdrop-filter: blur(5px);
+    /* This will be over all other content in project-container */
+    z-index: 1;
 }
 
 .modal {
-	position: absolute;
-	z-index: 2;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 20%;
-	/* Make height min-content since heights will vary due to the different forms */
-	height: min-content;
-	/* Fancy box shadow */
-	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-	background-color: var(--clr-very-light-blue);
-	border-radius: var(--border-radius);
-	overflow: hidden;
-	font-weight: 700;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    /* Make height min-content since heights will vary due to the different forms */
+    height: min-content;
+    /* Fancy box shadow */
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    background-color: var(--clr-very-light-blue);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    font-weight: 700;
 }
 
 .modal .modal-header {
-	padding: var(--section-padding);
-	color: black;
-	background-color: var(--clr-cornflower-blue);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    padding: var(--section-padding);
+    color: black;
+    background-color: var(--clr-cornflower-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .modal-main-content {
-	padding: var(--section-padding);
-	margin: 0 auto;
+    padding: var(--section-padding);
+    margin: 0 auto;
 }
-.modal-main-content .modal-form  {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	row-gap: 8px;
+.modal-main-content .modal-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
 }
 
 .modal-main-content select {
-	padding: 8px 16px;
-	border: var(--border-radius);
-	width: 100%;
+    padding: 8px 16px;
+    border: var(--border-radius);
+    width: 100%;
 }
-
 
 /* Styles for everything related to the project container */
 #project-container {
-	display: grid;
-	grid-template-rows: auto 1fr auto; 
-	grid-template-columns: 15% 1fr;
-	height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 15% 1fr;
+    min-height: 100vh;
 }
 
 /* Header styles */
 #page-header {
-	background-color: var(--clr-cyan-blue);
-	color: black;
-	font-size: 16px;
-	font-weight: 700;
-	padding: var(--section-padding);
-	display: flex;
-	justify-content: space-between;
-	grid-row: 1;
-	grid-column: 1 / span 2;
-	
+    background-color: var(--clr-cyan-blue);
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    padding: var(--section-padding);
+    display: flex;
+    justify-content: space-between;
+    grid-row: 1;
+    grid-column: 1 / span 2;
 }
 
 /* Styles for containers in header */
 .app-logo-container,
 .user-info-section {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .app-logo-container {
-	flex-basis: 200px;
+    flex-basis: 200px;
 }
 .user-info-section {
-	flex-basis: 500px;
+    flex-basis: 500px;
 }
 
 /* Styling for the sidebar */
 #page-sidebar {
-	background-color: var(--clr-cornflower-blue);
-	padding: 16px 0;
-	/* Start and span across row 2, which is our main row. Then position into  */
-	grid-row: 2;
-	grid-column: 1;
-	font-size: 20px;
-	text-align: center;
+    background-color: var(--clr-cornflower-blue);
+    padding: 16px;
+    /* Start and span across row 2, which is our main row. Then position into  */
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 20px;
+    text-align: center;
 }
 
-/* Styling for the todo count */
+/*
+- Styling for the todo count 
+- Doing min-width and height so that the todo-count at least expands 
+	to fit the text of the amount of todos. Though, after triple digits, 
+	it's shape becomes more of a melon rather than a circle, which is acceptable.
+- Need flex box to center the text for the todo count
+*/
 .todo-count-el {
-	background-color: var(--clr-very-light-blue);
-	color: black;
-	text-align: center;
-	font-weight: 700;
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
+    background-color: white;
+    font-weight: 700;
+    min-width: 30px;
+    min-height: 30px;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Styling for the sections containing hte tabs and the tabs themselves. */
 .sidebar-tab-section {
-	display: flex;
-	flex-direction: column;
-	row-gap: 10px;
-	text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
-.sidebar-tab-item {
-	font-size: inherit;
-	border: 2px solid black;
-	padding: 6px 6px;
-	margin: 0 auto;
-	cursor: pointer;
-	border-radius: 6px;
-	transition: var(--transition);
+.sidebar-tab {
+    cursor: pointer;
+    font-size: inherit;
+    border: 2px solid black;
+    border-radius: var(--border-radius);
+    padding: 6px 6px;
+    transition: var(--transition);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.main-tab-section .sidebar-tab-item,
-.projects-tab-section .sidebar-tab-item {
-	width: 90%;
-	display: flex;
-	justify-content: space-between;
-
+.sidebar-tab:hover {
+    background-color: var(--background-clr-dark);
+    .sidebar-tab-title {
+        color: white;
+    }
 }
-.sidebar-tab-item:hover {
-	background-color: var(--background-clr-dark);
-	.sidebar-tab-title {
-		color: white;
-	}
-}
-
-.sidebar-tab-item[data-active="true"] {
-	background-color: var(--background-clr-dark);
-	.sidebar-tab-title {
-		color: white;
-	}
+.sidebar-tab[data-active="true"] {
+    background-color: var(--background-clr-dark);
+    .sidebar-tab-title {
+        color: white;
+    }
 }
 
 .sidebar-tab-title {
-	transition: var(--transition);
-	/* 
-	Make the title the full width of the container minus 40px so that todo-count-el has enough space
-	to breathe and not be affected by the length of the title
-	*/
-	width: calc(100% - 40px);
+    transition: var(--transition);
+    /* Make the title's max-width the width of the container minus 40px for style purposes */
+    max-width: calc(100% - 40px);
+    overflow-x: hidden;
 }
 
 /* Styling for secondary tab */
 .projects-tab-section {
-	margin-left: 12px; /*Have indent to indicate which tabs are under the project's section*/
-	/* If height of the project's container goes over 150px, we add a scroll bar for it */
-	max-height: 150px;
-	overflow-y: auto;
-	margin-bottom: 32px;
+    margin-left: 12px; /*Have indent to indicate which tabs are under the project's section*/
+    /* If height of the project's container goes over 150px, we add a scroll bar for it */
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 32px;
 }
 
-/* Make it so only the sidebar-tab-item registers clicks */
-.sidebar-tab-item > * {
-	pointer-events: None;
+/* Make it so only the sidebar-tab registers clicks */
+.sidebar-tab > * {
+    pointer-events: None;
 }
 
 /* Style the title "Projects" on the sidebar */
 #sidebar-section-title {
-	margin-top: 8px;
-	margin-bottom: 8px;
-	letter-spacing: var(--letter-spacing);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    letter-spacing: var(--letter-spacing);
 }
 
 /* Fancy styling for button: box shadow is just setting the background when you hover */
 #create-project-btn {
-	background-color: transparent;
-	box-shadow: inset 0 0 0 0 var(--clr-cyan-blue);
-	color: black;
-	border: 2px solid black;
-	padding: var(--section-padding);
-	
+    background-color: transparent;
+    box-shadow: inset 0 0 0 0 var(--clr-cyan-blue);
+    color: black;
+    border: 3px solid black;
+    padding: var(--section-padding);
 }
 #create-project-btn:hover {
-	box-shadow: inset 0 0 0 120px var(--clr-cyan-blue);
-	color: white;	
+    box-shadow: inset 0 0 0 120px var(--clr-cyan-blue);
+    color: white;
 }
 
 /* Styling for main content section: Section where todos are displayed and todo information is displayed */
 .project-main-content {
-	background-color: var(--clr-very-light-blue);
-	grid-row: 2;
-	grid-column: 2 / end;
-
-	display: grid;
-	grid-template-rows: auto 1fr;
-}	
-
-/* Styling header of project-main-content */
-
-/* Styling when user is on a main tab */
-.main-content-header-main-tab {
-	text-align: center;
-	padding: var(--section-padding);
-	letter-spacing: var(--letter-spacing);
+    background-color: white;
+    padding: 12px;
+    grid-row: 2;
+    grid-column: 2 / end;
+    display: grid;
+    grid-template-rows: auto 1fr;
 }
 
+/* Styling header of project-main-content */
+#main-content-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 6px;
+    letter-spacing: var(--letter-spacing);
+    grid-row: 1 / 2;
+}
 
-
-/* Styling when user is on a project tab */
-.main-content-header-project-tab {
-	padding: var(--section-padding);
-	width: 70%;
-	margin: 0 auto;
-	grid-row: 1;
-	display: flex;
-	justify-content: space-between;
+#project-btns-container {
+    display: flex;
+    column-gap: 12px;
+}
+#project-btns-container {
+    border-width: 3px;
+}
+#project-btns-container button {
+    border-width: 3px;
 }
 
 /* Make it scrollable if it goes past the height content */
 #todo-list-container {
-	padding: var(--section-padding);
-	width: 70%;
-	margin: 0 auto;
-	grid-row: 2;
-	row-gap: 12px;
-	max-height: 400px;
-	overflow-y: auto;
-	display: flex;
-	flex-direction: column;
+    padding: var(--section-padding);
+    width: 70%;
+    margin: 0 auto;
+    grid-row: 2;
+    row-gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .todo-item {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: var(--section-padding);
-	background-color: var(--todo-background-clr);
-	transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--section-padding);
+    background-color: var(--todo-background-clr);
+    transition: var(--transition);
 }
 .todo-item:hover {
-	box-shadow: 5px 5px 0 0 rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.5);
 }
 .todo-item[data-todo-complete="true"] .todo-title-el {
-	text-decoration: line-through;	
+    text-decoration: line-through;
 }
 
 /* Styling for section that shows when you have no todos or no projects created */
 #empty-tab-section {
-	text-align: center;
-	font-weight: 700;
-	letter-spacing: var(--letter-spacing);
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: var(--letter-spacing);
 }
 
 #empty-tab-message-primary {
-	font-size: 28px;
-	margin-bottom: 12px;
+    font-size: 28px;
+    margin-bottom: 12px;
 }
 #empty-tab-message-secondary {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 /* Styling for the footer */
 footer {
-	background-color: var(--clr-light-blue);
-	color: black;
-	text-align: center;
-	font-weight: 700;
-	padding: var(--section-padding);
+    background-color: var(--clr-cyan-blue);
+    color: black;
+    text-align: center;
+    font-weight: 700;
+    padding: var(--section-padding);
 
-	grid-row: 3;
-	grid-column: 1 / end;
+    grid-row: 3;
+    grid-column: 1 / end;
 }
 
 .site-icons {
-	width: 30px;
-	height: 30px;
+    width: 30px;
+    height: 30px;
 }
-
-
