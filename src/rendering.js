@@ -1,5 +1,6 @@
 import {
     tabsModule,
+    themeModule,
     DomModule,
     modalModule,
     clearMainTabTodos,
@@ -12,21 +13,41 @@ import {
     isSevenDaysInFuture,
     sortTodosByDate,
 } from "./utility.js";
-import { handleSidebarTabClick, handleEditTodoBtn } from "./pageListeners.js";
+import {
+    handleSidebarTabClick,
+    handleEditTodoBtn,
+    handleTodoDetailsBtn,
+    handleDeleteTodoBtn,
+} from "./pageListeners.js";
 
-// Hides modal
+// Hides modal and overlay
 function hideModal() {
     DomModule.overlayEl.classList.add("content-hidden");
     DomModule.modalEl.classList.add("content-hidden");
 }
 
-// Renders the odal and the content section that needs to be used
+/*
+- Renders the current theme of the page
+1. Change text of the button to opposite of the current page's theme to let user know they can witch
+2. Add or remove "dark-mode" class to affect the css styling of the page
+*/
+function renderTheme() {
+    if (themeModule.isDarkTheme) {
+        DomModule.toggleThemeBtn.textContent = "Light";
+        DomModule.contentDiv.classList.add("dark-mode");
+    } else {
+        DomModule.toggleThemeBtn.textContent = "Dark";
+        DomModule.contentDiv.classList.remove("dark-mode");
+    }
+}
+
+/*
+- Renders the modal and the content section that needs to be used
+1. Shows modal and overlay
+2. Render the title of the modal
+3. Render the modal content that's active whilst hiding the rest
+*/
 function renderModalContent() {
-    /*
-	1. Shows modal and overlay
-    2. Render the title of the modal
-	3. Render the modal content that's active whilst hiding the rest
-	*/
     DomModule.overlayEl.classList.remove("content-hidden");
     DomModule.modalEl.classList.remove("content-hidden");
     DomModule.modalTitleEl.textContent = modalModule.modalTitle;
@@ -40,16 +61,16 @@ function renderModalContent() {
     }
 }
 
-// Render the project form
+/*
+- Render the project form
+1. Reset form fields and set activeContentID so that the project form will be shown on modal
+2. If we're editing a project: Get the current project, the one we're 
+	editing, edit the modal's title, and fill the input field.
+3. Else: If we're creating the new project, we just edit the title of the modal,
+	no need to edit the input field since it's already been reset.
+4. Finally call the rendering function to show the modal and its content
+*/
 function renderProjectForm() {
-    /*
-	1. Reset form fields and set activeContentID so that the project form will be shown on modal
-	2. If we're editing a project: Get the current project, the one we're 
-		editing, edit the modal's title, and fill the input field.
-	3. Else: If we're creating the new project, we just edit the title of the modal,
-		no need to edit the input field since it's already been reset.
-	4. Finally call the rendering function to show the modal and its content
-	*/
     DomModule.projectForm.reset();
     modalModule.activeContentID = DomModule.projectForm.id;
     if (modalModule.isEdit) {
@@ -62,25 +83,23 @@ function renderProjectForm() {
     renderModalContent();
 }
 
-// Renders content of the todo form
+/*
+- Renders content of the todo form
+1. Most of the steps are similar to renderProjectForm()
+2. If we're editing a todo, we're getting, get the todo the user wants to edit,
+	then modify the form based on that todo's information
+NOTE: For javascript date object, a way to input the value of that date object 
+	into an input of type date is to do '.toISOString()' and .slice(0, 10) on it.
+3. In both cases the title of the modal will be different if you're editing or 
+	adding a todo.
+4. Finally call renderModalContent() to render the modal and its content, allowing 
+	the changes done in this function to be on display.
+*/
 function renderTodoForm() {
-    /*
-	1. Most of the steps are similar to renderProjectForm()
-	2. If we're editing a todo, we're getting, get the todo the user wants to edit,
-		then modify the form based on that todo's information
-	NOTE: For javascript date object, a way to input the value of that date object 
-		into an input of type date is to do '.toISOString()' and .slice(0, 10) on it.
-	3. In both cases the title of the modal will be different if you're editing or 
-		adding a todo.
-	4. Finally call renderModalContent() to render the modal and its content, allowing 
-		the changes done in this function to be on display.
-	*/
-
     DomModule.todoForm.reset();
     modalModule.activeContentID = DomModule.todoForm.id;
     if (modalModule.isEdit) {
         const currentTodo = getSelectedTodo();
-
         modalModule.modalTitle = `Edit Todo '${currentTodo.title.getTitle()}'`;
         DomModule.todoTitleInput.value = `${currentTodo.title.getTitle()}`;
         DomModule.todoDescInput.value = `${currentTodo.description.getDescription()}`;
@@ -95,26 +114,26 @@ function renderTodoForm() {
     renderModalContent();
 }
 
-// Renders the contents of the todos details section
 /*
-- Remember that we can show details of todo whilst on a project 
-	tab or a main tab. 
-- In this case when rendering the todos, the buttons should set the 
-	information of the project the todo belongs to, and then the index
-	of the todo. We set this information, so that on click those indices 
-	are the active indices.
+- Renders the contents of the todos details section
 */
 function renderTodoDetails() {
     modalModule.activeContentID = DomModule.todoDetailsSection.id;
     const currentTodo = getSelectedTodo();
-    DomModule.modalTitleEl.textContent = `Details for todo '${currentTodo.title.getTitle()}'`;
-    DomModule.todoDetailsTitleEl.value = currentTodo.title.getTitle();
-    DomModule.todoDetailsDescEl.value =
+    modalModule.modalTitle = `Details for todo '${currentTodo.title.getTitle()}'`;
+    DomModule.todoDetailsTitleEl.textContent = currentTodo.title.getTitle();
+    DomModule.todoDetailsDescEl.textContent =
         currentTodo.description.getDescription();
-    DomModule.todoDetailsPriorityEl.value = currentTodo.priority.getPriority();
-    DomModule.todoDetailsDateEl.value = currentTodo.dueDate
-        .toISOString()
-        .slice(0, 10);
+    DomModule.todoDetailsPriorityEl.textContent =
+        currentTodo.priority.getPriority();
+    DomModule.todoDetailsDateEl.textContent = formatDateToUS(
+        currentTodo.dueDate
+    );
+    if (currentTodo.isComplete.getCompletion()) {
+        DomModule.todoDetailsCompletionEl.textContent = "Complete";
+    } else {
+        DomModule.todoDetailsCompletionEl.textContent = "Incomplete";
+    }
     renderModalContent();
 }
 
@@ -313,8 +332,6 @@ function renderMainContent() {
             const todoBtnsDiv = document.createElement("div");
             todoBtnsDiv.className = "todo-btns-container";
 
-            // Of course after add event listeners to these buttons
-
             const editTodoBtn = document.createElement("button");
             editTodoBtn.classList.add("edit-todo-btn", "green-btn");
             editTodoBtn.textContent = "Edit";
@@ -323,10 +340,12 @@ function renderMainContent() {
             const todoDetailsBtn = document.createElement("button");
             todoDetailsBtn.classList.add("todo-details-btn", "blue-btn");
             todoDetailsBtn.textContent = "Details";
+            todoDetailsBtn.addEventListener("click", handleTodoDetailsBtn);
 
             const deleteTodoBtn = document.createElement("button");
-            deleteTodoBtn.classList.add("delete-todo-btm", "red-btn");
+            deleteTodoBtn.classList.add("delete-todo-btn", "red-btn");
             deleteTodoBtn.textContent = "Delete";
+            deleteTodoBtn.addEventListener("click", handleDeleteTodoBtn);
 
             todoBtnsDiv.appendChild(editTodoBtn);
             todoBtnsDiv.appendChild(todoDetailsBtn);
@@ -350,6 +369,7 @@ function renderMainContent() {
 
 // Renders sidebar and maincontent
 function renderPage() {
+    renderTheme();
     updateSidebarTabs();
     renderMainContent();
 }
@@ -361,4 +381,5 @@ export {
     renderMainContent,
     renderPage,
     hideModal,
+    renderTheme,
 };

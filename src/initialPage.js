@@ -32,7 +32,7 @@ function createFormField(fieldObj) {
         if (fieldObj.placeholderText) {
             inputEl.placeholder = fieldObj.placeholderText;
         }
-        inputEl.required = true;
+        inputEl.required = fieldObj.isRequired;
         fieldset.appendChild(inputEl);
     }
     return fieldset;
@@ -51,6 +51,7 @@ function createTodoForm() {
             inputName: "todo title",
             placeholderText: "E.g. 'Workout'",
             maxLength: 20,
+            isRequired: true,
         },
         {
             labelText: "Todo Description:",
@@ -59,12 +60,14 @@ function createTodoForm() {
             inputName: "todo description",
             placeholderText: "E.g. Go to the gym in the evening",
             maxLength: 100,
+            isRequired: true,
         },
         {
             labelText: "Due Date: ",
             inputType: "date",
             inputID: "todo-due-date-field",
             inputName: "todo due date",
+            isRequired: true,
         },
         {
             labelText: "Todo Priority:",
@@ -76,6 +79,13 @@ function createTodoForm() {
                 { text: "Medium", value: "Medium" },
                 { text: "High", value: "High" },
             ],
+        },
+        {
+            labelText: "Mark as Complete:",
+            inputType: "checkbox",
+            inputID: "todo-complete-input",
+            inputName: "mark-completed-checkbox",
+            isRequired: false,
         },
     ];
     // Create the fieldsets for the form fields
@@ -129,7 +139,9 @@ function createTodoDetailsSection() {
 	<h3>Title: <span id="todo-details-title-el"></span></h3>
 	<p>Details: <span id="todo-details-description-el"></span></p>
 	<p>Priority: <span id="todo-details-priority-el"></span></p>
-	<p>Due Date: <span id="todo-details-dueDate-el"></span></p>`;
+	<p>Due Date: <span id="todo-details-dueDate-el"></span></p>
+	<p>Completion Status: <span id="todo-details-completion-el"></span></p>
+	`;
     return todoDetailsSections;
 }
 
@@ -195,6 +207,7 @@ function createPageHeader() {
     const userInfoSection = document.createElement("div");
     userInfoSection.classList.add("user-info-section");
     userInfoSection.innerHTML = `<h2>Hello, <span id="user-email-el">example@gmail.com</span></h2>
+						<button id="toggle-theme-btn">Toggle theme</button>
 					<a href="#" id="user-link">Sign out</a>`;
     header.appendChild(userInfoSection);
     return header;
@@ -253,7 +266,7 @@ function createPageSidebar() {
 function createMainContentSection() {
     // Create project main content section
     const mainContent = document.createElement("section");
-    mainContent.classList.add("project-main-content");
+    mainContent.id = "page-main-content";
 
     // Create header for the main content section
     const mainContentHeader = document.createElement("header");

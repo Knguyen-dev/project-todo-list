@@ -51,7 +51,6 @@ input {
     --clr-cyan-blue: #3b82f6;
     --clr-cornflower-blue: #60a5fa;
     --clr-very-light-blue: #dbeafe;
-    --background-clr-dark: #172554;
 
     --clr-dark-sky: #0c1445;
     --clr-dark-slate: #334155;
@@ -146,7 +145,7 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20%;
+    width: 25%;
     /* Make height min-content since heights will vary due to the different forms */
     height: min-content;
     /* Fancy box shadow */
@@ -155,6 +154,14 @@ button {
     border-radius: var(--border-radius);
     overflow: hidden;
     font-weight: 700;
+}
+
+.modal button {
+    background-color: transparent;
+}
+.modal button:hover {
+    background-color: black;
+    color: white;
 }
 
 .modal .modal-header {
@@ -191,6 +198,13 @@ button {
     min-height: 100vh;
 }
 
+#page-header,
+#page-sidebar,
+#page-main-content,
+#page-footer {
+    transition: var(--transition);
+}
+
 /* Header styles */
 #page-header {
     background-color: var(--clr-emerald);
@@ -216,6 +230,14 @@ button {
 }
 .user-info-section {
     flex-basis: 500px;
+}
+#toggle-theme-btn {
+    background-color: transparent;
+    min-width: 20%;
+}
+#toggle-theme-btn:hover {
+    background-color: black;
+    color: var(--clr-emerald);
 }
 
 /* Styling for the sidebar */
@@ -267,13 +289,13 @@ button {
     align-items: center;
 }
 .sidebar-tab:hover {
-    background-color: var(--background-clr-dark);
+    background-color: black;
     .sidebar-tab-title {
         color: white;
     }
 }
 .sidebar-tab[data-active="true"] {
-    background-color: var(--background-clr-dark);
+    background-color: black;
     .sidebar-tab-title {
         color: white;
     }
@@ -321,7 +343,7 @@ button {
 }
 
 /* Styling for main content section: Section where todos are displayed and todo information is displayed */
-.project-main-content {
+#page-main-content {
     background-color: white;
     padding: 12px;
     grid-row: 2;
@@ -402,7 +424,6 @@ button {
     text-align: center;
     font-weight: 700;
     padding: var(--section-padding);
-
     grid-row: 3;
     grid-column: 1 / end;
 }
@@ -410,6 +431,86 @@ button {
 .site-icons {
     width: 30px;
     height: 30px;
+}
+
+/* Dark mode styling */
+#content.dark-mode {
+    #page-header,
+    #page-footer,
+    #page-sidebar,
+    #page-main-content {
+        color: white;
+    }
+
+    .modal {
+        color: white;
+        background-color: var(--clr-dark-slate);
+    }
+    .modal-header {
+        color: inherit;
+        background-color: var(--clr-dark-gray);
+    }
+    .modal button {
+        color: white;
+        border-color: white;
+    }
+    .modal button:hover {
+        color: black;
+        border-color: white;
+        background-color: white;
+    }
+
+    #page-header,
+    #page-footer {
+        background-color: var(--clr-dark-gray);
+    }
+    #page-sidebar {
+        background-color: var(--clr-dark-sky);
+    }
+
+    .sidebar-tab {
+        border-color: var(--clr-light-teal);
+    }
+    .sidebar-tab:hover {
+        background-color: var(--clr-light-teal);
+        .sidebar-tab-title {
+            color: black;
+        }
+    }
+    .sidebar-tab[data-active="true"] {
+        background-color: var(--clr-light-teal);
+        .sidebar-tab-title {
+            color: black;
+        }
+    }
+    #page-main-content {
+        background-color: var(--clr-dark-slate);
+    }
+    #toggle-theme-btn {
+        color: white;
+        border-color: white;
+    }
+    #toggle-theme-btn:hover {
+        background-color: white;
+        color: var(--clr-dark-gray);
+    }
+    .todo-item {
+        border-color: var(--clr-light-teal);
+    }
+
+    #create-project-btn,
+    #add-todo-btn,
+    #edit-project-btn,
+    #delete-project-btn,
+    .edit-todo-btn,
+    .todo-details-btn,
+    .delete-todo-btn {
+        color: white;
+    }
+
+    #create-project-btn {
+        border-color: white;
+    }
 }
 
 /* Media queries */

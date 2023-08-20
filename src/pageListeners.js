@@ -7,14 +7,33 @@ import {
     deleteProject,
     addTodo,
     editTodo,
+    deleteTodo,
+    themeModule,
 } from "./modules.js";
 import {
     hideModal,
+    renderTheme,
     renderMainContent,
     renderProjectForm,
     renderTodoForm,
     renderPage,
+    renderTodoDetails,
 } from "./rendering.js";
+
+/*
+- Toggles the theme of the page
+1. Change theme boolean to opposite
+2. Call rendering function to render the change.
+*/
+function toggleTheme() {
+    if (themeModule.isDarkTheme) {
+        themeModule.isDarkTheme = false;
+    } else {
+        themeModule.isDarkTheme = true;
+    }
+    renderTheme();
+}
+
 /*
 - Whenever a tab is clicked, we make sure it's the only tab
 	that's highlighted. Then we render the main content related to it
@@ -40,18 +59,16 @@ function handleSidebarTabClick(e) {
 }
 
 /*
-- Create event listener for the 'edit' button on individual todos.
-	There are two scenarios when editing
-1. Editing whilst in a user-created project tab:
-	1. We already have the projectIndex in activeTabID
-	2. We only need to get the todoIndex data-attribute from todo-el.
-2. Editing whilst in a main tab:
-	1. The project and todo indices are both in the todoEl element.
-3. Finally, record both of these values, and set the isEdit boolean to true
-	to indicate we're going to edit something. We Then call the function
-	to show the todo form for editing.
+- Records selectedTodoIndex and selectedProjectIndex.
+1. e.currentTarget: The 'edit', 'details,' or 'delete' button on 
+	a given todo element that triggered the event.
+2. All todoEl, have todoIndex attribute, but if we're on a main tab,
+	then it'll have a projectIndex too, indicating the index of the project
+	the todo belongs to in the 'projectsList' array.
+NOTE: More of a helper function to functions such as 
+	'handleEditTodoBtn', 'handleTodoDetailsBtn', etc.
 */
-function handleEditTodoBtn(e) {
+function recordSelectedTodoIndices(e) {
     const todoEl = e.currentTarget.parentElement.parentElement;
     tabsModule.selectedTodoIndex = todoEl.dataset.todoIndex;
     if (tabsModule.activeTabType == tabsModule.mainTabType) {
@@ -59,8 +76,43 @@ function handleEditTodoBtn(e) {
     } else {
         tabsModule.selectedProjectIndex = tabsModule.activeTabID;
     }
+}
+
+/*
+- Create event listener for the 'edit' button on individual todos.
+1. Record index values, and set the isEdit boolean to true
+	to indicate we're going to edit something. We Then call the function
+	to show the todo form for editing.
+*/
+function handleEditTodoBtn(e) {
+    recordSelectedTodoIndices(e);
     modalModule.isEdit = true;
     renderTodoForm();
+}
+
+/*
+- Create event listener for showing todo details
+1. Record index values
+2. Then call renderTodoDetails(), which will prepare a section and 
+	fill out that section with the todo's information, and then it'll 
+	display the modal showing that todo's details.
+*/
+function handleTodoDetailsBtn(e) {
+    recordSelectedTodoIndices(e);
+    renderTodoDetails();
+}
+
+/*
+- Create event listener for deleting a todo
+1. Record index values
+2. Delete the todo's data
+3. Then render the page, which will update the sidebar and maincontent now 
+	that the deleted todo is gone
+*/
+function handleDeleteTodoBtn(e) {
+    recordSelectedTodoIndices(e);
+    deleteTodo();
+    renderPage();
 }
 
 /*
@@ -127,14 +179,16 @@ function setupTodoForm() {
                 DomModule.todoTitleInput.value,
                 DomModule.todoDescInput.value,
                 DomModule.todoDateInput.value,
-                DomModule.todoPrioritySelect.value
+                DomModule.todoPrioritySelect.value,
+                DomModule.todoCompletionInput.checked
             );
         } else {
             addTodo(
                 DomModule.todoTitleInput.value,
                 DomModule.todoDescInput.value,
                 DomModule.todoDateInput.value,
-                DomModule.todoPrioritySelect.value
+                DomModule.todoPrioritySelect.value,
+                DomModule.todoCompletionInput.checked
             );
         }
         renderPage();
@@ -149,9 +203,16 @@ function setupTodoForm() {
 */
 function loadPageListeners() {
     DomModule.closeModalBtn.addEventListener("click", hideModal);
+    DomModule.toggleThemeBtn.addEventListener("click", toggleTheme);
     setupProjectBtns();
     setupProjectForm();
     setupTodoForm();
 }
 
-export { handleSidebarTabClick, handleEditTodoBtn, loadPageListeners };
+export {
+    handleSidebarTabClick,
+    handleEditTodoBtn,
+    handleTodoDetailsBtn,
+    handleDeleteTodoBtn,
+    loadPageListeners,
+};

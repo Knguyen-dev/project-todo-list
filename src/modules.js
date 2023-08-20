@@ -98,10 +98,18 @@ const modalModule = {
     modalTitle: "",
 };
 
+const themeModule = {
+    isDarkTheme: true,
+};
+
 const DomModule = (() => {
     // Create and load page on the document
     const page = createInitialPage();
     document.body.appendChild(page);
+
+    // Get button for toggling the theme of the page
+    const contentDiv = document.querySelector("#content");
+    const toggleThemeBtn = document.querySelector("#toggle-theme-btn");
 
     // Get overlay and modal elements
     const overlayEl = document.querySelector(".overlay");
@@ -117,6 +125,7 @@ const DomModule = (() => {
     const todoPrioritySelect = document.querySelector(
         "#todo-priority-drop-down"
     );
+    const todoCompletionInput = document.querySelector("#todo-complete-input");
 
     // Project form elements
     const projectForm = document.querySelector("#project-form");
@@ -133,6 +142,9 @@ const DomModule = (() => {
     );
     const todoDetailsDateEl = document.querySelector(
         "#todo-details-dueDate-el"
+    );
+    const todoDetailsCompletionEl = document.querySelector(
+        "#todo-details-completion-el"
     );
 
     // Get a list of modal children, which will be the content we'll be displaying
@@ -163,6 +175,8 @@ const DomModule = (() => {
     const emptyTabSection = document.querySelector("#empty-tab-section");
 
     return {
+        contentDiv,
+        toggleThemeBtn,
         overlayEl,
         modalEl,
         modalTitleEl,
@@ -172,6 +186,7 @@ const DomModule = (() => {
         todoDescInput,
         todoDateInput,
         todoPrioritySelect,
+        todoCompletionInput,
         projectForm,
         projectTitleInput,
         todoDetailsSection,
@@ -179,6 +194,7 @@ const DomModule = (() => {
         todoDetailsDescEl,
         todoDetailsPriorityEl,
         todoDetailsDateEl,
+        todoDetailsCompletionEl,
         modalContentList,
         mainTabSection,
         projectsTabSection,
@@ -272,14 +288,14 @@ function deleteProject() {
 }
 
 // Adds a todo
-function addTodo(title, description, dueDate, priority) {
-    const newTodo = new Todo(title, description, dueDate, priority);
+function addTodo(title, description, dueDate, priority, isComplete) {
+    const newTodo = new Todo(title, description, dueDate, priority, isComplete);
     tabsModule.projectsList[tabsModule.activeTabID].addTodo(newTodo);
 }
 
 // Edits a todo, by replacing the old one wiht a new one that has the user's edits
-function editTodo(title, description, dueDate, priority) {
-    const newTodo = new Todo(title, description, dueDate, priority);
+function editTodo(title, description, dueDate, priority, isComplete) {
+    const newTodo = new Todo(title, description, dueDate, priority, isComplete);
     /*
 	1. tabsModule.projectsList[tabsModule.selectedProjectIndex]: The project class instance 
 		that contains the todo that we want to edit
@@ -292,8 +308,16 @@ function editTodo(title, description, dueDate, priority) {
     );
 }
 
+// Deletes a todo based on the selected todo and project indices
+function deleteTodo() {
+    tabsModule.projectsList[tabsModule.selectedProjectIndex].removeTodoAtIndex(
+        tabsModule.selectedTodoIndex
+    );
+}
+
 export {
     tabsModule,
+    themeModule,
     modalModule,
     DomModule,
     clearMainTabTodos,
@@ -304,4 +328,5 @@ export {
     deleteProject,
     addTodo,
     editTodo,
+    deleteTodo,
 };

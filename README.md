@@ -21,11 +21,12 @@ How to run (For development purposes):
 3. Deleting projects
 4. Adding todos
 5. edit todos (finished): Fixed the indicing issue
+6. Todo details
+7. Deleting todos
+8. Marking todos as incomplete and complete
 
 -   Issues:
 
-1. Do a commit to log the recent work
-2. Add the todo details event listener
-3. Add the event listener for the delete button
-4. Form buttons are not styled, also form's size is kind of small and not uniformed
-5. Dark mode is needed
+1. Form buttons are not styled, also form's size is kind of small and not uniformed
+2. Dark mode is needed
+3. Need some responsiveness

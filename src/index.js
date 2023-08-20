@@ -7,7 +7,12 @@ function loadDummyData() {
     const project1 = new Project("Go to the pub!");
     const todo1 = new Todo("Todo1", "Desc todo1", "2017-06-01", "Low");
     const todo2 = new Todo("Todo2", "Desc todo2", "2020-05-22", "Medium");
-    const todo3 = new Todo("Todo3", "Desc todo3", "2019-12-20", "High");
+    const todo3 = new Todo(
+        "Todo3 that has longer title",
+        "Desc todo3 long todo detail that's going to take up some lines",
+        "2019-12-20",
+        "High"
+    );
     const todo4 = new Todo("Todo4", "Desc todo4", "2021-01-20", "Low");
     project1.addTodo(todo1);
     project1.addTodo(todo2);

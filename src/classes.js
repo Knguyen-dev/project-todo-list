@@ -54,13 +54,17 @@ class Completion {
 }
 
 // Todo class: dueDate is just the value of the input date element
+/*
+NOTE: isComplete is default false because of the idea that if you create a todo or 
+	are given a task in rela life, it's likely not going to be immediately completed.
+*/
 class Todo {
-    constructor(title, description, dueDate, priority) {
+    constructor(title, description, dueDate, priority, isComplete = false) {
         this.title = new Title(title);
         this.description = new Description(description);
         this.dueDate = new Date(dueDate);
         this.priority = new Priority(priority);
-        this.isComplete = new Completion(false);
+        this.isComplete = new Completion(isComplete);
     }
 }
 
@@ -81,11 +85,8 @@ class Project {
         this.projectTodos[i] = todo;
     }
 
-    removeTodo(todo) {
-        const index = this.projectTodos.indexOf(todo);
-        if (index !== -1) {
-            this.projectTodos.splice(index, 1);
-        }
+    removeTodoAtIndex(i) {
+        this.projectTodos.splice(i, 1);
     }
 
     // Gets number of incomplete todos from projectTodos
