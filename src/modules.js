@@ -99,7 +99,7 @@ const modalModule = {
 };
 
 const themeModule = {
-    isDarkTheme: true,
+    isDarkTheme: false,
 };
 
 const DomModule = (() => {
@@ -212,6 +212,47 @@ const DomModule = (() => {
     };
 })();
 
+// Updates the projects in local storage
+function updateLocalStorageProjects() {
+    localStorage.setItem("projects", JSON.stringify(tabsModule.projectsList));
+}
+
+/*
+- Gets projects from localStorage nad puts them in the projectsList
+*/
+function loadLocalStorageProjects() {
+    // If there are projects in local storage
+    if (localStorage.getItem("projects")) {
+        let localStorageProjects = JSON.parse(localStorage.getItem("projects"));
+        localStorageProjects = localStorageProjects.map((projectObj) => {
+            // Create project instance
+            const projectTitle = projectObj.title.title;
+            const projectTodos = projectObj.projectTodos;
+            const project = new Project(projectTitle);
+
+            // Create all todos instances and push it to the project instance
+            for (const todoObj of projectTodos) {
+                const todo = new Todo(
+                    todoObj.title.title,
+                    todoObj.description.description,
+                    todoObj.dueDate,
+                    todoObj.priority.priority,
+                    todoObj.isComplete.isComplete
+                );
+                project.addTodo(todo);
+            }
+            // Return project instance
+            return project;
+        });
+        // Load those projects into the 'projectsList'
+        tabsModule.projectsList = localStorageProjects;
+    } else {
+        // Else, if there aren't any projects in local storage
+        // Set projectsList to a blank array, if it isn't already
+        tabsModule.projectsList = [];
+    }
+}
+
 // Clears all main tabs of their todos, and their related information
 function clearMainTabTodos() {
     tabsModule.mainTabs.forEach((tabObj) => {
@@ -256,7 +297,9 @@ NOTE: These functions below only manipulate the data-structures, you will
 // Adds new project to the projectsList
 function addProject(title) {
     tabsModule.projectsList.push(new Project(title));
+    updateLocalStorageProjects();
 }
+
 /*
 - Edits the active project in the projectsList
 NOTE: We assume that to edit a project, the user must be on that project's page,
@@ -269,7 +312,9 @@ NOTE 2: Since there's no button to edit the project on the main tabs, we won't r
 */
 function editProject(title) {
     tabsModule.projectsList[tabsModule.activeTabID].title.setTitle(title);
+    updateLocalStorageProjects();
 }
+
 /*
 - Deletes the active project from the projectsList
 1. Splices array to get rid of project class instance
@@ -285,12 +330,14 @@ function deleteProject() {
     tabsModule.projectsList.splice(tabsModule.activeTabID, 1);
     tabsModule.activeTabID = tabsModule.mainTabs[0].tabID;
     tabsModule.activeTabType = tabsModule.mainTabType;
+    updateLocalStorageProjects();
 }
 
 // Adds a todo
 function addTodo(title, description, dueDate, priority, isComplete) {
     const newTodo = new Todo(title, description, dueDate, priority, isComplete);
     tabsModule.projectsList[tabsModule.activeTabID].addTodo(newTodo);
+    updateLocalStorageProjects();
 }
 
 // Edits a todo, by replacing the old one wiht a new one that has the user's edits
@@ -306,6 +353,7 @@ function editTodo(title, description, dueDate, priority, isComplete) {
         tabsModule.selectedTodoIndex,
         newTodo
     );
+    updateLocalStorageProjects();
 }
 
 // Deletes a todo based on the selected todo and project indices
@@ -313,6 +361,7 @@ function deleteTodo() {
     tabsModule.projectsList[tabsModule.selectedProjectIndex].removeTodoAtIndex(
         tabsModule.selectedTodoIndex
     );
+    updateLocalStorageProjects();
 }
 
 export {
@@ -320,6 +369,7 @@ export {
     themeModule,
     modalModule,
     DomModule,
+    loadLocalStorageProjects,
     clearMainTabTodos,
     getActiveProject,
     getSelectedTodo,

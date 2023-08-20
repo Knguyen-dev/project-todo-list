@@ -21,7 +21,6 @@ input {
     border: 2px solid gray;
     padding: var(--section-padding);
 }
-
 label {
     display: block;
     margin-bottom: 2px;
@@ -29,13 +28,12 @@ label {
 input {
     width: 100%;
 }
-
 /* scrollbar styles */
 *::-webkit-scrollbar {
     width: 8px;
 }
-
 *::-webkit-scrollbar-thumb {
+    transition: var(--transition);
     background-color: var(--scrollbar-color);
     border-radius: var(--border-radius);
 }
@@ -46,23 +44,16 @@ input {
     background-color: var(--scrollbar-color-hover);
     cursor: pointer;
 }
-
 :root {
     --clr-cyan-blue: #3b82f6;
-    --clr-cornflower-blue: #60a5fa;
-    --clr-very-light-blue: #dbeafe;
-
     --clr-dark-sky: #0c1445;
     --clr-dark-slate: #334155;
     --clr-dark-gray: #111827;
     --clr-emerald: #10b981;
-    --clr-light-lime: #bef264;
     --clr-light-teal: #5eead4;
-
-    --scrollbar-color: rgba(217, 217, 227, 0.8);
-    --scrollbar-color-hover: rgba(217, 217, 227, 1);
-
-    --font-clr-3: white;
+    /* Scrollbar color is just '--clr-emerald' in rgb form */
+    --scrollbar-color: rgba(16, 185, 129, 0.7);
+    --scrollbar-color-hover: rgba(16, 185, 129, 1);
     --font-1: "Roboto", sans-serif;
     --font-2: "Open Sans", sans-serif;
     --transition: all 0.25s ease-in-out;
@@ -128,7 +119,7 @@ button {
 /* Styles for modal forms */
 /* Blurred overlay */
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -140,17 +131,17 @@ button {
 }
 
 .modal {
-    position: absolute;
+    position: fixed;
     z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25%;
+    width: auto;
     /* Make height min-content since heights will vary due to the different forms */
     height: min-content;
     /* Fancy box shadow */
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    background-color: var(--clr-very-light-blue);
+    background-color: var(--clr-light-teal);
     border-radius: var(--border-radius);
     overflow: hidden;
     font-weight: 700;
@@ -164,13 +155,16 @@ button {
     color: white;
 }
 
-.modal .modal-header {
+.modal-header {
     padding: var(--section-padding);
     color: black;
-    background-color: var(--clr-cornflower-blue);
+    background-color: var(--clr-emerald);
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+#close-modal-btn {
+    margin-left: 16px;
 }
 
 .modal-main-content {
@@ -194,7 +188,7 @@ button {
 #project-container {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: 15% 1fr;
+    grid-template-columns: auto 1fr;
     min-height: 100vh;
 }
 
@@ -208,8 +202,6 @@ button {
 /* Header styles */
 #page-header {
     background-color: var(--clr-emerald);
-    color: black;
-    font-size: 16px;
     font-weight: 700;
     padding: var(--section-padding);
     display: flex;
@@ -310,7 +302,6 @@ button {
 
 /* Styling for secondary tab */
 .projects-tab-section {
-    margin-left: 12px; /*Have indent to indicate which tabs are under the project's section*/
     /* If height of the project's container goes over 150px, we add a scroll bar for it */
     max-height: 150px;
     overflow-y: auto;
@@ -384,6 +375,7 @@ button {
     max-height: 70vh;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .todo-item {
@@ -393,6 +385,11 @@ button {
     padding: var(--section-padding);
     border: 3px solid var(--clr-dark-slate);
     transition: var(--transition);
+}
+
+/* For larger screens, we'll hide the description of the todo */
+.todo-description-el {
+    display: none;
 }
 
 .todo-item:hover {
@@ -405,6 +402,7 @@ button {
 /* Styling for section that shows when you have no todos or no projects created */
 #empty-tab-section {
     text-align: center;
+    margin: 24px;
     font-weight: 700;
     letter-spacing: var(--letter-spacing);
 }
@@ -483,6 +481,11 @@ button {
             color: black;
         }
     }
+
+    .todo-count-el {
+        color: black;
+    }
+
     #page-main-content {
         background-color: var(--clr-dark-slate);
     }
@@ -514,4 +517,75 @@ button {
 }
 
 /* Media queries */
-/* @media screen and (max-width: ) */
+/* 
+1. For medium sized screens change the layout of the todos
+2. Also show the todo descriptions
+*/
+@media screen and (max-width: 1000px) {
+    .todo-item {
+        flex-direction: column;
+        row-gap: 8px;
+    }
+    .todo-description-el {
+        display: block;
+    }
+}
+
+/* For medium-smaller sized screens, we make the header layout more compact */
+@media screen and (max-width: 750px) {
+    #page-header {
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+    .app-logo-container,
+    .user-info-section {
+        flex-basis: 0px;
+        flex-direction: column;
+    }
+    .app-logo-container {
+        margin-bottom: 16px;
+    }
+    .user-info-section {
+        row-gap: 8px;
+    }
+}
+
+/* 
+- When on really small screens
+1. Hide the description of the todo.
+2. Change layout of the project, making the sidebar placed under the header
+*/
+
+@media screen and (max-width: 500px) {
+    #project-container {
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+    }
+
+    #page-header,
+    #page-sidebar {
+        font-size: 0.7em;
+    }
+
+    #page-sidebar {
+        grid-row: 2 / 3;
+    }
+
+    #page-main-content {
+        grid-row: 3 / 4;
+        grid-column-start: 1;
+    }
+    #project-btns-container {
+        flex-direction: column;
+        row-gap: 8px;
+    }
+    #todo-list-container {
+        width: 100%;
+    }
+    .todo-description-el {
+        display: none;
+    }
+    #page-footer {
+        grid-row: 4 / 5;
+    }
+}

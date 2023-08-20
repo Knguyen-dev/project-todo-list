@@ -24,9 +24,8 @@ How to run (For development purposes):
 6. Todo details
 7. Deleting todos
 8. Marking todos as incomplete and complete
+9. Dark mode
 
 -   Issues:
 
-1. Form buttons are not styled, also form's size is kind of small and not uniformed
-2. Dark mode is needed
-3. Need some responsiveness
+1. Need some responsiveness

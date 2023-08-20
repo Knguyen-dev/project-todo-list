@@ -33,9 +33,11 @@ function hideModal() {
 */
 function renderTheme() {
     if (themeModule.isDarkTheme) {
+        console.log("Rendering dark-theme");
         DomModule.toggleThemeBtn.textContent = "Light";
         DomModule.contentDiv.classList.add("dark-mode");
     } else {
+        console.log("Rendering light-theme");
         DomModule.toggleThemeBtn.textContent = "Dark";
         DomModule.contentDiv.classList.remove("dark-mode");
     }
@@ -107,6 +109,11 @@ function renderTodoForm() {
             .toISOString()
             .slice(0, 10)}`;
         DomModule.todoPrioritySelect.value = `${currentTodo.priority.getPriority()}`;
+        if (currentTodo.isComplete.getCompletion()) {
+            DomModule.todoCompletionInput.checked = true;
+        } else {
+            DomModule.todoCompletionInput.checked = false;
+        }
     } else {
         const currentProject = getActiveProject();
         modalModule.modalTitle = `Add new todo for project '${currentProject.title.getTitle()}'`;
@@ -325,6 +332,10 @@ function renderMainContent() {
             todoTitleEl.className = "todo-title-el";
             todoTitleEl.textContent = todo.title.getTitle();
 
+            const todoDescEl = document.createElement("span");
+            todoDescEl.className = "todo-description-el";
+            todoDescEl.textContent = todo.description.getDescription();
+
             const todoDateEl = document.createElement("span");
             todoDateEl.textContent = "todo-due-date-el";
             todoDateEl.textContent = `Due: ${formatDateToUS(todo.dueDate)}`;
@@ -351,6 +362,7 @@ function renderMainContent() {
             todoBtnsDiv.appendChild(todoDetailsBtn);
             todoBtnsDiv.appendChild(deleteTodoBtn);
             todoEl.appendChild(todoTitleEl);
+            todoEl.appendChild(todoDescEl);
             todoEl.appendChild(todoDateEl);
             todoEl.appendChild(todoBtnsDiv);
             DomModule.todoListContainer.appendChild(todoEl);
