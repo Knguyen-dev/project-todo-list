@@ -11,6 +11,7 @@ ol {
 }
 a {
     text-decoration: none;
+    color: inherit;
 }
 fieldset {
     border: none;
@@ -31,18 +32,19 @@ input {
 
 /* scrollbar styles */
 *::-webkit-scrollbar {
-    width: 2px;
+    width: 8px;
 }
+
 *::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-color);
     border-radius: var(--border-radius);
-    background-clip: content-box;
 }
 *::-webkit-scrollbar-track {
     background-color: transparent;
 }
 *::-webkit-scrollbar-thumb:hover {
-    background-color: var(--clr-cyan-blue);
+    background-color: var(--scrollbar-color-hover);
+    cursor: pointer;
 }
 
 :root {
@@ -55,10 +57,12 @@ input {
     --clr-dark-slate: #334155;
     --clr-dark-gray: #111827;
     --clr-emerald: #10b981;
+    --clr-light-lime: #bef264;
     --clr-light-teal: #5eead4;
 
-    --todo-background-clr: #7dd3fc;
-    --scrollbar-color: #312e81;
+    --scrollbar-color: rgba(217, 217, 227, 0.8);
+    --scrollbar-color-hover: rgba(217, 217, 227, 1);
+
     --font-clr-3: white;
     --font-1: "Roboto", sans-serif;
     --font-2: "Open Sans", sans-serif;
@@ -85,6 +89,7 @@ button {
     background-color: transparent;
     border-color: var(--clr-emerald);
     color: black;
+    border-width: 3px;
 }
 .green-btn:hover {
     background-color: var(--clr-emerald);
@@ -94,6 +99,7 @@ button {
     background-color: transparent;
     border-color: var(--clr-cyan-blue);
     color: black;
+    border-width: 3px;
 }
 .blue-btn:hover {
     background-color: var(--clr-cyan-blue);
@@ -103,6 +109,7 @@ button {
     background-color: transparent;
     border-color: red;
     color: black;
+    border-width: 3px;
 }
 .red-btn:hover {
     background-color: red;
@@ -186,7 +193,7 @@ button {
 
 /* Header styles */
 #page-header {
-    background-color: var(--clr-cyan-blue);
+    background-color: var(--clr-emerald);
     color: black;
     font-size: 16px;
     font-weight: 700;
@@ -213,7 +220,7 @@ button {
 
 /* Styling for the sidebar */
 #page-sidebar {
-    background-color: var(--clr-cornflower-blue);
+    background-color: var(--clr-light-teal);
     padding: 16px;
     /* Start and span across row 2, which is our main row. Then position into  */
     grid-row: 2;
@@ -303,13 +310,13 @@ button {
 /* Fancy styling for button: box shadow is just setting the background when you hover */
 #create-project-btn {
     background-color: transparent;
-    box-shadow: inset 0 0 0 0 var(--clr-cyan-blue);
+    box-shadow: inset 0 0 0 0 var(--clr-emerald);
     color: black;
     border: 3px solid black;
     padding: var(--section-padding);
 }
 #create-project-btn:hover {
-    box-shadow: inset 0 0 0 120px var(--clr-cyan-blue);
+    box-shadow: inset 0 0 0 120px var(--clr-emerald);
     color: white;
 }
 
@@ -341,7 +348,7 @@ button {
     border-width: 3px;
 }
 #project-btns-container button {
-    border-width: 3px;
+    border-width: 4px;
 }
 
 /* Make it scrollable if it goes past the height content */
@@ -351,8 +358,8 @@ button {
     margin: 0 auto;
     grid-row: 2;
     row-gap: 12px;
-    max-height: 400px;
     overflow-y: auto;
+    max-height: 70vh;
     display: flex;
     flex-direction: column;
 }
@@ -362,11 +369,12 @@ button {
     align-items: center;
     justify-content: space-between;
     padding: var(--section-padding);
-    background-color: var(--todo-background-clr);
+    border: 3px solid var(--clr-dark-slate);
     transition: var(--transition);
 }
+
 .todo-item:hover {
-    box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.5);
 }
 .todo-item[data-todo-complete="true"] .todo-title-el {
     text-decoration: line-through;
@@ -388,8 +396,8 @@ button {
 }
 
 /* Styling for the footer */
-footer {
-    background-color: var(--clr-cyan-blue);
+#page-footer {
+    background-color: var(--clr-emerald);
     color: black;
     text-align: center;
     font-weight: 700;
@@ -403,3 +411,6 @@ footer {
     width: 30px;
     height: 30px;
 }
+
+/* Media queries */
+/* @media screen and (max-width: ) */

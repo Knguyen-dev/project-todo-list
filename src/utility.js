@@ -1,38 +1,53 @@
 // Checks if a date WITHIN 7 days in the future; not including today
-function isSevenDaysInFuture(dateOne, dateTwo) {
+function isSevenDaysInFuture(inputDate) {
+    const today = new Date();
     const oneDayMilliseconds = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
     // Convert both dates to UTC to avoid issues with daylight saving time; essentially gets
     // amount of miliseconds since january 1, 1970 zero hour
-    const utcDateOne = Date.UTC(
-        dateOne.getUTCFullYear(),
-        dateOne.getUTCMonth(),
-        dateOne.getUTCDate()
+    const todayUTC = Date.UTC(
+        today.getUTCFullYear(),
+        today.getUTCMonth(),
+        today.getUTCDate()
     );
-    const utcDateTwo = Date.UTC(
-        dateTwo.getUTCFullYear(),
-        dateTwo.getUTCMonth(),
-        dateTwo.getUTCDate()
+    const inputDateUTC = Date.UTC(
+        inputDate.getUTCFullYear(),
+        inputDate.getUTCMonth(),
+        inputDate.getUTCDate()
     );
-    const diffDays = Math.floor((utcDateTwo - utcDateOne) / oneDayMilliseconds);
+    /*
+	1. inputDateUTC - todayUTC; difference between days in miliseconds, if we 
+		assume inputDate UTC is some date in the future, it should be greater than 
+		today UTC.
+	2. Divide by amount of miliseconds in a day, you'd get the approximate amount of days
+	3. Round it down, and you got the approximate difference in days.
+	*/
+    const diffDays = Math.floor((inputDateUTC - todayUTC) / oneDayMilliseconds);
     return diffDays > 0 && diffDays <= 7;
 }
 
-// Checks if two dates are the same;
-function isSameDate(dateOne, dateTwo) {
-    const utcDateOne = Date.UTC(
-        dateOne.getUTCFullYear(),
-        dateOne.getUTCMonth(),
-        dateOne.getUTCDate()
+function isToday(inputDate) {
+    const today = new Date();
+    const todayUTC = Date.UTC(
+        today.getUTCFullYear(),
+        today.getUTCMonth(),
+        today.getUTCDate()
     );
-    const utcDateTwo = Date.UTC(
-        dateTwo.getUTCFullYear(),
-        dateTwo.getUTCMonth(),
-        dateTwo.getUTCDate()
+    const inputDateUTC = Date.UTC(
+        inputDate.getUTCFullYear(),
+        inputDate.getUTCMonth(),
+        inputDate.getUTCDate()
     );
-    return utcDateOne == utcDateTwo;
+    return todayUTC == inputDateUTC;
 }
 
 // Will return a date in the form "[Month] [Day], [Year]" e.g. "June 6, 2017"
+/*
+- NOTE: When creating new Date("yyyy-mm-dd") objects, calling .toDateString() sometimes
+	gives a date that's one day off from how it was originally created. 
+	E.g. 2020-05-19, would be converted and displayed as 2020-05-18. To prevent that 
+	headache, I didn't want to use a date library, so I just created this function.
+
+*/
 function formatDateToUS(dateObj) {
     // Create a map of months
     const monthMap = {
@@ -63,7 +78,7 @@ function formatDateToUS(dateObj) {
         dayStr = dateStr.slice(8);
     }
     // Format the string in the United States style
-    const formattedDate = `${monthStr} ${dayStr}, ${yearStr}`;
+    const formattedDate = `${monthStr.slice(0, 3)} ${dayStr} ${yearStr}`;
     return formattedDate;
 }
 
@@ -92,4 +107,4 @@ function sortTodosByDate(todos) {
     return todos;
 }
 
-export { isSevenDaysInFuture, isSameDate, formatDateToUS, sortTodosByDate };
+export { isSevenDaysInFuture, isToday, formatDateToUS, sortTodosByDate };

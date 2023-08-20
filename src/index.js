@@ -1,4 +1,5 @@
-import { renderInitialPage } from "./rendering.js";
+import { renderPage, hideModal } from "./rendering.js";
+import { loadPageListeners } from "./pageListeners.js";
 import { tabsModule } from "./modules.js";
 import { Project, Todo } from "./classes.js";
 
@@ -16,8 +17,16 @@ function loadDummyData() {
     const project2 = new Project("Go Gym!");
     const todo5 = new Todo("Todo5", "Desc todo5", "2018-10-20", "High");
     const todo6 = new Todo("Todo6", "Desc todo6", "2022-01-10", "Low");
+
+    const todo7 = new Todo("Todo7", "Desc todo7", "2023-08-19", "Low");
+    const todo8 = new Todo("Todo8", "Desc todo8", "2023-08-20", "Low");
+
+    const todo9 = new Todo("Todo9", "Desc todo9", "2023-08-21", "Low");
     project2.addTodo(todo5);
     project2.addTodo(todo6);
+    project2.addTodo(todo7);
+    project2.addTodo(todo8);
+    project2.addTodo(todo9);
 
     tabsModule.projectsList.push(project1);
     tabsModule.projectsList.push(project2);
@@ -30,14 +39,18 @@ BOOK MARK:
 	deleting projects
 1. Set up event listeners for the edit, details, and delete buttons.
 3. Style the todo items, to look somewhat better 
-
+4. Fix date detection, so we have to fix utility.js isSameDate, and more 
+	if needed. There seems to be an issue with new Date(), as calling it 
+	may sometimes make a date one day in the future. Current problem
+	is detecting 'Today
 
 
 
 */
 
 window.addEventListener("DOMContentLoaded", () => {
-    console.log("Window loaded");
     loadDummyData();
-    renderInitialPage();
+    loadPageListeners();
+    renderPage();
+    hideModal();
 });

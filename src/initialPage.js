@@ -63,7 +63,7 @@ function createTodoForm() {
         {
             labelText: "Due Date: ",
             inputType: "date",
-            inputID: "todo-due-date-field ",
+            inputID: "todo-due-date-field",
             inputName: "todo due date",
         },
         {

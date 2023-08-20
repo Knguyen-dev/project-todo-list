@@ -1,12 +1,18 @@
-import { tabsModule, DomModule, modalModule } from "./modules.js";
+import {
+    tabsModule,
+    DomModule,
+    modalModule,
+    clearMainTabTodos,
+    getActiveProject,
+    getSelectedTodo,
+} from "./modules.js";
 import {
     formatDateToUS,
-    isSameDate,
+    isToday,
     isSevenDaysInFuture,
     sortTodosByDate,
 } from "./utility.js";
-import { Todo } from "./classes.js";
-import { setupSidebarTabs } from "./pageListeners.js";
+import { handleSidebarTabClick, handleEditTodoBtn } from "./pageListeners.js";
 
 // Hides modal
 function hideModal() {
@@ -18,19 +24,20 @@ function hideModal() {
 function renderModalContent() {
     /*
 	1. Shows modal and overlay
-    2. Render the modal content that's active whilst hiding the rest
-    3. Finally, render the title of the modal
+    2. Render the title of the modal
+	3. Render the modal content that's active whilst hiding the rest
 	*/
     DomModule.overlayEl.classList.remove("content-hidden");
     DomModule.modalEl.classList.remove("content-hidden");
-    DomModule.modalContentList.forEach((element) => {
+    DomModule.modalTitleEl.textContent = modalModule.modalTitle;
+    for (let i = 0; i < DomModule.modalContentList.length; i++) {
+        const element = DomModule.modalContentList[i];
         if (modalModule.activeContentID == element.id) {
             element.classList.remove("content-hidden");
         } else {
             element.classList.add("content-hidden");
         }
-    });
-    DomModule.modalTitleEl.textContent = modalModule.modalTitle;
+    }
 }
 
 // Render the project form
@@ -46,7 +53,7 @@ function renderProjectForm() {
     DomModule.projectForm.reset();
     modalModule.activeContentID = DomModule.projectForm.id;
     if (modalModule.isEdit) {
-        const currentProject = tabsModule.getActiveProject();
+        const currentProject = getActiveProject();
         modalModule.modalTitle = `Edit Project '${currentProject.title.getTitle()}'!`;
         DomModule.projectTitleInput.value = currentProject.title.getTitle();
     } else {
@@ -63,13 +70,18 @@ function renderTodoForm() {
 		then modify the form based on that todo's information
 	NOTE: For javascript date object, a way to input the value of that date object 
 		into an input of type date is to do '.toISOString()' and .slice(0, 10) on it.
-	3. Else just edit the title of the modal.
+	3. In both cases the title of the modal will be different if you're editing or 
+		adding a todo.
+	4. Finally call renderModalContent() to render the modal and its content, allowing 
+		the changes done in this function to be on display.
 	*/
+
     DomModule.todoForm.reset();
     modalModule.activeContentID = DomModule.todoForm.id;
     if (modalModule.isEdit) {
-        const currentTodo = tabsModule.getActiveTodo();
-        DomModule.modalTitleEl.textContent = `Edit Todo '${currentTodo.title.getTitle()}'`;
+        const currentTodo = getSelectedTodo();
+
+        modalModule.modalTitle = `Edit Todo '${currentTodo.title.getTitle()}'`;
         DomModule.todoTitleInput.value = `${currentTodo.title.getTitle()}`;
         DomModule.todoDescInput.value = `${currentTodo.description.getDescription()}`;
         DomModule.todoDateInput.value = `${currentTodo.dueDate
@@ -77,8 +89,8 @@ function renderTodoForm() {
             .slice(0, 10)}`;
         DomModule.todoPrioritySelect.value = `${currentTodo.priority.getPriority()}`;
     } else {
-        const currentProject = tabsModule.getActiveProject();
-        DomModule.modalTitleEl.textContent = `Add new todo for project '${currentProject.title.getTitle()}'`;
+        const currentProject = getActiveProject();
+        modalModule.modalTitle = `Add new todo for project '${currentProject.title.getTitle()}'`;
     }
     renderModalContent();
 }
@@ -94,7 +106,7 @@ function renderTodoForm() {
 */
 function renderTodoDetails() {
     modalModule.activeContentID = DomModule.todoDetailsSection.id;
-    const currentTodo = tabsModule.getActiveTodo();
+    const currentTodo = getSelectedTodo();
     DomModule.modalTitleEl.textContent = `Details for todo '${currentTodo.title.getTitle()}'`;
     DomModule.todoDetailsTitleEl.value = currentTodo.title.getTitle();
     DomModule.todoDetailsDescEl.value =
@@ -141,11 +153,9 @@ function updateSidebarTabs() {
     /*
 	- Distribute all todos amongst the main tabs, which are allocated by date
 	1. Sort the todos of the projects by date
-	2. First clear the todos in the main tab projects
-	3. Push all todos in home tab, since that tab is responsible for showing all todos
-	4. If the date of the todo matches the current date, put it in today tab
-	5. Else if it's within 7 days in the future, we put it in the week tab
-
+	2. First clear the todos in the main tab projects to prevent duplication when 
+		we start distributing them again.
+	
 	NOTE: By sorting todos by date, we'll be able to pop them out and 
 	render them by date. It also deals with the issue of indexing, as we 
 	know how our todos are going to be index, allowing us to easily 
@@ -155,36 +165,27 @@ function updateSidebarTabs() {
         project.projectTodos = sortTodosByDate(project.projectTodos);
     });
 
+    clearMainTabTodos();
     /*
-	- Clear all todos, and their related information such as the index of the 
-		projects they belong to and the index of themselves in said project.
-	- This is to prevent duplication, as we're about to distribute todos.
+	- Distribute todos from project instnaces amongst the main tabs
+	1. Push all todos in home tab, since that tab is responsible for showing all todos
+	2. If the due date of a today is today, put it in the today tab
+	3. Else if it's within 7 days in the future, we put it in the week tab
 	*/
-    tabsModule.clearMainTabTodos();
-
-    const currentDate = new Date();
     tabsModule.projectsList.forEach((project, projectIndex) => {
         const projectTodos = project.projectTodos;
         for (let todoIndex = 0; todoIndex < projectTodos.length; todoIndex++) {
-            // Record todo information in Home tab object
             tabsModule.Home.tabProject.addTodo(projectTodos[todoIndex]);
             tabsModule.Home.todoIndices.push(todoIndex);
             tabsModule.Home.projectIndices.push(projectIndex);
-            if (isSameDate(currentDate, projectTodos[todoIndex].dueDate)) {
-                // Record todo information in Today tab object
+            if (isToday(projectTodos[todoIndex].dueDate)) {
                 tabsModule.Today.tabProject.addTodo(projectTodos[todoIndex]);
                 tabsModule.Today.todoIndices.push(todoIndex);
                 tabsModule.Today.projectIndices.push(projectIndex);
-            } else if (
-                isSevenDaysInFuture(
-                    currentDate,
-                    projectTodos[todoIndex].dueDate
-                )
-            ) {
-                // Record todo information in Week tab object
-                tabsModule.Today.tabProject.addTodo(projectTodos[todoIndex]);
-                tabsModule.Today.todoIndices.push(todoIndex);
-                tabsModule.Today.projectIndices.push(projectIndex);
+            } else if (isSevenDaysInFuture(projectTodos[todoIndex].dueDate)) {
+                tabsModule.Week.tabProject.addTodo(projectTodos[todoIndex]);
+                tabsModule.Week.todoIndices.push(todoIndex);
+                tabsModule.Week.projectIndices.push(projectIndex);
             }
         }
     });
@@ -216,34 +217,27 @@ function updateSidebarTabs() {
         } else {
             tab.removeAttribute("data-active");
         }
+
+        // Set up event listeners for the sidebar tab
+        tab.addEventListener("click", handleSidebarTabClick);
     });
-    // Set up event listeners for the sidebar tabs
-    setupSidebarTabs();
 }
 
 /*
-
-Goals:
-1. In order to make it so we can edit, add, and delete todos on our mainTabs,
-	we need to know the project that the todo belongs to. A solution could 
-	be having parallel lists. For each mainTab have two separate arrays, one 
-	for the todo class instance, whilst the other is for the index of the project
-	belonging to that todo. By having the index of the project, we'll be able 
-	to track the todo the project belongs to. If we're editing the todo, we need 
-	to know the index of the todo that we are editing as well.
-
-2. 
-
-
+- Renders main content section
+1. Header and Title of the tab
+2. Buttons showing ways to interact with the project if it's a user-created project/tab
+	rather than one of the default main tabs
+3. main-content such as whether it's todos or just a section indicating the 
+	user needs to create todos
 */
-
 function renderMainContent() {
     /*
 	1. Get project associated to the active tab, regardless of whether
 		it's a main or a user created tab
 	2. Get the already sorted todos for the project
 	*/
-    const project = tabsModule.getActiveProject();
+    const project = getActiveProject();
     const todos = project.projectTodos;
     /*
 	1. Reset and clear markup for mainContentHeader 
@@ -324,6 +318,7 @@ function renderMainContent() {
             const editTodoBtn = document.createElement("button");
             editTodoBtn.classList.add("edit-todo-btn", "green-btn");
             editTodoBtn.textContent = "Edit";
+            editTodoBtn.addEventListener("click", handleEditTodoBtn);
 
             const todoDetailsBtn = document.createElement("button");
             todoDetailsBtn.classList.add("todo-details-btn", "blue-btn");
@@ -353,10 +348,17 @@ function renderMainContent() {
     }
 }
 
-function renderInitialPage() {
+// Renders sidebar and maincontent
+function renderPage() {
     updateSidebarTabs();
     renderMainContent();
-    hideModal();
 }
 
-export { renderInitialPage, renderMainContent };
+export {
+    renderProjectForm,
+    renderTodoForm,
+    renderTodoDetails,
+    renderMainContent,
+    renderPage,
+    hideModal,
+};

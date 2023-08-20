@@ -75,6 +75,12 @@ class Project {
         this.projectTodos.push(todo);
     }
 
+    // Replaces todo class instance at index 'i' by replacing
+    // old todo, with a new todo that has the new information
+    replaceTodoAtIndex(i, todo) {
+        this.projectTodos[i] = todo;
+    }
+
     removeTodo(todo) {
         const index = this.projectTodos.indexOf(todo);
         if (index !== -1) {
