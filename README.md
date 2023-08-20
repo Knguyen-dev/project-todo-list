@@ -4,7 +4,8 @@ A todo-list, but nested with a list of projects in that todo list
 
 How to run (For development purposes):
 
-1. Do npm run watch, make sure it's running a server, akin to django. then open the index.html in live server
+1. Do npm run watch, make sure it's running a server, akin to django.
+2. Open index.html in dist, if there is no 'index.html' then add one and add "<script src="index.js" type="module"></script>"
 
 -   Google fonts:
 
