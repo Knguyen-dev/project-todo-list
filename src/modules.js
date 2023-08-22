@@ -1,12 +1,12 @@
 import { createInitialPage } from "./initialPage.js";
 import { Todo, Project } from "./classes.js";
-import "./style.css";
-import WebFont from "webfontloader";
-WebFont.load({
-    google: {
-        families: ["Roboto", "Open Sans"],
-    },
-});
+
+// Import the images from their respective locations, so the assets folder
+// imageModule: module that contains all images used in application
+const imageModule = {
+    github_icon: require("./assets/icons/github-mark.svg"),
+    todo_list_icon: require("./assets/icons/todo_list_icon.svg"),
+};
 
 // Object that contains all tabs
 const tabsModule = {
@@ -365,6 +365,7 @@ function deleteTodo() {
 }
 
 export {
+    imageModule,
     tabsModule,
     themeModule,
     modalModule,

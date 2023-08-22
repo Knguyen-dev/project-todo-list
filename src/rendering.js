@@ -33,11 +33,9 @@ function hideModal() {
 */
 function renderTheme() {
     if (themeModule.isDarkTheme) {
-        console.log("Rendering dark-theme");
         DomModule.toggleThemeBtn.textContent = "Light";
         DomModule.contentDiv.classList.add("dark-mode");
     } else {
-        console.log("Rendering light-theme");
         DomModule.toggleThemeBtn.textContent = "Dark";
         DomModule.contentDiv.classList.remove("dark-mode");
     }

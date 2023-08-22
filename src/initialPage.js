@@ -1,5 +1,5 @@
 import { tabsModule } from "./modules.js";
-
+import { imageModule } from "./modules.js";
 // Creates and returns fieldset with input elements for a form
 function createFormField(fieldObj) {
     const fieldset = document.createElement("fieldset");
@@ -199,7 +199,7 @@ function createPageHeader() {
     const appLogoContainer = document.createElement("div");
     appLogoContainer.classList.add("app-logo-container");
     appLogoContainer.innerHTML = `
-					<img src="./assets/icons/todo_list_icon.svg" alt="Logo of app">
+					<img src="${imageModule.todo_list_icon}" alt="Logo of app">
 					<h1 id="app-title-el">Todo list</h1>`;
     header.appendChild(appLogoContainer);
 
@@ -337,7 +337,7 @@ function createPageFooter() {
     // Create the link and the image for the link
     const iconLink = document.createElement("a");
     const iconImage = document.createElement("img");
-    iconImage.src = "./assets/icons/github-mark.svg";
+    iconImage.src = imageModule.github_icon;
     iconImage.classList.add("site-icons");
 
     // Create the description of the footer; Create date element
