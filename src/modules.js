@@ -167,11 +167,15 @@ const DomModule = (() => {
     const tabTitleEl = document.querySelector("#tab-title-el");
     const projectBtnsDiv = document.querySelector("#project-btns-container");
 
+    // Get buttons for interacting with user created projects
     const addTodoBtn = document.querySelector("#add-todo-btn");
     const editProjectBtn = document.querySelector("#edit-project-btn");
     const deleteProjectBtn = document.querySelector("#delete-project-btn");
 
+    // Section that contains todo elements
     const todoListContainer = document.querySelector("#todo-list-container");
+
+    // Section that shows up when there are no todos to be shown
     const emptyTabSection = document.querySelector("#empty-tab-section");
 
     return {

@@ -4,7 +4,7 @@ A todo-list, but nested with a list of projects in that todo list
 
 How to run (For development purposes):
 
-1. Do npm run watch, make sure it's running a server, akin to django. And open a live server
+1. Do npm run dev to run a live server
 
 Google fonts:
 
@@ -20,30 +20,23 @@ Webpack dev server:
    run a liveserver now and make changes easily live, without having to run build
    each time.
 2. Create a 'devServer' attribute in your webpack.config.js
-3. Add some attributes:
-    - directory: Indicates where your output file 'index.html' is to run, makes
-      it more specific as maybe you have multiple index html files, or you want
-      to specify where the project is.
-    - port: 3000; indicates the port on the local host that the
-    - open: true; now when you run 'npm run dev' it opens the browser automatically
-    - hot: true; Implements a feature called 'Hot Module Replacement', which means
-      that you can update parts of the application without requiring a full-page
-      reload. It just enhances the development experience by making code updates
-      faster.
-    - compress: true; Controls whether content served by webpack dev server should be
-      compressed (g-zip compression) before being sent to the browser. This can
-      significantly reduce amount of data transferred over the network. Gives you
-      faster load times, reduced bandwidth, and improved performance because it's compressing the size of the files.
-    - historyApiFallback: Used to handle URL routing in single-page applications
-      that use HTML5 History API for navigation. Ensures that requests for
-      routes in the application are handled correctly even when the user enters
-      a url directory or refreshes the browser. Not really needed in this
-      applciation
-
-NOTE: You could also continue to use webpack watch since it does the same thing
-of loading your changes as you do it. Also note that you can even run the
-server without the files from dist, the dev server runs it from memory, not
-from dist files.
+3. Add some attributes: - directory: Indicates where your output file 'index.html' is to run, makes
+   it more specific as maybe you have multiple index html files, or you want
+   to specify where the project is. - port: 3000; indicates the port on the local host that the - open: true; now when you run 'npm run dev' it opens the browser automatically - hot: true; Implements a feature called 'Hot Module Replacement', which means
+   that you can update parts of the application without requiring a full-page
+   reload. It just enhances the development experience by making code updates
+   faster. - compress: true; Controls whether content served by webpack dev server should be
+   compressed (g-zip compression) before being sent to the browser. This can
+   significantly reduce amount of data transferred over the network. Gives you
+   faster load times, reduced bandwidth, and improved performance because it's compressing the size of the files. - historyApiFallback: Used to handle URL routing in single-page applications
+   that use HTML5 History API for navigation. Ensures that requests for
+   routes in the application are handled correctly even when the user enters
+   a url directory or refreshes the browser. Not really needed in this
+   applciation
+   NOTE: You could also continue to use webpack watch since it does the same thing
+   of loading your changes as you do it. Also note that you can even run the
+   server without the files from dist, the dev server runs it from memory, not
+   from dist files.
 
 Source map:
 
@@ -113,12 +106,3 @@ Webpack config:
     2.  clean: true; ensures output directory only contains files generated during
         the most recent build. So it takes away outdated files from old builds of
         your project, and this keeps things clean.
-
-Issues:
-
-1. Import svg and assets into dist
-2. Remove console.log in rendering functionality
-
-BOOK MARK:
-21:50
-https://www.youtube.com/watch?v=IZGNcSuwBZs&t=971s
