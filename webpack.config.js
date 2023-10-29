@@ -12,6 +12,7 @@ module.exports = {
         clean: true,
         // Let the images from src keep their names in dist
         assetModuleFilename: "[name][ext]",
+        publicPath: "/project-todo-list/",
     },
     devtool: "source-map",
     devServer: {

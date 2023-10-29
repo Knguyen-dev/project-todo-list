@@ -1,5 +1,27 @@
 # project-todo-list
 
+-   Setting up github pages for webpack projects
+
+1. npm install gh-pages --save-dev; download github pages
+2. Set up "deploy": "gh-pages -d dist" in package.json
+3. Do publicPath: "/REPONAME/" in webpack.config.js; Since we
+   aren't hosting behind a domain root, we use this to make sure assets are working correctly
+4. In "repository" object do "url": git+https://github.com/USERNAME/REPONAME.git
+
+NOTE: You can omit the "git+" and just do https://github.com/USERNAME/REPONAME.git since this is the more
+commonly used format now.
+
+5. In package.json do "homepage": "http://USERNAME.github.io/REPONAME"
+6. In package.json set up new script "deploy" : "gh-pages -d dist"
+7. Do npm run build, then npm run deploy to deploy the site. Now at your remote there should be a new
+   branch called "gh-pages". Go to settings and make that the source branch for the github pages.
+   Then after a couple of minutes your site should be there.
+
+-   Making changes
+
+1. When you make changes on the main branch, the gh-pages branch doesn't know yet so you have to update it.
+   Do npm run build and npm run deploy to update the gh-pages branch and the github pages in general.
+
 A todo-list, but nested with a list of projects in that todo list
 
 How to run (For development purposes):
